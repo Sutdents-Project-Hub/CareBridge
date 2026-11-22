@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "@fontsource/fredoka/latin-600.css";
+import "@fontsource/andika/latin-400.css";
+import "@fontsource/andika/latin-700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

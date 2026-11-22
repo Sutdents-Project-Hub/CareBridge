@@ -9,15 +9,15 @@ export const storyIds = ["repeat", "bath", "restless", "meal", "update", "words"
 export const fieldIds = ["event", "observations", "actionsTaken", "outcome", "unknowns"] as const;
 
 type Copy = Record<
-  "chat" | "summary" | "privacy" | "language" | "title" | "intro" | "start" |
-  "preferences" | "role" | "length" | "brief" | "detailed" | "topics" | "topicHint" |
+  "chat" | "summary" | "privacy" | "language" | "title" | "intro" |
+  "preferences" | "settingsHint" | "role" | "length" | "brief" | "detailed" | "topics" | "topicHint" |
   "composer" | "followUp" | "placeholder" | "send" | "working" | "replyReady" | "clear" | "retry" | "export" |
   "you" | "advisor" | "understanding" | "actions" | "phrase" | "phraseRequest" | "reference" |
   "questions" | "observe" | "help" | "limitations" | "copy" | "copied" | "copyError" |
   "summaryIntro" | "sourceLanguage" | "preview" | "confirm" | "copySummary" | "example" |
-  "privacyIntro" | "privacyOpenAI" | "privacyStorage" | "privacyReview" | "privacyMedical" |
+  "privacyIntro" | "privacyShort" | "privacyOpenAI" | "privacyStorage" | "privacyReview" | "privacyMedical" |
   "exportWarning" | "clearWarning" | "download" | "cancel" | "downloaded" |
-  "ruleNotice" | "imageAlt" | "skip" | "limitNotice",
+  "ruleNotice" | "skip" | "limitNotice",
   string
 > & {
   roles: Record<(typeof roles)[number], [string, string]>;
@@ -28,9 +28,9 @@ type Copy = Record<
 
 const zh: Copy = {
   chat: "照護對話", summary: "家屬摘要", privacy: "隱私與使用界線", language: "語言",
-  title: "不知道怎麼說？\n一起想一句。",
-  intro: "用熟悉的語言描述失智照護情境。一起找出尊重長者的說法，也能把實際發生的事整理給家人。",
-  start: "開始照護對話", preferences: "對話設定", role: "你的角色", length: "回答長度",
+  title: "失智照護溝通顧問",
+  intro: "用熟悉的語言描述照護情境，找一句尊重長者、可以直接開口說的話。",
+  preferences: "對話設定", settingsHint: "設定會用在下一則回覆。", role: "你的角色", length: "回答長度",
   brief: "精簡", detailed: "詳細", topics: "常見照護情境", topicHint: "選一個情境帶入草稿，修改後再送出。",
   composer: "描述你遇到的情況", followUp: "繼續追問", placeholder: "例如：長者今天不想洗澡，我可以怎麼開口？",
   send: "送出", working: "正在準備回覆…", replyReady: "收到新回覆", clear: "清除", retry: "重試", export: "匯出",
@@ -43,6 +43,7 @@ const zh: Copy = {
   preview: "繁中摘要預覽", confirm: "我已核對內容，摘要只包含已知事實與待確認事項。",
   copySummary: "複製摘要", example: "帶入虛構範例",
   privacyIntro: "請使用虛構情境或去識別內容。避免輸入真實姓名、聯絡方式、病歷和能辨識個人的細節。",
+  privacyShort: "請用虛構或去識別情境。送出後，必要訊息會傳給 OpenAI。",
   privacyOpenAI: "送出對話時，必要的近期訊息和對話設定會傳給 OpenAI 以產生回覆。家屬摘要欄位只在瀏覽器處理。",
   privacyStorage: "CareBridge 將本次內容保存在分頁記憶體。重新整理或關閉分頁會清除內容。匯出的檔案由你管理。",
   privacyReview: "英文與印尼文內容仍待母語者審查。照護建議尚未經臨床驗證。",
@@ -50,7 +51,7 @@ const zh: Copy = {
   exportWarning: "檔案會包含整段問答、模型及提示詞版本。請確認內容使用虛構案例或已去識別，再下載；分享權限由你管理。",
   clearWarning: "確定要清除這次的對話與草稿？",
   download: "確認並下載", cancel: "取消", downloaded: "已下載對話紀錄",
-  ruleNotice: "這則是 CareBridge 的固定安全提醒。", imageAlt: "居家照護者坐在長者身旁，兩人輕聲交談。",
+  ruleNotice: "這則是 CareBridge 的固定安全提醒。",
   skip: "跳到主要內容", limitNotice: "顧問會參考近期訊息，完整對話仍可匯出。",
   roles: {
     novice_caregiver: ["新手照護者", "需要可跟著做的步驟"],
@@ -86,9 +87,9 @@ const zh: Copy = {
 
 const en: Copy = {
   chat: "Care conversations", summary: "Family summary", privacy: "Privacy and limits", language: "Language",
-  title: "Find the words\nfor daily care.",
-  intro: "Describe a dementia care situation in your own language. Find respectful ways to respond and share what happened with family.",
-  start: "Start a conversation", preferences: "Conversation settings", role: "Your role", length: "Answer length",
+  title: "Dementia care conversations",
+  intro: "Describe a care situation in your own language and find respectful words you can use.",
+  preferences: "Settings", settingsHint: "Changes apply to the next reply.", role: "Your role", length: "Answer length",
   brief: "Brief", detailed: "Detailed", topics: "Common care situations", topicHint: "Choose a situation to start an editable draft.",
   composer: "Describe the situation", followUp: "Ask a follow-up", placeholder: "For example: The person I care for doesn't want to bathe. What could I say?",
   send: "Send", working: "Preparing a reply…", replyReady: "New reply received", clear: "Clear", retry: "Retry", export: "Export",
@@ -101,6 +102,7 @@ const en: Copy = {
   preview: "Traditional Chinese preview", confirm: "I checked the summary. It contains known facts and items to confirm.",
   copySummary: "Copy summary", example: "Load fictional example",
   privacyIntro: "Use fictional situations or de-identified details. Avoid real names, contact details, medical records, and identifying information.",
+  privacyShort: "Use fictional or de-identified details. Relevant messages are sent to OpenAI.",
   privacyOpenAI: "When you send a message, the necessary recent messages and settings go to OpenAI for a reply. The family summary is processed in your browser.",
   privacyStorage: "Your session stays in this tab. Reloading or closing the tab clears it. You manage any files you export.",
   privacyReview: "The English and Indonesian content still needs native-speaker review. The care guidance has no clinical validation.",
@@ -108,7 +110,7 @@ const en: Copy = {
   exportWarning: "The file includes the full conversation and model and prompt details. Check that the example is fictional or de-identified before downloading. You manage sharing.",
   clearWarning: "Clear this conversation and its draft?",
   download: "Confirm and download", cancel: "Cancel", downloaded: "Conversation downloaded",
-  ruleNotice: "This is a preset CareBridge safety notice.", imageAlt: "A caregiver sits beside an older adult and talks with her at home.",
+  ruleNotice: "This is a preset CareBridge safety notice.",
   skip: "Skip to main content", limitNotice: "The advisor uses recent messages. You can export the full conversation.",
   roles: {
     novice_caregiver: ["New caregiver", "Get steps you can follow"],
@@ -144,9 +146,9 @@ const en: Copy = {
 
 const id: Copy = {
   chat: "Percakapan perawatan", summary: "Ringkasan keluarga", privacy: "Privasi dan batasan", language: "Bahasa",
-  title: "Temukan kata\nuntuk merawat.",
-  intro: "Ceritakan situasi saat mendampingi lansia dengan demensia. Cari cara bicara yang menghargai lansia dan sampaikan kejadian kepada keluarga.",
-  start: "Mulai percakapan", preferences: "Pengaturan percakapan", role: "Peran Anda", length: "Panjang jawaban",
+  title: "Percakapan saat merawat lansia dengan demensia",
+  intro: "Ceritakan situasi perawatan dalam bahasa Anda dan temukan kalimat yang menghargai lansia.",
+  preferences: "Pengaturan", settingsHint: "Perubahan berlaku untuk jawaban berikutnya.", role: "Peran Anda", length: "Panjang jawaban",
   brief: "Ringkas", detailed: "Rinci", topics: "Situasi perawatan sehari-hari", topicHint: "Pilih situasi untuk mengisi draf yang bisa diedit.",
   composer: "Ceritakan situasinya", followUp: "Ajukan pertanyaan lanjutan", placeholder: "Contoh: Lansia yang saya rawat tidak mau mandi. Apa yang bisa saya katakan?",
   send: "Kirim", working: "Sedang menyiapkan jawaban…", replyReady: "Balasan baru diterima", clear: "Hapus", retry: "Coba lagi", export: "Ekspor",
@@ -159,6 +161,7 @@ const id: Copy = {
   preview: "Pratinjau Tionghoa Tradisional", confirm: "Saya telah memeriksa fakta dan hal yang masih perlu dikonfirmasi.",
   copySummary: "Salin ringkasan", example: "Gunakan contoh fiktif",
   privacyIntro: "Gunakan situasi fiktif atau informasi anonim. Hindari nama asli, kontak, rekam medis, dan detail pengenal.",
+  privacyShort: "Gunakan situasi fiktif atau anonim. Pesan yang diperlukan dikirim ke OpenAI.",
   privacyOpenAI: "Saat Anda mengirim pesan, pesan terbaru yang diperlukan dan pengaturan dikirim ke OpenAI. Ringkasan keluarga diproses di peramban.",
   privacyStorage: "Sesi disimpan di tab ini. Muat ulang atau tutup tab untuk menghapusnya. Anda mengelola file yang diekspor.",
   privacyReview: "Konten bahasa Inggris dan Indonesia masih perlu ditinjau penutur asli. Saran perawatan belum divalidasi secara klinis.",
@@ -166,7 +169,7 @@ const id: Copy = {
   exportWarning: "File memuat percakapan lengkap, model, dan versi prompt. Pastikan isinya fiktif atau tanpa identitas sebelum mengunduh. Anda mengelola pembagiannya.",
   clearWarning: "Hapus percakapan dan draf ini?",
   download: "Konfirmasi dan unduh", cancel: "Batal", downloaded: "Percakapan telah diunduh",
-  ruleNotice: "Ini adalah pemberitahuan keselamatan tetap dari CareBridge.", imageAlt: "Seorang perawat duduk dan berbincang dengan lansia di rumah.",
+  ruleNotice: "Ini adalah pemberitahuan keselamatan tetap dari CareBridge.",
   skip: "Langsung ke konten utama", limitNotice: "Penasihat melihat pesan terbaru. Seluruh percakapan tetap dapat diekspor.",
   roles: {
     novice_caregiver: ["Pendamping pemula", "Dapatkan langkah yang mudah diikuti"],

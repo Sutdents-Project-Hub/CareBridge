@@ -58,6 +58,10 @@
 9. 報名表英文 Brief Description 上限 **200 words**，與正式 PDF 頁數是不同限制。建議檔名 LLM_High_CareBridge.pdf，資料夾 LLM_High_CareBridge（命名依指南建議，交件前再核對）。
 10. 官方第 4 賽道文件清單未要求額外的介紹影片、原始碼或 GitHub Repo；如有決賽展示的新通知另行遵守。
 
+### 簡報主題與樣式
+
+WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機參考資料。開始製作前先確認簡報主題，再套用到各張投影片。簡報製作待啟動。
+
 ### 建議英文 PDF 章節（約 10–12 頁屬建議，不是官方頁數）
 
 P1 Cover；P2 Motivation；P3 Specific AI Service；P4 Three User Profiles；P5 User Journey & Live AI；P6 Prompt V1；P7 Evaluation Method；P8 Baseline vs V1/V2/V3（填真實數據）；P9 Failure Cases & Improvements；P10 Live Chatbot / Final Chat History Links；P11 Limitations & Future Work；P12 Conclusion / Student Contributions / References。

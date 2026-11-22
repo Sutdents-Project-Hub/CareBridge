@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import {
-  ArrowDown, ArrowDownToLine, ArrowRight, ArrowUp, Bath, ChevronDown, CircleHelp,
+  ArrowDownToLine, ArrowRight, ArrowUp, Bath, ChevronDown, CircleHelp,
   ClipboardList, Copy, Globe2, HeartHandshake, MessageCircle, MessagesSquare, Repeat2,
-  ShieldCheck, Soup, Trash2, UserRound, UsersRound, X,
+  ShieldCheck, SlidersHorizontal, Soup, Trash2, UserRound, UsersRound, X,
 } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import {
@@ -233,6 +233,8 @@ export function CareBridge() {
     </>
   );
   const showHero = mode === "chat" && turns.length === 0;
+  const showTopics = turns.length === 0;
+  const ActiveRoleIcon = roleIcons[profile];
 
   return (
     <>
@@ -254,12 +256,11 @@ export function CareBridge() {
       <main className="container">
         {showHero && <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <h1 id="hero-title">{t.title.split("\n").map((line) => <span key={line}>{line}</span>)}</h1>
+            <h1 id="hero-title">{t.title}</h1>
             <p>{t.intro}</p>
-            <a className="primary" href="#workspace">{t.start}<ArrowDown size={17} /></a>
           </div>
           <div className="hero-photo">
-            <Image src="/care-at-home.webp" fill priority alt={t.imageAlt} sizes="(max-width: 760px) 100vw, 580px" />
+            <Image src="/care-at-home.webp" fill alt="" sizes="(min-width: 800px) 400px, 1px" />
           </div>
         </section>}
 
@@ -270,114 +271,122 @@ export function CareBridge() {
               onEdit={(next) => { setFacts(next); setChecked(false); setFeedback(""); }}
               onCheck={setChecked} onCopy={copyText} />
           ) : (
-            <div className="chat-grid">
-              <aside className="surface preferences" aria-labelledby="preferences">
-                <h2 id="preferences">{t.preferences}</h2>
-                <fieldset className="role-picker">
-                  <legend>{t.role}</legend>
-                  {roles.map((role) => {
-                    const Icon = roleIcons[role];
-                    const [name, description] = t.roles[role];
-                    return (
-                      <label className="role" key={role}>
-                        <input type="radio" name="role" value={role} checked={profile === role}
-                          onChange={() => { setProfile(role); setStyle(null); }} />
-                        <span className="role-card"><Icon size={19} /><span><strong>{name}</strong><small>{description}</small></span></span>
-                      </label>
-                    );
-                  })}
-                </fieldset>
-                <fieldset>
-                  <legend>{t.length}</legend>
-                  <div className="length-options">
-                    {(["brief", "detailed"] as const).map((choice) => (
-                      <label key={choice}>
-                        <input type="radio" name="length" checked={choice === answerStyle} onChange={() => setStyle(choice)} />
-                        <span>{t[choice]}</span>
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
-              </aside>
+            <section className="surface chat-panel" data-topics={showTopics} aria-labelledby="chat-title">
+              <div className="chat-heading">
+                <h2 id="chat-title"><MessagesSquare size={23} />{t.chat}</h2>
+                <div className="chat-actions">
+                  <button type="button" className="text-action" disabled={!turns.length || !!pending} onClick={() => showDialog("export")}><ArrowDownToLine size={16} />{t.export}</button>
+                  <button type="button" className="text-action" disabled={!(turns.length || draft || failed) || !!pending} onClick={() => showDialog("clear")}><Trash2 size={16} />{t.clear}</button>
+                </div>
+              </div>
 
-              <section className="surface chat-panel" aria-labelledby="chat-title">
-                <div className="chat-heading">
-                  <h2 id="chat-title"><MessagesSquare size={23} />{t.chat}</h2>
-                  <div className="chat-actions">
-                    <button type="button" className="text-action" disabled={!turns.length || !!pending} onClick={() => showDialog("export")}><ArrowDownToLine size={16} />{t.export}</button>
-                    <button type="button" className="text-action" disabled={!(turns.length || draft || failed) || !!pending} onClick={() => showDialog("clear")}><Trash2 size={16} />{t.clear}</button>
+              <details className="chat-settings">
+                <summary>
+                  <span className="active-profile"><ActiveRoleIcon size={18} /><strong>{t.roles[profile][0]}</strong><span>{t[answerStyle]}</span></span>
+                  <span className="settings-label"><SlidersHorizontal size={16} /><span>{t.preferences}</span><ChevronDown size={15} /></span>
+                </summary>
+                <div className="preferences">
+                  <fieldset className="role-picker">
+                    <legend>{t.role}</legend>
+                    {roles.map((role) => {
+                      const Icon = roleIcons[role];
+                      const [name, description] = t.roles[role];
+                      return (
+                        <label className="role" key={role}>
+                          <input type="radio" name="role" value={role} checked={profile === role}
+                            onChange={() => { setProfile(role); setStyle(null); }} />
+                          <span className="role-card"><Icon size={19} /><span><strong>{name}</strong><small>{description}</small></span></span>
+                        </label>
+                      );
+                    })}
+                  </fieldset>
+                  <fieldset>
+                    <legend>{t.length}</legend>
+                    <div className="length-options">
+                      {(["brief", "detailed"] as const).map((choice) => (
+                        <label key={choice}>
+                          <input type="radio" name="length" checked={choice === answerStyle} onChange={() => setStyle(choice)} />
+                          <span>{t[choice]}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <p className="quiet">{t.settingsHint}</p>
+                </div>
+              </details>
+
+              {!!turns.length && (
+                <div className="thread">
+                  {turns.map((turn, index) => (
+                    <div ref={index === turns.length - 1 ? latestReply : undefined} className="turn" key={index}>
+                      <div className="question" lang={turn.request.locale}>
+                        <p className="message-label">{dictionary[turn.request.locale].you} <time dateTime={turn.askedAt}>{new Intl.DateTimeFormat(locale, dateOptions).format(new Date(turn.askedAt))}</time></p>
+                        <p>{turn.question}</p>
+                      </div>
+                      <Reply response={turn.response} onCopy={copyText} />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <form className="composer" onSubmit={submit}>
+                <div role="status" aria-atomic="true">
+                  {pending && <p className="working">{t.working}</p>}
+                  {!pending && !failed && turns.length > 0 && <span className="sr-only">{t.replyReady}</span>}
+                </div>
+                {failed && (
+                  <div className="error-note">
+                    <p id="chat-error" role="alert">{t.errors[failed.code] ?? t.errors.UNKNOWN}</p>
+                    <button className="outline-action" type="button" onClick={() => void ask(failed.question, failed.intent)}>{t.retry}</button>
+                  </div>
+                )}
+                <label htmlFor="care-message">{turns.length ? t.followUp : t.composer}</label>
+                <div className="composer-input">
+                  <textarea ref={composer} id="care-message" placeholder={t.placeholder} value={draft} rows={4}
+                    maxLength={CHAT_LIMITS.messageChars} readOnly={!!pending} aria-describedby={failed ? "chat-error chat-privacy" : "chat-privacy"}
+                    onChange={(event) => { setDraft(event.target.value); setFailed(undefined); }} />
+                  <div className="composer-actions">
+                    <small>{draft.length} / {CHAT_LIMITS.messageChars}</small>
+                    <button type="submit" className="primary" disabled={!draft.trim() || !!pending}>{t.send}<ArrowUp size={17} /></button>
                   </div>
                 </div>
-
-                {!turns.length && !pending && (
-                  <div className="topics">
-                    <h3>{t.topics}</h3>
-                    <p className="quiet">{t.topicHint}</p>
-                    <div className="topic-options">
-                      {storyIds.map((id, index) => {
-                        const Icon = topicIcons[index];
-                        return <button type="button" key={id} onClick={() => {
-                          setDraft(t.stories[id][1]); setScenarioId(id); setFailed(undefined); composer.current?.focus();
-                        }}><Icon size={17} />{t.stories[id][0]}</button>;
-                      })}
-                    </div>
+                <div className="composer-notice">
+                  <ShieldCheck size={17} />
+                  <p id="chat-privacy" className="quiet">{t.privacyShort}</p>
+                  <button type="button" className="text-action" onClick={() => showDialog("privacy")}>{t.privacy}</button>
+                </div>
+                {locale !== "zh-TW" && <p className="quiet composer-note">{t.privacyReview}</p>}
+                {turns.length > 0 && (
+                  <div className="follow-up-actions">
+                    <button type="button" className="outline-action" disabled={!!pending} onClick={() => void ask(t.phraseRequest, "phrase")}><MessageCircle size={16} />{t.phrase}</button>
+                    <button type="button" className="text-action" onClick={() => chooseMode("summary")}>{t.summary}<ArrowRight size={16} /></button>
                   </div>
                 )}
+                {turns.length > 0 && <p className="quiet composer-note">{t.limitNotice}</p>}
+              </form>
 
-                {!!turns.length && (
-                  <div className="thread">
-                    {turns.map((turn, index) => (
-                      <div ref={index === turns.length - 1 ? latestReply : undefined} className="turn" key={index}>
-                        <div className="question" lang={turn.request.locale}>
-                          <p className="message-label">{dictionary[turn.request.locale].you} <time dateTime={turn.askedAt}>{new Intl.DateTimeFormat(locale, dateOptions).format(new Date(turn.askedAt))}</time></p>
-                          <p>{turn.question}</p>
-                        </div>
-                        <Reply response={turn.response} onCopy={copyText} />
-                      </div>
-                    ))}
+              {showTopics && (
+                <aside className="topics" aria-labelledby="topic-title">
+                  <h3 id="topic-title">{t.topics}</h3>
+                  <p className="quiet">{t.topicHint}</p>
+                  <div className="topic-options">
+                    {storyIds.map((id, index) => {
+                      const Icon = topicIcons[index];
+                      return <button type="button" key={id} disabled={!!pending} aria-pressed={scenarioId === id} onClick={() => {
+                        setDraft(t.stories[id][1]); setScenarioId(id); setFailed(undefined); composer.current?.focus();
+                      }}><Icon size={17} /><span>{t.stories[id][0]}</span><ArrowRight className="topic-arrow" size={15} /></button>;
+                    })}
                   </div>
-                )}
-
-                <form className="composer" onSubmit={submit}>
-                  <div role="status" aria-atomic="true">
-                    {pending && <p className="working">{t.working}</p>}
-                    {!pending && !failed && turns.length > 0 && <span className="sr-only">{t.replyReady}</span>}
-                  </div>
-                  {failed && (
-                    <div className="error-note">
-                      <p id="chat-error" role="alert">{t.errors[failed.code] ?? t.errors.UNKNOWN}</p>
-                      <button className="outline-action" type="button" onClick={() => void ask(failed.question, failed.intent)}>{t.retry}</button>
-                    </div>
-                  )}
-                  <label htmlFor="care-message">{turns.length ? t.followUp : t.composer}</label>
-                  <div className="composer-input">
-                    <textarea ref={composer} id="care-message" placeholder={t.placeholder} value={draft} rows={3}
-                      maxLength={CHAT_LIMITS.messageChars} readOnly={!!pending} aria-describedby={failed ? "chat-error chat-privacy" : "chat-privacy"}
-                      onChange={(event) => { setDraft(event.target.value); setFailed(undefined); }} />
-                    <div className="composer-actions">
-                      <small>{draft.length} / {CHAT_LIMITS.messageChars}</small>
-                      <button type="submit" className="primary" disabled={!draft.trim() || !!pending}>{t.send}<ArrowUp size={17} /></button>
-                    </div>
-                  </div>
-                  <p id="chat-privacy" className="quiet composer-note">{t.privacyIntro} {t.privacyOpenAI}</p>
-                  {locale !== "zh-TW" && <p className="quiet composer-note">{t.privacyReview}</p>}
-                  {turns.length > 0 && (
-                    <div className="follow-up-actions">
-                      <button type="button" className="outline-action" disabled={!!pending} onClick={() => void ask(t.phraseRequest, "phrase")}><MessageCircle size={16} />{t.phrase}</button>
-                      <button type="button" className="text-action" onClick={() => chooseMode("summary")}>{t.summary}<ArrowRight size={16} /></button>
-                    </div>
-                  )}
-                  {turns.length > 0 && <p className="quiet composer-note">{t.limitNotice}</p>}
-                </form>
-              </section>
-            </div>
+                </aside>
+              )}
+            </section>
           )}
           <div className="feedback" role="status">{feedback}</div>
         </div>
 
         <footer className="footer">
           <div><ShieldCheck size={20} /><p>{t.privacyMedical}</p></div>
-          <button type="button" className="text-action" onClick={() => showDialog("privacy")}>{t.privacy}<ArrowRight size={16} /></button>
+          {mode === "summary" && <button type="button" className="text-action" onClick={() => showDialog("privacy")}>{t.privacy}<ArrowRight size={16} /></button>}
         </footer>
       </main>
 
