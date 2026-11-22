@@ -27,7 +27,6 @@
 
 ## 專案限制
 
-- 只做文件與目錄 scaffold，不安裝框架、依賴或實作產品功能
 - 僅 WAICY 2026 第 4 賽道（LLM & AI Agent / AI as a Service）
 - 必須支援三種需求實質不同的角色；不能只變更稱呼
 - 繁中、英文、印尼文，語言內容需未經母語者審查標示限制
@@ -37,3 +36,50 @@
 - 真實評估與版本結果不得編造；先用虛構案例
 - API 金鑰只能存在伺服器環境變數，不進入客戶端或版控
 - 2026/11/29 17:00 美東時間官方作品截止，必須提供可操作 AI 連結與最終版至少十則交換訊息連結
+
+
+## CareBridge Web 技術架構
+
+單一 Next.js App Router、React、TypeScript、pnpm，Node.js 24 runtime。首頁呈現三語照護對話與家屬摘要。server route 由 OpenAI Responses API 產生建議，以 Zod 驗證資料。瀏覽器保留會話及事實草稿，專案沒有獨立後端、登入、資料庫、RAG 或 CMS。
+
+### 瀏覽器與模型信任邊界
+
+    Browser（React UI／三語文字與角色設定）
+       │  POST /api/chat；僅送必要最近訊息與 persona/locale
+       ▼
+    Next.js Server Route Handler（輸入 schema／限制長度／求助界線／timeout）
+       │  套用伺服器專用 V3 Prompt 與安全規則
+       ▼
+    Provider adapter（server-only API key）
+       │  OpenAI Responses API，模型由伺服器環境設定
+       ▼
+    驗證回傳結構 → 安全回退或錯誤 → Browser 分區顯示
+
+    Browser 的五欄事實表單 → 本地確定性繁中摘要
+       └─ 使用者人工確認、主動複製／匯出，不自動上傳或傳訊
+
+- Browser 永遠不能持有 API Key 或帶有特權的 system prompt 控制權。使用者輸入皆視為不可信資料。
+- 單個 Next.js server runtime 同時提供頁面與 API；「單一 web/」不代表把外部 API 金鑰放前端。
+- 預設不記錄對話 request body／response body 到伺服器 log，也不使用包含對話內容的分析平台。
+- 供應商實際會接收為產生回答所需的最小對話內容；是否保存／訓練／資料區域與保留期需依服務條款在選擇時確認。
+- 不同角色是 UX 功能設定，不是資安授權；如未登入，各角色均只能處理其當次輸入。
+
+### 實際程式邊界
+
+- `web/src/app/`：首頁、基本配置與 `api/chat/route.ts`。
+- `web/src/components/`：三語 UX、多輪對話、摘要模板與手動匯出。
+- `web/src/lib/ai/`：輸入與回覆契約、OpenAI adapter、Prompt 版本、規則提示。
+- `web/test/`：摘要與聊天整合驗證。
+
+API 的限制、錯誤碼及環境變數見 [外部整合](integrations.md)。固定安全提示在模型接通前也可運作，匯出紀錄會標記來源。
+
+### 建議測試邊界
+
+- Unit：角色設定／靜態三語詞典／五欄事實摘要／schema／禁止空值幻覺。
+- API Integration：mock provider 測試超時、配額、非法 JSON、濫用、角色 locale 轉換及錯誤訊息。
+- E2E：行動裝置 UI、真實鍵盤操作、聊天與摘要複製流程；真人 LLM 呼叫另獨立記錄。
+- Evaluation：同題 Baseline/V1/V2/V3 真實輸出、三角色、三語、30 個虛構案例，不能用 mock 結果當 LLM 成績。
+
+### 本地整合與正式部署
+
+目前可用單一 Next.js Web 在本機啟動，指令與埠見 [web README](../web/README.md)。正式部署仍待確認。是否使用任何容器需有實際理由與正式需求。若將來確需本機 Compose，name 固定 carebridge，且本機 Compose 不等於正式 Cloud 部署定義。

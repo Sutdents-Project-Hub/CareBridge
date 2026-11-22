@@ -8,7 +8,7 @@
 - Local Docker Compose project：`carebridge`
 - Stage：`competition`
 - Product type：`web`
-- Bootstrap mode：`scaffold`
+- Bootstrap mode：`scaffold` → 本機 Web MVP
 - Deployment：`planned`
 - Team collaboration：`true`
 - Technology policy：未指定時採公司技術基線
@@ -34,7 +34,6 @@
 
 ## 專案限制
 
-- 只做文件與目錄 scaffold，不安裝框架、依賴或實作產品功能
 - 僅 WAICY 2026 第 4 賽道（LLM & AI Agent / AI as a Service）
 - 必須支援三種需求實質不同的角色；不能只變更稱呼
 - 繁中、英文、印尼文，語言內容需未經母語者審查標示限制
@@ -54,15 +53,22 @@
 ## 假設
 
 - 優先單一 Next.js Web 服務，使用 server-side Route Handlers 呼叫外部 LLM，避免為短期競賽額外建 NestJS/DB
-- Node.js 24 LTS、TypeScript、pnpm、Next.js 與原生 Web 無障礙設計為預計選型，尚未安裝驗證
+- Web 已採 Node.js 24 LTS、TypeScript、pnpm 與 Next.js
 - 長期儲存、登入、語音、原生 App、RAG、管理後台與自動傳訊均非 MVP
 - 評審展示只用虛構資料，聊天內容匯出需人工同意與脫敏
-- 正式部署平台、API 提供商和實際成本待決定；未建立任何遠端服務
+- 模型供應商採 OpenAI。正式部署平台和實際模型、預算待確認
 
 ## 未決定事項
 
 - 指導者與學生的實際分工、英文姓名與參賽隊伍資訊待補
-- 採用哪一個 LLM provider、模型名稱、額度與模型穩定性待實測
+- OpenAI 模型 ID、使用額度及回覆品質待實測
 - 部署到哪一個可公開試用的網站，及是否需要匿名試用配額控管
 - 照護內容審稿人、印尼語母語審查與授權素材來源尚未確認
 - 主辦第 4 賽道的登入可用性、18 歲參賽等仍須依實際隊伍狀況核對
+
+
+## 本次 Scaffold 與後續開發權限之區別
+
+Profile 中「只做文件與 scaffold、不實作」是 **2026-11-20 初始化任務的範圍限制**，不是永久禁止功能實作。後續使用者明確指派 Sprint 任務後，可照 requirements.md 與 implementation-roadmap.md 開發。外部 API 支付、公開部署、個資保存、GitHub remote／push 等仍須依新任務的明確授權處理。
+
+本機初始化器的 Profile 另存於 repository 外部。共享規格以 README、AGENTS 與本文件為準。

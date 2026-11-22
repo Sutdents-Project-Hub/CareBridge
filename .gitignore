@@ -30,3 +30,6 @@ coverage/
 # IDE
 .idea/
 *.swp
+
+# Local source briefs and multi-project working notes
+docs/source/

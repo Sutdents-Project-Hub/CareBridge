@@ -1,12 +1,24 @@
-# 外部整合與 AI
+# OpenAI 整合
 
-## 適用原因
+`POST /api/chat` 由 Next.js Node.js runtime 呼叫 OpenAI Responses API。伺服器須同時設定 `OPENAI_API_KEY` 和 `OPENAI_MODEL`。使用支援 Structured Outputs 的已核准模型 ID。金鑰只在 server env，模型 ID 隨回覆記錄，供匯出與追溯。
 
-本專案 concerns：ai, external-api, personal-data。
+## 請求與資料
 
-## 必須確認
+- Requests 含當前語言、角色、回答長度、意圖及必要的近期對話。家屬摘要留在瀏覽器。
+- 正常回答、追問或求助皆由伺服器驗證後回傳。介面標明固定安全提醒的來源。正式 API 固定採 V3。
+- OpenAI 請求設定 `store: false`，單次嘗試，無客戶端模型金鑰。第三方資料處理依 OpenAI 帳號政策及主機設定，參考 [OpenAI 資料處理說明](https://developers.openai.com/api/docs/guides/your-data)。
+- 單則最多 4,000 字元、上下文最多 25 則與 24,000 字元、JSON 上限 128 KiB。模型輸出最多 2,000 tokens，逾時 30 秒。
+- 每個服務實例目前全域限制每分鐘 20 次、每 24 小時 200 次及最多 3 筆同時處理。公開試用前，需依實際部署拓樸驗證跨實例的限流及帳務預算。
 
-- API、模型或服務的官方來源、授權、成本、rate limit、timeout、錯誤與替代流程。
-- Key 與敏感請求由可信任環境管理；不得將 production secret 放入 App 或公開 Web。
-- AI 功能需記錄模型用途、輸入資料、限制、錯誤可能性、人工覆核與競賽揭露方式。
-- 外部服務失效、回傳不完整或不可用時，demo 與主要流程應有可理解的降級行為。
+## 失敗狀態
+
+| 情況 | HTTP |
+|---|---:|
+| 請求格式、角色或訊息歷程不符 | 400 |
+| 請求過大或媒體型別不支援 | 413／415 |
+| 本機限流 | 429 |
+| 缺模型或金鑰 | 503 |
+| 供應商錯誤或無法驗證的回覆 | 502 |
+| 供應商逾時 | 504 |
+
+自動化測試隔離供應商。實際模型權限、帳務及回覆品質須用獲准的金鑰與虛構案例另行驗證。

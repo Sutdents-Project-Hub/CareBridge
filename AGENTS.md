@@ -8,7 +8,7 @@
 - Git repository 名稱：`CareBridge`。全新專案的初始 branch 為 `main`。
 
 - 產品型態：`web`
-- Bootstrap 模式：`scaffold`
+- Bootstrap：由 scaffold 發展為可本機執行的 Web MVP。
 - 未指定技術時採公司基線：Node.js 24 LTS、TypeScript、pnpm；Web 使用 Next.js、APP 使用 React Native with Expo、CMS 使用 Payload CMS、Backend 使用 NestJS、Database 使用 PostgreSQL。
 - 結構例外：無；使用公司固定 component root。
 
@@ -24,7 +24,6 @@
 
 ### 專案限制
 
-- 只做文件與目錄 scaffold，不安裝框架、依賴或實作產品功能
 - 僅 WAICY 2026 第 4 賽道（LLM & AI Agent / AI as a Service）
 - 必須支援三種需求實質不同的角色；不能只變更稱呼
 - 繁中、英文、印尼文，語言內容需未經母語者審查標示限制
@@ -131,3 +130,16 @@
 ## 完成回報
 
 - 回報變更分類、變更檔案、行為差異、實際執行的驗證與結果、同步的 README／docs／元件文件、未驗證事項、剩餘風險及需要人工決定的項目；若沒有文件變更，說明理由。
+
+
+## CareBridge 專屬交接補充（2026-11-20）
+
+- 初始 scaffold 已進入 Web MVP。後續依當次授權及 docs/implementation-roadmap.md 維護，成本／部署／個資／Git 範圍各自依使用者授權。
+- 開發第一優先閱讀 docs/handoff-to-agents.md、docs/requirements.md、docs/architecture.md、docs/ai-advisor-design.md、docs/evaluation-plan.md、docs/competition.md 與本機可取得的 docs/source/ 原始資料。
+- **唯一預定程式元件是 web/**：Next.js + TypeScript，server-only LLM 呼叫。不要自動建立 backend、database、CMS、App 或額外 Agent；若有確實必要，先更新決策紀錄與 Profile。
+- 任何聊天系統不應把模型生成內容當「已經發生的照護事實」。家屬摘要須留存已知／未知與使用者人工確認，不能編造已執行行動或康復結果。
+- 繁中／英文／印尼文與 U1／U2／U3 都是產品與競賽核心，不可只做翻譯按鈕或三個稱呼；參照 requirements.md 與 evaluation-cases.md 的具體案例。
+- 必須保留學生可以解釋的 Baseline → V1 → V2 → V3 真實實驗。沒有真的跑過不能填成績；原始發想書「39 項固定規則」不得引用作本 repo 的測試通過數。
+- 照護和翻譯參考資料統一查 docs/knowledge-sources.md。可引用可信公開來源，但不代表醫療專業認證或印尼文母語驗證。
+- 只用虛構案例做公開 Demo／測試，不收長者真實個資；第三方 LLM 處理也需實際記錄於隱私文件。沒有使用者新授權不得儲存真實對話或建立登入／資料庫。
+- 內部文件繁體中文；WAICY 正式報告英文；更新功能、指令、資料、實測、架構或安全策略時同步權威 docs。
