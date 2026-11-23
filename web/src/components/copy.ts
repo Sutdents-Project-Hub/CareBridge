@@ -24,6 +24,15 @@ type Copy = Record<
   stories: Record<(typeof storyIds)[number], [string, string]>;
   fields: Record<(typeof fieldIds)[number], [string, string]>;
   errors: Record<string, string>;
+  comparison: {
+    nav: [chat: string, compare: string, summary: string];
+    title: string;
+    savedResults: string;
+    scenario: string;
+    more: string;
+    tryRole: string;
+    trial: string;
+  };
 };
 
 const zh: Copy = {
@@ -54,6 +63,15 @@ const zh: Copy = {
   errorSafety: "若情況急迫，請立即聯絡當地緊急服務。",
   ruleNotice: "這則是 CareBridge 的固定安全提醒。",
   skip: "跳到主要內容", limitNotice: "顧問會參考近期訊息，完整對話仍可匯出。",
+  comparison: {
+    nav: ["照護對話", "角色比較", "家屬摘要"],
+    title: "同一個情境，三種照護角色",
+    savedResults: "這是同一個虛構情境的三份實測回覆。語言、問題、回覆長度和模型相同，只改變角色。",
+    scenario: "共同的提問",
+    more: "查看其他回覆內容",
+    tryRole: "用這個角色試問（新分頁）",
+    trial: "這是比較頁的虛構情境。可以先修改草稿，按送出才會開始實際對話。",
+  },
   roles: {
     novice_caregiver: ["新手照護者", "需要可跟著做的步驟"],
     experienced_caregiver: ["資深照護者", "先看重點與觀察事項"],
@@ -114,6 +132,15 @@ const en: Copy = {
   errorSafety: "For urgent situations, contact local emergency services immediately.",
   ruleNotice: "This is a preset CareBridge safety notice.",
   skip: "Skip to main content", limitNotice: "The advisor uses recent messages. You can export the full conversation.",
+  comparison: {
+    nav: ["Chat", "Compare roles", "Family summary"],
+    title: "One situation, three care roles",
+    savedResults: "These saved replies came from an actual test with a fictional situation. The question, language, length setting and model stayed the same. Only the role changed.",
+    scenario: "The shared question",
+    more: "More of this reply",
+    tryRole: "Try this role (new tab)",
+    trial: "This draft uses the fictional comparison case. Edit it as needed, then send it to start a live conversation.",
+  },
   roles: {
     novice_caregiver: ["New caregiver", "Get steps you can follow"],
     experienced_caregiver: ["Experienced caregiver", "See key points and observations"],
@@ -174,6 +201,15 @@ const id: Copy = {
   errorSafety: "Dalam keadaan mendesak, segera hubungi layanan darurat setempat.",
   ruleNotice: "Ini adalah pemberitahuan keselamatan tetap dari CareBridge.",
   skip: "Langsung ke konten utama", limitNotice: "Penasihat melihat pesan terbaru. Seluruh percakapan tetap dapat diekspor.",
+  comparison: {
+    nav: ["Dialog", "Bandingkan peran", "Ringkasan"],
+    title: "Satu situasi, tiga peran",
+    savedResults: "Jawaban tersimpan ini berasal dari uji coba nyata dengan situasi fiktif. Pertanyaan, bahasa, panjang jawaban, dan modelnya sama. Hanya perannya yang berbeda.",
+    scenario: "Pertanyaan yang sama",
+    more: "Lihat jawaban selengkapnya",
+    tryRole: "Coba peran ini (tab baru)",
+    trial: "Draf ini menggunakan skenario fiktif dari halaman perbandingan. Anda dapat mengubahnya sebelum mengirim.",
+  },
   roles: {
     novice_caregiver: ["Pendamping pemula", "Dapatkan langkah yang mudah diikuti"],
     experienced_caregiver: ["Pendamping berpengalaman", "Lihat poin utama dan pengamatan"],

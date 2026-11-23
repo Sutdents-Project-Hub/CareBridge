@@ -52,7 +52,7 @@ svg { flex-shrink: 0; vertical-align: middle; }
   display: grid; place-items: center; flex-shrink: 0; background: var(--brand); color: var(--surface);
   border-radius: 10px; width: 36px; height: 36px;
 }
-.header-inner nav { display: flex; align-self: stretch; gap: 20px; }
+.header-inner nav { display: flex; align-self: stretch; gap: 16px; }
 .header-inner nav button {
   border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--body-ink);
   padding: 0 4px; min-height: 44px; font-size: .9375rem;
@@ -93,6 +93,37 @@ svg { flex-shrink: 0; vertical-align: middle; }
 .workspace { margin-top: 20px; }
 .workspace:focus { outline: none; }
 .surface { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+
+.comparison { display: grid; gap: 16px; }
+.comparison-intro { padding-block: 8px 4px; }
+.comparison-intro h1 { font: 600 clamp(1.8rem, 4vw, 2.7rem)/1.15 var(--headline); text-wrap: balance; }
+.comparison-intro p { margin-top: 8px; max-width: 66ch; }
+.comparison-scenario { padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+.comparison-scenario h2 { font: 700 .9375rem/1.35 var(--body); margin-bottom: 4px; }
+.comparison-grid { display: grid; gap: 12px; }
+.comparison-card { display: grid; gap: 12px; align-items: start; padding: 16px; min-width: 0; }
+.comparison-card header p { margin-top: 4px; }
+.comparison-phrase { align-self: stretch; }
+.comparison-phrase blockquote { font-size: 1.05rem; }
+.comparison-actions ul { margin: 4px 0 0; padding-inline-start: 1.2rem; }
+.comparison-actions li + li { margin-top: 4px; }
+.comparison-card details { border-block-start: 1px solid var(--line); }
+.comparison-card summary { padding: 10px 0; min-height: 44px; color: var(--brand-ink); cursor: pointer; }
+.comparison-notes { display: grid; gap: 10px; padding-bottom: 4px; overflow-wrap: anywhere; }
+.comparison-notes p { margin-top: 3px; }
+.comparison-link {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 8px 10px; border: 1px solid var(--input-line);
+  border-radius: var(--small-radius); text-align: center; text-decoration: none; font-weight: 700;
+}
+.comparison-link svg { flex-shrink: 0; }
+.comparison-capture { overflow-wrap: anywhere; }
+.composer-trial { margin-bottom: 8px; }
+
+@media (min-width: 920px) {
+  .comparison-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .comparison-card { grid-row: span 5; grid-template-rows: subgrid; }
+}
 .chat-panel {
   display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "heading" "settings" "thread" "composer";
   grid-template-rows: auto auto auto auto; min-width: 0;
@@ -269,7 +300,7 @@ dialog::backdrop { background: rgb(30 43 74 / .44); }
   .header-inner { min-height: 56px; grid-template-columns: minmax(0, 1fr) auto; gap: 0 8px; padding-top: 6px; }
   .brand { font-size: 1.375rem; gap: 8px; }
   .brand-mark { width: 32px; height: 32px; }
-  .header-inner nav { grid-row: 2; grid-column: 1 / -1; gap: 20px; }
+  .header-inner nav { grid-row: 2; grid-column: 1 / -1; gap: 8px; flex-wrap: wrap; }
   .language select { padding-inline: 10px 26px; }
   .language > svg:first-child { display: none; }
   .hero { margin: 14px 0; }

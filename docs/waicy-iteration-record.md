@@ -6,6 +6,8 @@
 
 本紀錄對應 WAICY Large Language Models 的 **Iterative Development**。它保留照護需求如何變成 Prompt、實際遇到什麼錯誤、哪一處程式或 Prompt 有調整，以及用相同輸入複測的結果。所有測試情境均為虛構。[WAICY 評分規準](https://www.waicy.org/rubrics/) · [WAICY 官方手冊，第 21 頁](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=21)
 
+交件收尾加做的三語同題角色實驗與介面測試另列於[證據登記 §K](evidence-log.md#k-三語同題角色比較2026-11-23)，批次與原始封存獨立保存。
+
 ## 1. 起點與設計決策
 
 CareBridge 聚焦失智照護的日常溝通。新手需要能直接說出口的句子，資深照護者需要觀察與交接重點，家屬需要分辨已通報事實、實際採取的行動與未知事項。介面及對話支援繁體中文、英文與印尼文。急況或用藥問題優先轉介真人。家屬可在本地五欄表單確認後複製摘要。[原始需求](requirements.md) · [AI 顧問設計](ai-advisor-design.md)

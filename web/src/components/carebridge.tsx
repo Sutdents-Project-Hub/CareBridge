@@ -13,12 +13,16 @@ import {
 } from "@/lib/ai/contracts";
 import { dictionary, fieldIds, languages, roles, storyIds, type Translation } from "./copy";
 import { prepareRequest, type Turn } from "./conversation";
+import { RoleComparison } from "./role-comparison";
+import { comparisonCapture, comparisonExamples } from "./role-comparison-data";
 import { emptyFacts, exampleFacts, formatSummary, summaryRows, type Facts } from "./summary";
 import { transcriptHtml } from "./transcript";
 
 const roleIcons = { novice_caregiver: HeartHandshake, experienced_caregiver: UserRound, family: UsersRound };
 const topicIcons = [Repeat2, Bath, MessageCircle, Soup, ClipboardList, CircleHelp];
 const dateOptions = { hour: "2-digit", minute: "2-digit" } as const;
+const comparisonScenario = "role-comparison";
+type Mode = "chat" | "comparison" | "summary";
 
 function Brand() {
   return <span className="brand"><span className="brand-mark"><HeartHandshake size={22} /></span>CareBridge</span>;
@@ -112,14 +116,20 @@ function Summary({ t, facts, checked, onEdit, onCheck, onCopy }: {
   );
 }
 
-export function CareBridge() {
-  const [locale, setLocale] = useState<Locale>("zh-TW");
-  const [profile, setProfile] = useState<UserProfile>("novice_caregiver");
-  const [style, setStyle] = useState<AnswerStyle | null>(null);
+export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", initialExampleRole }: {
+  initialMode?: Mode;
+  initialLocale?: Locale;
+  initialExampleRole?: UserProfile;
+}) {
+  const [locale, setLocale] = useState<Locale>(initialLocale);
+  const [profile, setProfile] = useState<UserProfile>(initialExampleRole ?? "novice_caregiver");
+  const [style, setStyle] = useState<AnswerStyle | null>(initialExampleRole ? comparisonCapture.style : null);
   const answerStyle = style ?? (profile === "experienced_caregiver" ? "brief" : "detailed");
-  const [mode, setMode] = useState<"chat" | "summary">("chat");
-  const [draft, setDraft] = useState("");
-  const [scenarioId, setScenarioId] = useState<(typeof storyIds)[number]>();
+  const [mode, setMode] = useState<Mode>(initialMode);
+  const [draft, setDraft] = useState(initialExampleRole ? comparisonExamples[initialLocale].question : "");
+  const [scenarioId, setScenarioId] = useState<(typeof storyIds)[number] | typeof comparisonScenario | undefined>(
+    initialExampleRole ? comparisonScenario : undefined,
+  );
   const [turns, setTurns] = useState<Turn[]>([]);
   const [pending, setPending] = useState("");
   const [failed, setFailed] = useState<{ code: string; question: string; intent: Intent }>();
@@ -133,11 +143,12 @@ export function CareBridge() {
   const latestReply = useRef<HTMLDivElement>(null);
   const scrollToReply = useRef(false);
   const t = dictionary[locale];
+  const screenTitle = mode === "comparison" ? t.comparison.title : mode === "summary" ? t.summary : t.title;
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = `CareBridge｜${mode === "summary" ? t.summary : t.title}`;
-  }, [locale, mode, t.summary, t.title]);
+    document.title = `CareBridge｜${screenTitle}`;
+  }, [locale, screenTitle]);
 
   useEffect(() => {
     if (scrollToReply.current && mode === "chat") {
@@ -146,7 +157,7 @@ export function CareBridge() {
     }
   }, [turns, mode]);
 
-  function chooseMode(next: "chat" | "summary") {
+  function chooseMode(next: Mode) {
     setMode(next);
     setFeedback("");
     requestAnimationFrame(() => {
@@ -240,11 +251,12 @@ export function CareBridge() {
 
   const links: ReactNode = (
     <>
-      <button type="button" aria-current={mode === "chat" ? "page" : undefined} onClick={() => chooseMode("chat")}>{t.chat}</button>
-      <button type="button" aria-current={mode === "summary" ? "page" : undefined} onClick={() => chooseMode("summary")}>{t.summary}</button>
+      <button type="button" aria-current={mode === "chat" ? "page" : undefined} onClick={() => chooseMode("chat")}>{t.comparison.nav[0]}</button>
+      <button type="button" aria-current={mode === "comparison" ? "page" : undefined} onClick={() => chooseMode("comparison")}>{t.comparison.nav[1]}</button>
+      <button type="button" aria-current={mode === "summary" ? "page" : undefined} onClick={() => chooseMode("summary")}>{t.comparison.nav[2]}</button>
     </>
   );
-  const showHero = mode === "chat" && turns.length === 0;
+  const showHero = mode === "chat" && turns.length === 0 && scenarioId !== comparisonScenario;
   const showTopics = turns.length === 0;
   const ActiveRoleIcon = roleIcons[profile];
 
@@ -277,8 +289,10 @@ export function CareBridge() {
         </section>}
 
         <div className="workspace" id="workspace" tabIndex={-1}>
-          {!showHero && <h1 className="sr-only">CareBridge</h1>}
-          {mode === "summary" ? (
+          {!showHero && mode !== "comparison" && <h1 className="sr-only">CareBridge</h1>}
+          {mode === "comparison" ? (
+            <RoleComparison locale={locale} />
+          ) : mode === "summary" ? (
             <Summary t={t} facts={facts} checked={checked}
               onEdit={(next) => { setFacts(next); setChecked(false); setFeedback(""); }}
               onCheck={setChecked} onCopy={copyText} />
@@ -356,9 +370,11 @@ export function CareBridge() {
                   </div>
                 )}
                 <label htmlFor="care-message">{turns.length ? t.followUp : t.composer}</label>
+                {scenarioId === comparisonScenario && <p id="comparison-trial" className="quiet composer-trial">{t.comparison.trial}</p>}
                 <div className="composer-input">
                   <textarea ref={composer} id="care-message" placeholder={t.placeholder} value={draft} rows={4}
-                    maxLength={CHAT_LIMITS.messageChars} readOnly={!!pending} aria-describedby={failed ? "chat-error chat-privacy" : "chat-privacy"}
+                    maxLength={CHAT_LIMITS.messageChars} readOnly={!!pending}
+                    aria-describedby={`${failed ? "chat-error " : ""}${scenarioId === comparisonScenario ? "comparison-trial " : ""}chat-privacy`}
                     onChange={(event) => { setDraft(event.target.value); setFailed(undefined); }} />
                   <div className="composer-actions">
                     <small>{draft.length} / {CHAT_LIMITS.messageChars}</small>
@@ -401,7 +417,7 @@ export function CareBridge() {
 
         <footer className="footer">
           <div><ShieldCheck size={20} /><p>{t.privacyMedical}</p></div>
-          {mode === "summary" && <button type="button" className="text-action" onClick={() => showDialog("privacy")}>{t.privacy}<ArrowRight size={16} /></button>}
+          {mode !== "chat" && <button type="button" className="text-action" onClick={() => showDialog("privacy")}>{t.privacy}<ArrowRight size={16} /></button>}
         </footer>
       </main>
 

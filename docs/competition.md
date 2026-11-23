@@ -8,8 +8,8 @@
 
 ## 展示流程
 
-- 定義一條可重複的主要 demo flow，包含前置資料、操作步驟、預期畫面／輸出與失敗備案。
-- 展示內容只使用合法、去識別且可公開的測試資料。
+- 從英文 `/compare` 開始，使用同一虛構個案指出新手的當下句型、資深的交班重點、家屬向照護者核對事實的問法。切換語言可檢視同題另兩組結果。
+- 直接從一張角色卡開啟新分頁，核對預填角色與問題後送出。接著用家屬摘要只填入已知事實，展示「待確認」及複製前的人工作業。保存的比較結果可在直播連線不順時繼續說明實驗。
 
 ## 證據與來源
 
@@ -62,29 +62,27 @@
 
 WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機參考資料。開始製作前先確認簡報主題，再套用到各張投影片。簡報製作待啟動。
 
-### 建議英文 PDF 章節（約 10–12 頁屬建議，不是官方頁數）
+### 英文交件草稿
 
-P1 Cover；P2 Motivation；P3 Specific AI Service；P4 Three User Profiles；P5 User Journey & Live AI；P6 Prompt V1；P7 Evaluation Method；P8 Baseline vs V1/V2/V3（填真實數據）；P9 Failure Cases & Improvements；P10 Live Chatbot / Final Chat History Links；P11 Limitations & Future Work；P12 Conclusion / Student Contributions / References。
+[可編輯英文交件稿](waicy-submission-draft.md)已整理服務、三種角色、迭代、實測錯誤、系統界線、未來發展及參考資料。本機 PDF 草稿在 `docs/source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf`。正式稿補上可操作網站、對話紀錄公開網址與團隊確認的學生貢獻；高中組分類待團隊確認。
 
-正式 PDF 可採用已有的本機真實模型實驗、失敗與複測。公開網址、照護或語言審查依實際完成狀態填寫。
+英文報名簡介獨立放在[交件稿末尾](waicy-submission-draft.md#registration-brief-separate-from-the-report-200-word-maximum)，送件時以公開驗收的實際狀態為準，限制 200 英文字。
 
-### 可以修改的英文報名簡介草稿（尚非正式送件）
+### 本機交件證據
 
-> CareBridge is a multilingual AI communication advisor for people supporting older adults with dementia. It focuses on everyday communication challenges, not medical diagnosis or treatment. The assistant is designed for three distinct users: novice caregivers who need simple step-by-step guidance, experienced caregivers who prefer concise insights, and family members who need factual updates. With Traditional Chinese, English, and Indonesian support, CareBridge aims to offer respectful phrases, ask clarifying questions when information is missing, and help users organize what actually happened into a Chinese family summary. The proposed system separates known facts, actions taken, outcomes, and unresolved questions instead of inventing details. Our team plans to evaluate the service using consistent scenarios, compare a general-purpose language model with progressively improved prompts, and document errors and limitations. This description presents the planned service; final submission claims will be updated to match the implemented and tested system.
-
-此段是**尚待學生依完成狀態修訂**的申請文案，不能在服務未實作時直接宣稱已完成。
+- [x] 三語 × 三角色各一個真實同題回覆，原始輸出可核對。現有測試樣本及限制列在[證據登記](evidence-log.md#k-三語同題角色比較2026-11-23)。
+- [x] 家屬摘要保留未知。急況、用藥與強制情境的驗證收錄在[第 6 項迭代開發紀錄](waicy-iteration-record.md)。
+- [x] Baseline 至 V5 的 Prompt、實測錯誤和同題比較均已保留。
+- [x] 最終本機 Terra／V5 已匯出 10 輪、20 則真實交換訊息，公開網址待建立。
+- [x] 英文 PDF 與 200 字以內的簡介已準備草稿。
 
 ### CareBridge 交件核對清單（學生簽核）
 
 - [ ] 學生報名年齡、隊伍人數、英文姓名、年級與指導者資料經查核。
-- [ ] 可操作的 AI 真的可連續對話，U1/U2/U3 同題有實質差異。
-- [ ] zh-TW、en、id 的實際 AI 回覆已測試；語言品質局限誠實說明。
-- [ ] 家屬摘要不將未知寫成已執行，急迫／用藥／強制案例有紀錄。
-- [ ] Baseline、V1、V2、V3 的結果與失敗修正均有原始實測依據。
-- [ ] 最終版真實對話共 10 輪完整問答（保守建議）並有分享連結。
-- [ ] 公開 Chatbot、對話分享連結與 Google Drive PDF 無痕可開。
-- [ ] 英文 PDF 包含全部指定章節與正式來源，沒有虛構 KPI 或假圖片。
-- [ ] 申請簡介在 200 英文字內且陳述已完成的功能，不假報進度。
+- [ ] 部署 Chatbot，無痕視窗實際送出一題並收到當前模型的回覆。
+- [ ] 為已匯出的最終版真實對話建立無痕可讀連結。
+- [ ] 填妥英文 PDF 的兩個已測連結及具名貢獻，核對 200 字以內的英文簡介。
+- [ ] 上傳正式 PDF，無痕確認 Google Drive 資料夾及檔案都可讀。
 - [ ] 在截止前送出官方表單並保留確認畫面或信件。
 
 ### 正式發表可預練問答

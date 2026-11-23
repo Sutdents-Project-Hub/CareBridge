@@ -16,6 +16,8 @@ pnpm dev --hostname 127.0.0.1 --port 3206
 
 開啟 [http://127.0.0.1:3206](http://127.0.0.1:3206)。需要測試真實 AI 時，從 [web/.env.example](web/.env.example) 建立忽略檔 `web/.env.local`，在伺服器填入 `OPENAI_API_KEY` 與 `OPENAI_MODEL`，再重啟服務。未設定時仍可操作摘要，顧問會顯示設定狀態。
 
+頁首「角色比較」或 [本機英文比較入口](http://127.0.0.1:3206/compare) 可查看同一題的三種角色實測回覆。切換語言可查看另兩組回覆。按「用這個角色試問」開啟新分頁，先編輯草稿再送出。
+
 ```bash
 pnpm lint
 pnpm typecheck
