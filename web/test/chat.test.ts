@@ -10,6 +10,7 @@ import { PROMPT_SOURCES } from "../src/lib/ai/prompts";
 const originalFetch = globalThis.fetch;
 const originalKey = process.env.OPENAI_API_KEY;
 const originalModel = process.env.OPENAI_MODEL;
+const originalEffort = process.env.OPENAI_REASONING_EFFORT;
 afterEach(() => {
   mock.restoreAll();
   globalThis.fetch = originalFetch;
@@ -17,6 +18,8 @@ afterEach(() => {
   else process.env.OPENAI_API_KEY = originalKey;
   if (originalModel === undefined) delete process.env.OPENAI_MODEL;
   else process.env.OPENAI_MODEL = originalModel;
+  if (originalEffort === undefined) delete process.env.OPENAI_REASONING_EFFORT;
+  else process.env.OPENAI_REASONING_EFFORT = originalEffort;
 });
 
 const input: ChatRequest = {
@@ -39,6 +42,7 @@ function request(body: unknown = input, headers: Record<string, string> = {}) {
 function configure() {
   process.env.OPENAI_API_KEY = "fake-test-key-not-a-credential";
   process.env.OPENAI_MODEL = "test-model";
+  delete process.env.OPENAI_REASONING_EFFORT;
 }
 function mockModel(answer: unknown = validAnswer, status = "completed") {
   const calls: Record<string, unknown>[] = [];
@@ -66,7 +70,7 @@ test("real POST rejects missing model configuration without a network request", 
   await expectError(await POST(request()), 503, "NOT_CONFIGURED");
 });
 
-test("real POST validates provider output and sends server V3 with bounded non-storing call", async () => {
+test("real POST validates provider output and sends server V5 with bounded non-storing call", async () => {
   configure();
   const calls = mockModel();
   const response = await POST(request());
@@ -76,14 +80,14 @@ test("real POST validates provider output and sends server V3 with bounded non-s
   assert.equal(answer.phrase.primary, validAnswer.phrase.primary);
   assert.equal(answer.questions, undefined);
   assert.deepEqual(answer.modelInfo, {
-    provider: "openai", model: "test-model-snapshot", promptVersion: "V3-2026-11-22",
+    provider: "openai", model: "test-model-snapshot", promptVersion: "V5-2026-11-23",
     provenance: "model", maxOutputTokens: CHAT_LIMITS.outputTokens,
   });
   assert.equal(calls.length, 1);
   assert.equal(calls[0].model, "test-model");
   assert.equal(calls[0].store, false);
   assert.equal(calls[0].max_output_tokens, CHAT_LIMITS.outputTokens);
-  assert.equal((calls[0].input as { role: string; content: string }[])[0].content, PROMPT_SOURCES.V3);
+  assert.equal((calls[0].input as { role: string; content: string }[])[0].content, PROMPT_SOURCES.V5);
   assert.equal(((calls[0].text as { format: { strict: boolean } }).format).strict, true);
   assert.equal("previous_response_id" in calls[0], false);
   assert.equal("temperature" in calls[0], false);
@@ -103,6 +107,20 @@ test("validation rejects malformed JSON, unknown fields, roles, history and vers
   ];
   const handler = createChatHandler(async () => { throw new Error("Must not call provider"); });
   for (const value of cases) await expectError(await handler(request(value)), 400, "BAD_REQUEST");
+});
+
+test("reasoning effort is server-only, optional and recorded when used", async () => {
+  configure();
+  const calls = mockModel();
+  const handler = createChatHandler();
+  process.env.OPENAI_REASONING_EFFORT = "high";
+  const response = await handler(request());
+  assert.equal(response.status, 200);
+  assert.deepEqual(calls[0].reasoning, { effort: "high" });
+  assert.equal((await response.json()).modelInfo.reasoningEffort, "high");
+  process.env.OPENAI_REASONING_EFFORT = "unsupported";
+  await expectError(await handler(request()), 503, "NOT_CONFIGURED");
+  assert.equal(calls.length, 1);
 });
 
 test("body is bounded by actual streamed bytes even without Content-Length", async () => {
@@ -156,6 +174,47 @@ test("assistant history cannot itself trigger a deterministic risk finding", asy
   assert.equal(response.status, 200);
   assert.equal((await response.json()).modelInfo.provenance, "model");
   assert.equal(calls.length, 1);
+});
+
+test("safety route distinguishes affirmative symptoms, handoff and a new symptom", async () => {
+  configure();
+  const cases = [
+    { previous: "", current: "長者沒有呼吸困難，只是今天不想洗澡。", guarded: false },
+    { previous: "", current: "長者沒有呼吸困難，但剛才突然失去意識。", guarded: true },
+    { previous: "", current: "長者剛才突然講不出完整的話，左手也抬不起來。", guarded: true },
+    { previous: "長者突然昏倒。", current: "現在呢？", guarded: true },
+    { previous: "長者突然昏倒。", current: "醫護人員已經接手了。我想改問她一直問晚餐時間，我該怎麼說？", guarded: false },
+    { previous: "長者突然昏倒。", current: "醫護人員已經接手了。另一位長者突然昏倒。", guarded: true },
+  ];
+  for (const { previous, current, guarded } of cases) {
+    const history = previous ? [{ role: "user", content: previous }, { role: "assistant", content: "Please seek human help." }] : [];
+    const calls = mockModel();
+    const answer = await createChatHandler()(request({ ...input, messages: [...history, { role: "user", content: current }] }));
+    assert.equal(answer.status, 200, current);
+    assert.equal((await answer.json()).modelInfo.provenance, guarded ? "deterministic-rule" : "model", current);
+    assert.equal(calls.length, guarded ? 0 : 1, current);
+  }
+});
+
+test("medication follow-ups are guarded but an explicit different topic can proceed", async () => {
+  configure();
+  const history = [
+    { role: "user", content: "阿嬤的藥能加倍嗎？" },
+    { role: "assistant", content: "請向藥師確認。" },
+  ];
+  const cases = [
+    { current: "那可以嗎？", expected: /醫師或藥師/ },
+    { current: "她剛剛已經多吃了，現在該怎麼辦？", expected: /立即聯絡/ },
+    { current: "已經詢問藥師。我改問她一直問晚餐時間，我該怎麼說？", expected: null },
+  ];
+  for (const { current, expected } of cases) {
+    const calls = mockModel();
+    const answer = await createChatHandler()(request({ ...input, messages: [...history, { role: "user", content: current }] }));
+    assert.equal(answer.status, 200, current);
+    const body = await answer.json();
+    if (expected) assert.match(body.seekHelp, expected);
+    assert.equal(calls.length, expected ? 0 : 1, current);
+  }
 });
 
 test("wrong locale, extra fields, invalid structure and incomplete provider outputs fail closed", async () => {
@@ -243,12 +302,12 @@ test("process day budget survives minute resets and resets after 24 hours", asyn
 
 test("local prompt evaluation keeps baseline free of CareBridge strategy and retains provenance", async () => {
   configure();
-  for (const version of ["Baseline", "V1", "V2", "V3"] as const) {
+  for (const version of ["Baseline", "V1", "V2", "V3", "V4", "V5"] as const) {
     const calls = mockModel();
     const result = await evaluatePrompt(input, version);
     const sent = calls[0].input as { role: string; content: string }[];
     assert.equal(sent.some((message) => message.role === "developer"), version !== "Baseline");
-    assert.equal("text" in calls[0], version === "V3");
+    assert.equal("text" in calls[0], ["V3", "V4", "V5"].includes(version));
     assert.equal(result.prompt, PROMPT_SOURCES[version]);
     assert.match(result.promptSha256, /^[a-f0-9]{64}$/);
     assert.equal(result.model, "test-model-snapshot");

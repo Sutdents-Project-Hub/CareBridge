@@ -14,6 +14,8 @@
 | K05 | WHO：iSupport for Dementia（2019，照護者訓練／支持手冊） | https://www.who.int/publications/i/item/9789241515863 | 研究照護者困境、日常照護和情緒行為變化的教育框架 | WHO 手冊有授權條款；轉載、翻譯、商用及衍生利用需確認授權 |
 | K06 | Alzheimer's Association：Communication | https://www.alz.org/help-support/caregiving/daily-care/communications | 比較溝通友善與尊重性、避免爭吵／催促的設計建議 | 只能作內容研究，未授權不可大量直接複製 |
 
+急迫語句的測試範圍參考國健署與 CDC 的突發語言和單側肢體警訊。CareBridge 只提供真人求助指引，這些來源也不代表規則已驗證為臨床判斷工具。[國健署](https://www.mohw.gov.tw/cp-16-88307-1.html) · [CDC](https://www.cdc.gov/stroke/signs-symptoms/)
+
 ## 初版內容使用規則
 
 1. 先建立一份**人工核對過**的短小溝通原則表（如尊重選擇、簡短慢速、一次一個問題、耐心等待、避免強迫），每項可追溯到 K01–K06。

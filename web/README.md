@@ -19,11 +19,11 @@ pnpm build
 
 ## 啟用 OpenAI
 
-在本目錄的 `.env.local` 設定 `OPENAI_API_KEY` 及 `OPENAI_MODEL`。模型須支援 Responses API 及 Structured Outputs，並由操作者確認帳號權限和預算。金鑰與模型皆須明確設定。缺少設定時，一般問題顯示提示，家屬摘要與對少數急迫語句的固定安全提示仍可使用。詳見[整合文件](../docs/integrations.md)。
+在本目錄的 `.env.local` 設定 `OPENAI_API_KEY` 及 `OPENAI_MODEL`；`OPENAI_REASONING_EFFORT` 選填，留空採模型預設。已對照 `gpt-6-luna` 和 `gpt-6.1-terra`；本機展示選擇 Terra／medium。模型須支援 Responses API 及 Structured Outputs，並由操作者確認帳號權限和預算。金鑰與模型皆須明確設定。缺少設定時，一般問題顯示提示，家屬摘要與對少數急迫語句的固定安全提示仍可使用。詳見[整合文件](../docs/integrations.md)。
 
 ## 驗收入口
 
 - 選擇三種角色、繁中／英文／印尼文及回答長度。情境快捷入口只會填草稿，送出才呼叫聊天服務。
 - 家屬摘要不帶入對話建議。確認文字前不能複製，修改任一欄會取消確認。
-- 匯出對話前查看提醒。JSON 保留問答順序、時間、角色、語言、意圖與回覆的模型／提示詞或固定安全規則來源。
-- 英文／印尼文、照護安全及真實模型結果的人工審查，填在[證據登記表](../docs/evidence-log.md)。
+- 匯出對話前查看提醒。JSON 保留完整欄位；閱讀版 HTML 保留逐輪問答、時間、角色、語言與模型／提示詞或固定安全規則來源，可在瀏覽器開啟及列印。
+- 英文／印尼文及照護內容的人工審查，填在[證據登記表](../docs/evidence-log.md)。

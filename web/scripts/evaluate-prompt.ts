@@ -6,7 +6,7 @@ import { chatRequestSchema } from "../src/lib/ai/validation";
 async function main() {
   const [version, inputPath] = process.argv.slice(2);
   if (!inputPath || !Object.hasOwn(PROMPT_SOURCES, version)) {
-    console.error("Usage: pnpm eval:prompt <Baseline|V1|V2|V3> <fictional-request.json>");
+    console.error(`Usage: pnpm eval:prompt <${Object.keys(PROMPT_SOURCES).join("|")}> <fictional-request.json>`);
     process.exitCode = 1;
     return;
   }

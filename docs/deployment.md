@@ -42,7 +42,7 @@
 
 1. 使用者批准 hosting、LLM provider/model、API Key 管理方式、預算與可能費用。
 2. 框架真正存在且 lint/typecheck/test/build 執行有紀錄；查明 framework runtime 和託管相容性。
-3. 由 hosting 以 server secrets 儲存 OPENAI_API_KEY 與 OPENAI_MODEL，不在公開 build bundle 洩漏；驗證拒絕未設定 key 時清楚報錯。
+3. 由 hosting 以 server 環境變數設定 OPENAI_API_KEY、OPENAI_MODEL 及選填的 OPENAI_REASONING_EFFORT，不在公開 build bundle 洩漏；驗證拒絕未設定 key 時清楚報錯。
 4. 具有限流、最大 token、長度限制、timeout、供應商預算防護，並確認部署環境的限流是否真的有效（in-memory serverless 可能無法跨執行個體共用）。
 5. 禁止把完整 chat messages 或個人資料存進 analytics/exception log；首頁標示示範用途與不要輸入真實病歷。
 6. 用新的無痕視窗／非開發者設備驗證首頁、三語、各角色、10 輪聊天、錯誤處理與家屬摘要。
@@ -56,8 +56,8 @@
 | Hosting / project ID | 待核准 | 未建立 |
 | Base directory | 規劃 web/ | 未驗證 |
 | Public URL | — | 未部署 |
-| LLM provider + model | OpenAI；模型由 server env 設定 | 真實呼叫待驗證 |
-| Server secret source | — | 未設定 |
+| LLM provider + model | OpenAI，已在本機驗證 Terra／medium／V5 | 公開環境待驗 |
+| Server secret source | 本機忽略檔；公開環境另設 server secret | 公開環境待設定 |
 | Build / start / port | — | 未驗證 |
 | Rate limit / 供應商預算 | — | 未驗證 |
 | 桌面／手機匿名對話 | — | 未測 |

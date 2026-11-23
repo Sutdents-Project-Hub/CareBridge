@@ -16,7 +16,7 @@
 - 記錄資料集、研究、開放資料、模型、API、圖片、字型與第三方程式碼的來源及授權。
 - AI 產生內容需說明限制、錯誤可能性與不可取代的人工判斷。
 
-本機版本可主動匯出含每輪回覆與模型／提示詞來源的 JSON。正式分享連結需用已獲准的虛構測試對話另行建立與驗收。
+本機版本可主動匯出含每輪回覆與模型／提示詞來源的 JSON 或閱讀版 HTML。正式分享連結需用已獲准的虛構測試對話另行建立與驗收。
 
 ## 已知限制
 
@@ -43,7 +43,7 @@
 - https://www.waicy.org/waicy-2026/
 - https://www.waicy.org/rubrics/
 - https://www.waicy.org/2026-submission/
-- https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/09/WAICY-2026-Guidebook.pdf
+- https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=21
 
 ### 交件必須有的實際證據（依所附指南／手冊整理）
 
@@ -51,7 +51,7 @@
 2. 開發動機與具體使用情境，不只講「失智照護很重要」。
 3. **評審可親自操作的 Chatbot Link**：不是固定示意圖、空白網站或只有影片。
 4. **最終版 AI 至少 10 則交換訊息的對話紀錄與可開啟連結**；團隊保守準備 10 輪完整 Q&A，約 20 則訊息（此為建議，非額外官方條件）。
-5. **Prompt 迭代與測試**：Idea → Advisor Design → Testing → Error Analysis → Improvement；保留 Baseline/V1/V2/V3 真實輸出及失敗修正。
+5. **Prompt 迭代與測試**：Idea → Advisor Design → Testing → Error Analysis → Improvement；保留 Baseline 至 V5 真實輸出及失敗修正，見 [競賽證據登記表](evidence-log.md)。
 6. 明確寫出模型限制、個人資料、倫理與潛在傷害；醫療安全／翻譯品質未驗證就必須直說。
 7. 未來發展、結論、學生貢獻、參考資料。正式報告採實際發生的結果，不把規劃當成果。
 8. Google Drive 作品資料夾與正式 PDF 權限、聊天連結、對話連結都應無痕測試；在 https://www.waicy.org/2026-submission/ 提交資料夾分享連結並保留確認信。
@@ -66,7 +66,7 @@ WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機�
 
 P1 Cover；P2 Motivation；P3 Specific AI Service；P4 Three User Profiles；P5 User Journey & Live AI；P6 Prompt V1；P7 Evaluation Method；P8 Baseline vs V1/V2/V3（填真實數據）；P9 Failure Cases & Improvements；P10 Live Chatbot / Final Chat History Links；P11 Limitations & Future Work；P12 Conclusion / Student Contributions / References。
 
-**切勿現在填測試通過數、公開網址、醫療審稿認證或 LLM Prompt 迭代效果**；必須真實產生後才放入正式 PDF。
+正式 PDF 可採用已有的本機真實模型實驗、失敗與複測。公開網址、照護或語言審查依實際完成狀態填寫。
 
 ### 可以修改的英文報名簡介草稿（尚非正式送件）
 

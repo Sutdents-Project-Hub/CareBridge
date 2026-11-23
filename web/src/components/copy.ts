@@ -13,10 +13,10 @@ type Copy = Record<
   "preferences" | "settingsHint" | "role" | "length" | "brief" | "detailed" | "topics" | "topicHint" |
   "composer" | "followUp" | "placeholder" | "send" | "working" | "replyReady" | "clear" | "retry" | "export" |
   "you" | "advisor" | "understanding" | "actions" | "phrase" | "phraseRequest" | "reference" |
-  "questions" | "observe" | "help" | "limitations" | "copy" | "copied" | "copyError" |
+  "questions" | "observe" | "help" | "limitations" | "copy" | "copyReference" | "copied" | "copyError" |
   "summaryIntro" | "sourceLanguage" | "preview" | "confirm" | "copySummary" | "example" |
   "privacyIntro" | "privacyShort" | "privacyOpenAI" | "privacyStorage" | "privacyReview" | "privacyMedical" |
-  "exportWarning" | "clearWarning" | "download" | "cancel" | "downloaded" |
+  "exportWarning" | "clearWarning" | "download" | "downloadReadable" | "cancel" | "downloaded" | "errorSafety" |
   "ruleNotice" | "skip" | "limitNotice",
   string
 > & {
@@ -37,7 +37,7 @@ const zh: Copy = {
   you: "你", advisor: "CareBridge 顧問", understanding: "我理解的情況", actions: "可以試試",
   phrase: "一句可以直接說的話", phraseRequest: "請給我一句可以直接說的話。", reference: "繁中對照",
   questions: "想先確認", observe: "可以留意", help: "何時尋求協助", limitations: "回覆限制",
-  copy: "複製", copied: "已複製", copyError: "無法使用剪貼簿，請選取文字手動複製。",
+  copy: "複製", copyReference: "複製繁中", copied: "已複製", copyError: "無法使用剪貼簿，請選取文字手動複製。",
   summaryIntro: "只填入你能確認的事。保留未知資訊，核對預覽後再自行分享。",
   sourceLanguage: "摘要欄名固定為繁體中文，填入的原文會保留。需要翻譯時，請先自行核對後再填入。",
   preview: "繁中摘要預覽", confirm: "我已核對內容，摘要只包含已知事實與待確認事項。",
@@ -50,7 +50,8 @@ const zh: Copy = {
   privacyMedical: "本服務提供日常溝通建議。診斷、用藥或緊急狀況請聯絡合適的專業人員或當地緊急服務。",
   exportWarning: "檔案會包含整段問答、模型及提示詞版本。請確認內容使用虛構案例或已去識別，再下載；分享權限由你管理。",
   clearWarning: "確定要清除這次的對話與草稿？",
-  download: "確認並下載", cancel: "取消", downloaded: "已下載對話紀錄",
+  download: "下載 JSON", downloadReadable: "下載閱讀版 HTML", cancel: "取消", downloaded: "已下載對話紀錄",
+  errorSafety: "若情況急迫，請立即聯絡當地緊急服務。",
   ruleNotice: "這則是 CareBridge 的固定安全提醒。",
   skip: "跳到主要內容", limitNotice: "顧問會參考近期訊息，完整對話仍可匯出。",
   roles: {
@@ -96,7 +97,7 @@ const en: Copy = {
   you: "You", advisor: "CareBridge advisor", understanding: "What I understand", actions: "What you can try",
   phrase: "Something you can say", phraseRequest: "Give me one respectful phrase I can say.", reference: "Traditional Chinese reference",
   questions: "Questions to clarify", observe: "What to look out for", help: "When to get help", limitations: "Limits",
-  copy: "Copy", copied: "Copied", copyError: "Clipboard unavailable. Select and copy the text manually.",
+  copy: "Copy", copyReference: "Copy Chinese", copied: "Copied", copyError: "Clipboard unavailable. Select and copy the text manually.",
   summaryIntro: "Enter facts you can confirm. Keep unknowns visible and review the summary before sharing it.",
   sourceLanguage: "Headings appear in Traditional Chinese. Your wording is kept as entered. Review any translation before entering it.",
   preview: "Traditional Chinese preview", confirm: "I checked the summary. It contains known facts and items to confirm.",
@@ -109,7 +110,8 @@ const en: Copy = {
   privacyMedical: "CareBridge supports everyday communication. For diagnosis, medication, or urgent situations, contact an appropriate professional or local emergency services.",
   exportWarning: "The file includes the full conversation and model and prompt details. Check that the example is fictional or de-identified before downloading. You manage sharing.",
   clearWarning: "Clear this conversation and its draft?",
-  download: "Confirm and download", cancel: "Cancel", downloaded: "Conversation downloaded",
+  download: "Download JSON", downloadReadable: "Download readable HTML", cancel: "Cancel", downloaded: "Conversation downloaded",
+  errorSafety: "For urgent situations, contact local emergency services immediately.",
   ruleNotice: "This is a preset CareBridge safety notice.",
   skip: "Skip to main content", limitNotice: "The advisor uses recent messages. You can export the full conversation.",
   roles: {
@@ -155,7 +157,7 @@ const id: Copy = {
   you: "Anda", advisor: "Penasihat CareBridge", understanding: "Pemahaman saya", actions: "Yang bisa dicoba",
   phrase: "Kalimat yang bisa diucapkan", phraseRequest: "Tolong beri satu kalimat yang sopan dan bisa langsung saya ucapkan.", reference: "Padanan Mandarin Tradisional",
   questions: "Hal yang perlu ditanyakan", observe: "Yang perlu diperhatikan", help: "Kapan mencari bantuan", limitations: "Batasan jawaban",
-  copy: "Salin", copied: "Disalin", copyError: "Papan klip tidak tersedia. Pilih dan salin teks secara manual.",
+  copy: "Salin", copyReference: "Salin versi Tionghoa", copied: "Disalin", copyError: "Papan klip tidak tersedia. Pilih dan salin teks secara manual.",
   summaryIntro: "Masukkan fakta yang dapat dipastikan. Tunjukkan hal yang belum diketahui dan periksa ringkasan sebelum membagikannya.",
   sourceLanguage: "Judul kolom menggunakan aksara Tionghoa Tradisional. Teks Anda tetap aslinya. Periksa terjemahan sebelum memasukkannya.",
   preview: "Pratinjau Tionghoa Tradisional", confirm: "Saya telah memeriksa fakta dan hal yang masih perlu dikonfirmasi.",
@@ -168,7 +170,8 @@ const id: Copy = {
   privacyMedical: "CareBridge membantu komunikasi sehari-hari. Untuk diagnosis, obat, atau keadaan darurat, hubungi tenaga profesional atau layanan darurat setempat.",
   exportWarning: "File memuat percakapan lengkap, model, dan versi prompt. Pastikan isinya fiktif atau tanpa identitas sebelum mengunduh. Anda mengelola pembagiannya.",
   clearWarning: "Hapus percakapan dan draf ini?",
-  download: "Konfirmasi dan unduh", cancel: "Batal", downloaded: "Percakapan telah diunduh",
+  download: "Unduh JSON", downloadReadable: "Unduh HTML", cancel: "Batal", downloaded: "Percakapan telah diunduh",
+  errorSafety: "Dalam keadaan mendesak, segera hubungi layanan darurat setempat.",
   ruleNotice: "Ini adalah pemberitahuan keselamatan tetap dari CareBridge.",
   skip: "Langsung ke konten utama", limitNotice: "Penasihat melihat pesan terbaru. Seluruh percakapan tetap dapat diekspor.",
   roles: {

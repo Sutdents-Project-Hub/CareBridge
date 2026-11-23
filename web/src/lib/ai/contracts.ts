@@ -15,6 +15,7 @@ export type UserProfile = "novice_caregiver" | "experienced_caregiver" | "family
 export type Locale = "zh-TW" | "en" | "id";
 export type AnswerStyle = "brief" | "detailed";
 export type Intent = "guidance" | "phrase";
+export type ReasoningEffort = "none" | "low" | "medium" | "high";
 export type ChatMessage = { role: "user" | "assistant"; content: string };
 export type ChatRequest = {
   profile: UserProfile;
@@ -30,6 +31,7 @@ export type ModelInfo = {
   promptVersion: string;
   provenance: "model" | "deterministic-rule";
   maxOutputTokens?: number;
+  reasoningEffort?: ReasoningEffort;
 };
 export type AdvisorResponse = {
   kind: "guidance" | "clarification" | "escalation";

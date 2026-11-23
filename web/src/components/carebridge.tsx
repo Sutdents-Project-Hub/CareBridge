@@ -14,6 +14,7 @@ import {
 import { dictionary, fieldIds, languages, roles, storyIds, type Translation } from "./copy";
 import { prepareRequest, type Turn } from "./conversation";
 import { emptyFacts, exampleFacts, formatSummary, summaryRows, type Facts } from "./summary";
+import { transcriptHtml } from "./transcript";
 
 const roleIcons = { novice_caregiver: HeartHandshake, experienced_caregiver: UserRound, family: UsersRound };
 const topicIcons = [Repeat2, Bath, MessageCircle, Soup, ClipboardList, CircleHelp];
@@ -30,6 +31,8 @@ function List({ title, items }: { title: string; items?: string[] }) {
 
 function Reply({ response, onCopy }: { response: AdvisorResponse; onCopy: (text: string) => void }) {
   const t = dictionary[response.locale];
+  const phrase = response.phrase;
+  const reference = response.locale !== "zh-TW" ? phrase?.zhTwReference : undefined;
   const help = response.seekHelp && (
     <div className="help-note"><ShieldCheck size={20} /><div><h4>{t.help}</h4><p>{response.seekHelp}</p></div></div>
   );
@@ -41,16 +44,20 @@ function Reply({ response, onCopy }: { response: AdvisorResponse; onCopy: (text:
       {response.understanding && <div className="answer-section"><h4>{t.understanding}</h4><p>{response.understanding}</p></div>}
       <List title={t.questions} items={response.questions} />
       <List title={t.actions} items={response.actions} />
-      {response.phrase && (
+      {phrase && (
         <div className="phrase-card">
           <div className="phrase-heading">
             <h4>{t.phrase}</h4>
-            <button className="text-action" type="button" onClick={() => onCopy(response.phrase!.primary)}><Copy size={16} />{t.copy}</button>
+            <button className="text-action phrase-copy" type="button" onClick={() => onCopy(phrase.primary)}><Copy size={16} />{t.copy}</button>
           </div>
-          <blockquote>{response.phrase.primary}</blockquote>
-          {response.phrase.zhTwReference && response.locale !== "zh-TW" && (
-            <p className="reference">{t.reference}<span lang="zh-TW">{response.phrase.zhTwReference}</span></p>
-          )}
+          <blockquote>{phrase.primary}</blockquote>
+          {reference && <div className="reference">
+            <div className="phrase-heading">
+              <span>{t.reference}</span>
+              <button className="text-action phrase-copy" type="button" onClick={() => onCopy(reference)}><Copy size={16} />{t.copyReference}</button>
+            </div>
+            <p lang="zh-TW">{reference}</p>
+          </div>}
         </div>
       )}
       <List title={t.observe} items={response.observe} />
@@ -127,11 +134,14 @@ export function CareBridge() {
   const scrollToReply = useRef(false);
   const t = dictionary[locale];
 
-  useEffect(() => { document.documentElement.lang = locale; }, [locale]);
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.title = `CareBridge｜${mode === "summary" ? t.summary : t.title}`;
+  }, [locale, mode, t.summary, t.title]);
 
   useEffect(() => {
     if (scrollToReply.current && mode === "chat") {
-      latestReply.current?.scrollIntoView({ block: "nearest" });
+      latestReply.current?.scrollIntoView({ block: "start" });
       scrollToReply.current = false;
     }
   }, [turns, mode]);
@@ -140,9 +150,9 @@ export function CareBridge() {
     setMode(next);
     setFeedback("");
     requestAnimationFrame(() => {
-      const workspace = document.getElementById("workspace");
-      workspace?.focus({ preventScroll: true });
-      workspace?.scrollIntoView({ block: "start" });
+      const target = (next === "chat" && latestReply.current) || document.getElementById("workspace");
+      target?.focus({ preventScroll: true });
+      target?.scrollIntoView({ block: "start" });
     });
   }
 
@@ -200,16 +210,18 @@ export function CareBridge() {
     void ask(draft);
   }
 
-  function download() {
-    const file = new Blob([JSON.stringify({
+  function download(format: "json" | "html") {
+    const exportedAt = new Date().toISOString();
+    const data = format === "html" ? transcriptHtml(turns, exportedAt) : JSON.stringify({
       format: "carebridge.conversation.v1",
-      exportedAt: new Date().toISOString(),
+      exportedAt,
       turns,
-    }, null, 2)], { type: "application/json" });
+    }, null, 2);
+    const file = new Blob([data], { type: format === "html" ? "text/html;charset=utf-8" : "application/json" });
     const href = URL.createObjectURL(file);
     const link = document.createElement("a");
     link.href = href;
-    link.download = "carebridge-conversation.json";
+    link.download = `carebridge-conversation.${format}`;
     link.click();
     setTimeout(() => URL.revokeObjectURL(href), 1000);
     setFeedback(t.downloaded);
@@ -318,7 +330,7 @@ export function CareBridge() {
               {!!turns.length && (
                 <div className="thread">
                   {turns.map((turn, index) => (
-                    <div ref={index === turns.length - 1 ? latestReply : undefined} className="turn" key={index}>
+                    <div ref={index === turns.length - 1 ? latestReply : undefined} className="turn" key={index} tabIndex={-1}>
                       <div className="question" lang={turn.request.locale}>
                         <p className="message-label">{dictionary[turn.request.locale].you} <time dateTime={turn.askedAt}>{new Intl.DateTimeFormat(locale, dateOptions).format(new Date(turn.askedAt))}</time></p>
                         <p>{turn.question}</p>
@@ -336,7 +348,10 @@ export function CareBridge() {
                 </div>
                 {failed && (
                   <div className="error-note">
-                    <p id="chat-error" role="alert">{t.errors[failed.code] ?? t.errors.UNKNOWN}</p>
+                    <div id="chat-error" role="alert">
+                      <p>{t.errors[failed.code] ?? t.errors.UNKNOWN}</p>
+                      <p className="error-safety">{t.errorSafety}</p>
+                    </div>
                     <button className="outline-action" type="button" onClick={() => void ask(failed.question, failed.intent)}>{t.retry}</button>
                   </div>
                 )}
@@ -404,7 +419,14 @@ export function CareBridge() {
             <p>{dialog === "clear" ? t.clearWarning : t.exportWarning}</p>
             <div className="modal-actions">
               <button className="outline-action" type="button" onClick={() => modal.current?.close()}>{t.cancel}</button>
-              <button className="primary" type="button" onClick={dialog === "clear" ? clearChat : download}>{dialog === "clear" ? t.clear : t.download}</button>
+              {dialog === "clear" ? (
+                <button className="primary" type="button" onClick={clearChat}>{t.clear}</button>
+              ) : (
+                <>
+                  <button className="outline-action" type="button" onClick={() => download("json")}>{t.download}</button>
+                  <button className="primary" type="button" onClick={() => download("html")}>{t.downloadReadable}</button>
+                </>
+              )}
             </div>
           </div>
         )}

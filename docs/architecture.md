@@ -48,7 +48,7 @@
        │  POST /api/chat；僅送必要最近訊息與 persona/locale
        ▼
     Next.js Server Route Handler（輸入 schema／限制長度／求助界線／timeout）
-       │  套用伺服器專用 V3 Prompt 與安全規則
+       │  套用伺服器專用 V5 Prompt 與安全規則
        ▼
     Provider adapter（server-only API key）
        │  OpenAI Responses API，模型由伺服器環境設定
@@ -67,7 +67,7 @@
 ### 實際程式邊界
 
 - `web/src/app/`：首頁、基本配置與 `api/chat/route.ts`。
-- `web/src/components/`：三語 UX、多輪對話、摘要模板與手動匯出。
+- `web/src/components/`：三語 UX、多輪對話、摘要模板與手動 JSON／HTML 匯出。
 - `web/src/lib/ai/`：輸入與回覆契約、OpenAI adapter、Prompt 版本、規則提示。
 - `web/test/`：摘要與聊天整合驗證。
 

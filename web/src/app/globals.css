@@ -185,9 +185,11 @@ legend, .composer > label { display: block; padding: 0; margin-bottom: 8px; font
 .answer-section ul { padding-inline-start: 22px; margin: 0; }
 .phrase-card { padding: 10px 14px; border: 1px solid var(--line); background: var(--selected); border-radius: 12px; overflow-wrap: anywhere; }
 .phrase-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--brand-ink); }
-.phrase-card blockquote { font-size: 1.125rem; line-height: 1.55; margin: 2px 0 4px; color: var(--ink); }
+.phrase-copy { white-space: nowrap; flex-shrink: 0; }
+.phrase-card blockquote { font-size: 1.125rem; line-height: 1.55; margin: 2px 0 4px; color: var(--ink); white-space: pre-wrap; }
 .reference { color: var(--muted); font-size: .875rem; }
-.reference span { display: block; color: var(--ink); }
+.reference .phrase-heading { flex-wrap: wrap; }
+.reference p { color: var(--ink); white-space: pre-wrap; }
 .help-note, .error-note {
   background: var(--notice-bg); color: var(--notice); padding: 12px 14px;
   border-radius: var(--small-radius); display: flex; gap: 8px; align-items: start; overflow-wrap: anywhere;
@@ -195,6 +197,7 @@ legend, .composer > label { display: block; padding: 0; margin-bottom: 8px; font
 .help-note h4 { color: var(--notice); }
 .help-note svg { margin-top: 2px; }
 .error-note { align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.error-safety { font-size: .875rem; margin-top: 4px; }
 .working { color: var(--brand-ink); margin-bottom: 8px; }
 
 .summary-view { margin-top: 24px; }
@@ -280,6 +283,7 @@ dialog::backdrop { background: rgb(30 43 74 / .44); }
   .chat-actions .text-action { padding-inline: 6px; font-size: .875rem; }
   .settings-label > svg:first-child { display: none; }
   .composer-input textarea { height: 88px; min-height: 72px; }
+  .thread { max-height: none; overflow-y: visible; overscroll-behavior-y: auto; }
 }
 
 @media (max-width: 360px) {

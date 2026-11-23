@@ -1,6 +1,6 @@
 # CareBridge｜LLM 顧問設計、Prompt 版本與安全契約
 
-> 狀態：OpenAI 串接程式與固定版本已建立。真實 LLM 實測待設定模型、金鑰與預算後執行。
+> 狀態：OpenAI Luna 與 Terra 已在本機以虛構案例驗證。現行選用 `gpt-6.1-terra`／`medium`。現行 V5 及實測限制見 [競賽證據登記表](evidence-log.md)。
 > 服務定位：日常失智照護**溝通支持**，絕非診斷、處方、緊急醫療判斷或強制行為指南。
 
 ## 1. 能力與非能力
@@ -56,6 +56,7 @@ type AdvisorResponse = {
     promptVersion: string;
     provenance: "model" | "deterministic-rule";
     maxOutputTokens?: number;
+    reasoningEffort?: "none" | "low" | "medium" | "high";
   };
 };
 ```
@@ -78,16 +79,18 @@ type AdvisorResponse = {
 | V1 | 明確服務定位改善回答完整度 | 角色與基礎回答格式 | 句型、重點完整性 |
 | V2 | 個人化與語言規則改善角色適配 | 三角色 + 三語 + 追問策略 | 同題差異、語言遵守 |
 | V3 | 明確禁止捏造與安全界線可降低高風險錯誤 | 細分已知/未知、求助、模型回覆 schema | 虛構率、安全事件數 |
+| V4 | 把格式要求分成指引、追問、求助三類可減少無法顯示的回覆 | 明確欄位及求助位置，保留拒絕選項 | 結構相容、印尼語用法、未知事項 |
+| V5 | 直接示範歸因與未知可減少轉述中補出意願或行動 | 原話與推測分離、角色優先順序、具體拒絕威脅 | 同題三角色、反覆拒絕、來源忠實 |
 
 所有版本須存實際 Prompt、模型/參數、修改差異、題目與完整回覆；**不能事後假寫 V1/V2 的結果**。避免同時更換模型、溫度、題目而把效果歸因於 Prompt。
 
 ## 7. Prompt 維護規格（交給後續 Agent）
 
-- `web/src/lib/ai/prompts.ts`：Baseline、V1、V2、V3 的實際 Prompt 來源與版本。
+- `web/src/lib/ai/prompts.ts`：Baseline、V1 至 V5 的實際 Prompt 來源與版本。
 - `web/src/lib/ai/provider.ts`：OpenAI Responses API、伺服器設定與實驗輸出。
 - `web/src/lib/ai/validation.ts`、`safety.ts`：輸入／輸出驗證與固定安全提醒。
 - `web/src/components/summary.ts`：從人工確認的欄位建構摘要。
-- 線上 API 固定 V3。測試端可用 [本機 Prompt 評估指令](evaluation-plan.md#本機評估指令) 指定版本，真實評估仍待執行。
+- 聊天 API 固定採現行 V5。測試端可用 [本機 Prompt 評估指令](evaluation-plan.md#本機評估指令) 指定版本。
 
 ## 8. 可貼入 Prompt 的政策草案（仍需測試）
 
