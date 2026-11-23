@@ -1,0 +1,268 @@
+{
+  "date": "2026-11-23",
+  "sourceBaseline": "c04217c",
+  "environment": "Local Next.js production build in Chromium; fictional scenario",
+  "liveTurnCount": 10,
+  "exchangeMessageCount": 20,
+  "timeToRenderedReplyMs": {
+    "minimum": 4211,
+    "median": 5636.5,
+    "maximum": 9331
+  },
+  "statuses": [
+    {
+      "turn": 1,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 1,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 8392,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 2,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 3,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 5546,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 3,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 5,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 5419,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 4,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 7,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 5217,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 5,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 9,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 4211,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 6,
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "contextMessages": 11,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 4782,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 7,
+      "locale": "en",
+      "profile": "experienced_caregiver",
+      "contextMessages": 13,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 5727,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 8,
+      "locale": "en",
+      "profile": "experienced_caregiver",
+      "contextMessages": 15,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 6252,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 9,
+      "locale": "en",
+      "profile": "family",
+      "contextMessages": 17,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 6339,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 10,
+      "locale": "en",
+      "profile": "family",
+      "contextMessages": 19,
+      "kind": "guidance",
+      "httpStatus": 200,
+      "elapsedMs": 9331,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "turn": 1,
+      "locale": "en",
+      "profile": "family",
+      "contextMessages": 1,
+      "kind": "escalation",
+      "httpStatus": 200,
+      "elapsedMs": 70,
+      "modelInfo": {
+        "provider": "carebridge-rule",
+        "model": "none",
+        "promptVersion": "rules-2026-11-23",
+        "provenance": "deterministic-rule"
+      }
+    }
+  ],
+  "languageLayouts": [
+    {
+      "viewportWidth": 320,
+      "locale": "en",
+      "scrollWidth": 320
+    },
+    {
+      "viewportWidth": 320,
+      "locale": "zh-TW",
+      "scrollWidth": 320
+    },
+    {
+      "viewportWidth": 320,
+      "locale": "id",
+      "scrollWidth": 320
+    },
+    {
+      "viewportWidth": 390,
+      "locale": "en",
+      "scrollWidth": 390
+    },
+    {
+      "viewportWidth": 390,
+      "locale": "zh-TW",
+      "scrollWidth": 390
+    },
+    {
+      "viewportWidth": 390,
+      "locale": "id",
+      "scrollWidth": 390
+    },
+    {
+      "viewportWidth": 1440,
+      "locale": "en",
+      "scrollWidth": 1440
+    },
+    {
+      "viewportWidth": 1440,
+      "locale": "zh-TW",
+      "scrollWidth": 1440
+    },
+    {
+      "viewportWidth": 1440,
+      "locale": "id",
+      "scrollWidth": 1440
+    }
+  ],
+  "defaultEnglish": true,
+  "englishReferenceKeyboardDisclosure": true,
+  "familySummaryEnglishAndTraditionalChinese": true,
+  "manuallyConfirmedSummary": true,
+  "summarySwitchResetsReview": true,
+  "requests": 11,
+  "runtimeErrors": 0,
+  "screenshots": 9,
+  "notes": [
+    "The English homepage was recaptured after removal of an image with unverified reuse rights. The chat request and reply flow did not change after the capture."
+  ],
+  "finalHome": {
+    "httpStatus": 200,
+    "locale": "en",
+    "contentImages": 0
+  },
+  "engineeringChecks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "automatedTestsPassed": 20
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "format": "carebridge.conversation.v1",
+  "exportedAt": "2026-11-23T08:38:35.350Z",
+  "turns": [
+    {
+      "question": "Fictional scenario: An older adult said, “Later, I feel cold.” They had not bathed while I was there. What could I say, and which facts should I check?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance",
+        "scenarioId": "role-comparison"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "They said, “Later, I feel cold,” and had not bathed while you were there. It is not known whether they agreed to bathe later.",
+        "actions": [
+          "Check with the caregiver whether a bath was offered or happened outside the time you were there; avoid assuming either.",
+          "Check whether the person still feels cold and whether they would prefer to pause or skip bathing today."
+        ],
+        "phrase": {
+          "primary": "You feel cold. Would you like to pause or skip the bath today?",
+          "zhTwReference": "您覺得冷。今天想先暫停，還是不洗澡呢？"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:37:33.406Z",
+      "answeredAt": "2026-11-23T08:37:41.732Z"
+    },
+    {
+      "question": "They said, “I feel cold,” again. What can I say if I want to give them time to choose without pressuring them?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "They said they feel cold again. You can give them time without assuming they want a bath later.",
+        "phrase": {
+          "primary": "I hear you’re cold. There’s no rush—you can take your time and decide whether you want a bath or not.",
+          "zhTwReference": "我聽到您說覺得冷。不急，您可以慢慢想，決定要不要洗澡。"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:37:41.920Z",
+      "answeredAt": "2026-11-23T08:37:47.434Z"
+    },
+    {
+      "question": "I offered a blanket. I left before I could see whether they took it. What should I record about the blanket?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "phrase": {
+          "primary": "I offered a blanket and left before I could see whether they took it.",
+          "zhTwReference": "我提供了一條毯子，但在看到對方是否拿取之前就離開了。"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:37:47.520Z",
+      "answeredAt": "2026-11-23T08:37:52.905Z"
+    },
+    {
+      "question": "I said they could rest first or skip the bath. They said “later” again. What does that tell me about their decision?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "They said “later” again. That does not tell you whether they have decided to bathe later or skip the bath.",
+        "actions": [
+          "Give them time, then check their preference without assuming they have agreed to a bath."
+        ],
+        "phrase": {
+          "primary": "We can leave it for now. Would you like to decide later, or skip the bath today?",
+          "zhTwReference": "我們現在可以先不洗。您想晚點再決定，還是今天先不洗澡？"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:37:52.951Z",
+      "answeredAt": "2026-11-23T08:37:58.114Z"
+    },
+    {
+      "question": "They then asked when dinner was. I did not know the schedule. Give me a respectful reply I can use.",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "phrase": {
+          "primary": "I’m not sure when dinner is. Would you like me to check?",
+          "zhTwReference": "我不確定晚餐是幾點。您想讓我幫您問問嗎？"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:37:58.185Z",
+      "answeredAt": "2026-11-23T08:38:02.340Z"
+    },
+    {
+      "question": "A family member asked whether they finished bathing after I left. What should I ask the next caregiver to check?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "You left before knowing whether they bathed, so the answer is still unknown.",
+        "actions": [
+          "Ask the next caregiver to check whether a bath happened after you left and, if so, whether it was finished."
+        ],
+        "phrase": {
+          "primary": "Could you check whether they bathed after I left, and whether they finished?",
+          "zhTwReference": "可以請您確認一下，我離開後他們是否有洗澡，以及是否洗完了嗎？"
+        },
+        "limitations": [
+          "This is communication support, not professional care. The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:02.407Z",
+      "answeredAt": "2026-11-23T08:38:07.113Z"
+    },
+    {
+      "question": "As the caregiver preparing a handover, what are the two or three facts I should mention first? Keep what happened after I left open.",
+      "request": {
+        "profile": "experienced_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "Keep the handover to what you observed; what happened after you left is unknown.",
+        "actions": [
+          "They said, “I feel cold,” again. You offered a blanket but left before seeing whether they took it.",
+          "You said they could rest first or skip the bath. They said “later” again; their decision remains unclear.",
+          "They had not bathed while you were there. Whether they bathed after you left is unknown."
+        ],
+        "limitations": [
+          "This is communication support, not professional care."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:07.285Z",
+      "answeredAt": "2026-11-23T08:38:12.968Z"
+    },
+    {
+      "question": "Can you separate the actions I reported from the observations, and state what still needs checking?",
+      "request": {
+        "profile": "experienced_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "Separate what you observed from what you offered and what remains unknown.",
+        "actions": [
+          "Observations: They said they felt cold and said “later” again. They had not bathed while you were there. They also asked when dinner was.",
+          "Your actions: You offered a blanket and said they could rest first or skip the bath.",
+          "Still to check: Whether they took the blanket or bathed after you left, their decision about bathing, and the dinner time."
+        ],
+        "limitations": [
+          "This is communication support, not professional care."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:13.018Z",
+      "answeredAt": "2026-11-23T08:38:19.233Z"
+    },
+    {
+      "question": "I am reading this as a family member. What can I ask the next caregiver to clarify the older adult’s choice without assuming they bathed?",
+      "request": {
+        "profile": "family",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "They said “later,” but their decision about bathing is still unclear.",
+        "actions": [
+          "Ask the next caregiver to check the older adult’s preference without assuming a bath happened."
+        ],
+        "phrase": {
+          "primary": "Could you check what they would prefer about bathing, including whether they’d rather skip it today?",
+          "zhTwReference": "可以請您確認一下他們對洗澡的想法，包括今天是否想先不洗嗎？"
+        },
+        "limitations": [
+          "This is communication support, not professional care.",
+          "The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:19.402Z",
+      "answeredAt": "2026-11-23T08:38:25.665Z"
+    },
+    {
+      "question": "Write a short update using only what this conversation confirms. Please keep whether they bathed, took the blanket, or had dinner open.",
+      "request": {
+        "profile": "family",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "The older adult said they felt cold and said “later” again. They had not bathed while the caregiver was there. The caregiver offered a blanket and said they could rest first or skip the bath. The older adult also asked when dinner was. Whether they took the blanket, bathed after the caregiver left, or had dinner remains unknown.",
+        "actions": [
+          "Ask the next caregiver whether they can check the blanket, bathing, and dinner details."
+        ],
+        "limitations": [
+          "This is communication support, not professional care. Translations are not reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:25.833Z",
+      "answeredAt": "2026-11-23T08:38:35.115Z"
+    }
+  ]
+}

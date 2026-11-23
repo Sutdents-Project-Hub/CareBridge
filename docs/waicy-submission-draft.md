@@ -2,17 +2,17 @@
 
 **WAICY 2026 · LLM & AI Agent Track · AI as a Service**
 **Submission report draft · 23 November 2026**
-**Status: local prototype evidence documented; public links, student details, and human reviews pending**
+**Status: English evaluation materials prepared; live chatbot URL, team details, and human reviews pending**
 
 > This editable source contains the complete English report in Sections 1–10, followed by a separate registration brief under 200 words. The PDF deliverable is only the report section. Bracketed pending items are deliberate and must be resolved or retained as limitations before submission.
 
 ## 1. The service
 
-CareBridge is a web-based, multilingual communication advisor for everyday situations involving a person living with dementia. It helps a caregiver think through what to say, offers a respectful phrase in the selected conversation language, asks for important missing context, and helps a family member organize reported facts into a Traditional Chinese handover draft. It is designed for Traditional Chinese, English, and Indonesian conversations.
+CareBridge is a web-based, multilingual communication advisor for everyday situations involving a person living with dementia. It helps a caregiver think through what to say, offers a respectful phrase in the selected conversation language, asks for important missing context, and helps a family member organize reported facts into a handover draft. The English home page also offers Traditional Chinese and Indonesian conversations. Family summaries offer English or Traditional Chinese headings and preserve the wording the user enters.
 
 The service is intentionally narrow. It does not diagnose, prescribe, recommend medication changes, monitor a person, or replace a clinician or trained care professional. It does not claim that a suggested action happened. A separate, browser-side five-field family-summary tool distinguishes **event**, **observation**, **action taken**, **outcome**, and **to confirm**; the user reviews and confirms the text before copying or sharing it.
 
-A typical interaction starts with a role and language selection, then a concrete situation such as repeated questions or refusal to bathe. The advisor may ask a clarifying question, offers a possible next step and a phrase that preserves the older adult's choice, and identifies when a person should seek professional or emergency help. Conversation export is user-initiated. The local MVP does not require sign-in or maintain a care-record database.
+A typical interaction begins in English with a role and language selection, then a concrete situation such as repeated questions or refusal to bathe. The advisor may ask a clarifying question, offers a possible next step and a phrase that preserves the older adult's choice, and identifies when a person should seek professional or emergency help. Conversation export is user-initiated. The local MVP does not require sign-in or maintain a care-record database.
 
 ## 2. Three users with different needs
 
@@ -40,7 +40,7 @@ An ordinary care conversation can become difficult when an older adult repeats a
 
 CareBridge was developed to focus on this small but consequential communication task. A general-purpose chatbot can produce fluent text, but fluency alone does not ensure that the response respects refusal, distinguishes a proposed action from one already taken, or adapts to the person asking. The project therefore treats role adaptation, respectful wording, uncertainty, and boundaries as design requirements to test rather than qualities to assume.
 
-The motivation is to support clearer human communication, not to automate care decisions. Local public dementia-communication resources informed the research direction, but they do not certify the generated answers or translations. See the references and the project's source notes.
+Taiwan's Ministry of Health and Welfare estimated 7.99% dementia prevalence among community-dwelling adults aged 65 and older using 2020–2023 survey data. The Ministry of Labor counted 201,177 Indonesian workers among 241,800 migrant workers in the social-welfare category at the end of October 2026 (83.2%). The occupational table gives context for the language choice. It does not measure dementia caregiving or demand for CareBridge. Public dementia-communication resources informed the project design. See references 4–8 and 13–14.
 
 ## 4. How the advisor is designed
 
@@ -83,7 +83,7 @@ The shared prompt comparison used ten fictional cases (C01, C03, C05, C07, C08, 
 
 ### 5.3 Browser interaction and final model selection
 
-The same fictional Indonesian-speaking novice profile completed ten browser turns each with Luna/V3, Luna/V4, Luna/V5, and Terra/medium/V5: **40 browser turns total**. The final ten-turn set used `gpt-6.1-terra`, medium reasoning effort, and V5. All ten turns returned HTTP 200; observed response time was 2.98–8.10 seconds, with a 4.23-second median for this one session. This is a local observation, not a service-level guarantee or a multi-user benchmark.
+The same fictional Indonesian-speaking novice profile completed ten browser turns each with Luna/V3, Luna/V4, Luna/V5, and Terra/medium/V5: **40 browser turns total**. The last Indonesian set used `gpt-6.1-terra`, medium reasoning effort, and V5. All ten turns returned HTTP 200; observed response time was 2.98–8.10 seconds, with a 4.23-second median for the one local session.
 
 A separate seven-case V5 model/effort comparison produced these observed results:
 
@@ -95,7 +95,9 @@ A separate seven-case V5 model/effort comparison produced these observed results
 
 The values are from a single small batch and are not benchmarks. Cost is estimated from recorded token usage and listed standard prices, not an invoice. Terra/medium was selected for the local showcase because its handover and role-specific answers were more useful in the inspected cases, then it completed the ten-turn browser replay. Luna/high's incomplete handover shows why a response that hits the output limit must be treated as a failure, even when the model began an answer.
 
-### 5.4 Error analysis and what remains wrong
+**English final-configuration session.** A separate Chromium session completed 10 English turns with the same fictional case, switching from new caregiver to experienced caregiver and then family member. All ten replies came from Terra/medium/V5 (HTTP 200); the last request included 19 messages of context. The model gave no invented dinner time in turn 5. It separated observations from caregiver actions in turn 8, and left the post-visit bath, blanket acceptance, and dinner unresolved in turn 10. The 20-message transcript is linked in Section 9. These results cover one fictional scenario. They are additional to the 40 historical Indonesian browser turns.
+
+### 5.4 Error analysis and remaining limitations
 
 | Observed failure | Change and retest | Remaining issue |
 |---|---|---|
@@ -107,7 +109,7 @@ The values are from a single small batch and are not benchmarks. Cost is estimat
 
 ### 5.5 Engineering checks
 
-The final local engineering checks recorded on 23 November were: `pnpm lint`, `pnpm typecheck`, `pnpm build`, and `pnpm test`. All four completed successfully; the test command reported **20 automated tests passing**. These are software checks, separate from the 109 direct model runs and 40 real-model browser turns. The browser test used Chromium at 320px and 390px for the Terra/V5 layout and copy behavior; no physical-phone acceptance is claimed. A separate latest production acceptance checked all three comparison languages at 320/390/681/920/1440px (15 locale/width combinations), role/language/scenario prefill for nine “Try this role” links, explicit-send behavior, a submitted Indonesian family question (HTTP 200; Terra/V5 medium; 9.063 seconds), keyboard disclosure, summary confirmation/reset, and two invalid routes (404). The comparison UI did not call the API until Send.
+The final local engineering checks recorded on 23 November were: `pnpm lint`, `pnpm typecheck`, `pnpm build`, and `pnpm test`. All four completed successfully; the test command reported **20 automated tests passing**. These are software checks, separate from the 109 direct model runs and 40 real-model browser turns. The browser test used Chromium at 320px and 390px for the Terra/V5 layout and copy behavior; no physical-phone acceptance is claimed. A separate latest production acceptance checked all three comparison languages at 320/390/681/920/1440px (15 locale/width combinations), role/language/scenario prefill for nine “Try this role” links, explicit-send behavior, a submitted Indonesian family question (HTTP 200; Terra/V5 medium; 9.063 seconds), keyboard disclosure, summary confirmation/reset, and two invalid routes (404). The comparison UI did not call the API until Send. The English acceptance also verified English initial page HTML, keyboard disclosure of the Chinese reference, choice of summary headings, review reset on language change, and retention of an unknown outcome.
 
 ## 6. Limitations, ethics, and safeguards
 
@@ -117,7 +119,7 @@ The family summary is a **draft**. Users must check each field and confirm it be
 
 The evaluation used fictional cases. A simulated reviewer acting as a fictional caregiver used the browser; this was not a real caregiver study, patient test, or usability study with affected families. The recorded review included AI-assisted testing and AI review; student contributions have not yet been supplied. English and Indonesian language quality, especially tone and cultural nuance, still need human review. Dementia communication and acute-symptom references informed the design but do not establish clinical efficacy, translation validity, or certification.
 
-The local MVP does not ask for sign-in and does not maintain a care-record database. Test materials use fictional details. Chat export is initiated by the user, and the browser-side summary is not sent to the model. Live hosting and an evaluator-accessible service have not been verified; this draft does not claim public availability or a public conversation link.
+The local MVP does not ask for sign-in and does not maintain a care-record database. Test materials use fictional details. Chat export is initiated by the user, and the browser-side summary is not sent to the model. The English conversation is available through its read-only transcript link. Deployment and a live evaluator session remain pending.
 
 ## 7. Future development
 
@@ -128,14 +130,14 @@ The local MVP does not ask for sign-in and does not maintain a care-record datab
 | Care advice and acute routing lack professional validation. | Request a dementia-care professional to review the narrow communication guidance and escalation wording. | Reviewer, credentials or role, date, reviewed scenarios, and unresolved concerns recorded; this would not itself imply clinical certification. |
 | The role comparison is a single run per role-language pair. | Repeat the same fictional case across runs and inspect whether role differences persist without adding unsupported facts. | Versioned snapshots, repeated samples, failure definitions, and human review; current one-sample comparison is not a reliability claim. |
 | Current model and browser samples are small and single-run. | Repeat fixed cases across multiple runs and add more long-history, multilingual, refusal, and safety scenarios. | Versioned inputs, prompts, settings, raw outputs, failure definitions, and denominators reported together. |
-| No public chatbot or shareable final conversation is verified. | After authorized hosting is available, check evaluator access in a private browsing session and create a fictional final conversation with at least ten exchanged messages. | Working chatbot and conversation URLs, access check, timestamp, and exact deployed version. **Pending.** |
+| The live chatbot URL is pending. | After authorized hosting is available, submit a fictional question in a signed-out browser and confirm that the final service replies. | Deployed version, working chatbot URL and dated browser check. |
 | Student work and external reviews are not documented yet. | Ask the student team to record individual contributions and review the report; retain teacher/AI assistance accurately. | Student-approved names and contribution statements plus documented human reviews. **Pending; no names inferred here.** |
 
 ## 8. Conclusion
 
 CareBridge is a focused attempt to make everyday dementia-care communication more respectful, multilingual, and faithful to what people actually reported. Its U1, U2, and U3 designs target different needs: immediate wording, concise observation and handover, and factual family updates. The local experiments moved from a general baseline through five prompt versions and used failures—an invented time, an invalid clarification, inferred consent, and inaccurate handover details—to guide changes.
 
-The evidence is promising only within its tested scope. There were 109 direct model runs and 40 real-model browser turns, but single samples do not establish reliability; even the final Terra/medium/V5 session had an omitted outcome and a phrase requiring review. The service should therefore remain a communication aid with human confirmation, fictional demonstrations, and clear non-medical boundaries. The three-role comparison is now supported by one local sample per role-language pair, but public evaluator access, final conversation sharing, student contribution details, and specialist/language review remain pending.
+The evidence is promising only within its tested scope. There were 109 direct model runs and 40 real-model browser turns, but single samples do not establish reliability; even the final Terra/medium/V5 session had an omitted outcome and a phrase requiring review. The service should therefore remain a communication aid with human confirmation, fictional demonstrations, and clear non-medical boundaries. The three-role comparison has one local sample per role-language pair. A separate final-configuration English conversation exercised all three roles. Live chatbot access, student contribution details, and specialist and language reviews remain pending.
 
 ## 9. Team contributions and project links
 
@@ -143,8 +145,8 @@ The evidence is promising only within its tested scope. There were 109 direct mo
 - **Teacher/advisor contribution:** pending confirmation.
 - **AI assistance:** project records state that Codex agents simulated a fictional user/browser run and performed an independent AI review; the primary agent implemented and checked changes. Students should verify this account and add their own contributions before submission.
 - **Live chatbot:** pending; not publicly verified.
-- **Final-edition conversation history (at least 10 exchanged messages):** pending public link; the local Terra/V5 evidence is not a shareable public URL.
-- **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow; one submitted example returned HTTP 200. Public links are still pending.
+- **Final-edition conversation history:** [English transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md). It contains 20 exchanged messages from the final local model configuration.
+- **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow. The public interactive chatbot URL is pending.
 
 ## 10. References
 
@@ -163,10 +165,13 @@ References are presented in APA-style form. Public sources informed design and s
 11. OpenAI. (n.d.). *Reasoning models: Controlling costs*. https://developers.openai.com/api/docs/guides/reasoning#controlling-costs
 12. CareBridge project team. (2026, November 23). *WAICY iteration record and evidence log* [Internal project records, not published]. See `docs/waicy-iteration-record.md`, `docs/evidence-log.md`, and the local evidence archive `docs/source/waicy-evidence/2026-11-23/`.
 
+13. Ministry of Health and Welfare, Taiwan. (2024, March 21). *Taiwan community dementia epidemiology survey results* [English translation of the Chinese title, updated October 31, 2025]. https://www.mohw.gov.tw/cp-6653-78102-1.html
+14. Ministry of Labor, Taiwan. (2026). *Foreign workers in Taiwan by various type and nationality, end of October 2026* (Table 12-5, p. 229). Retrieved November 23, 2026, from https://statdb.mol.gov.tw/html/mon/212050.pdf
+
 ---
 
 # Registration Brief (separate from the report; 200-word maximum)
 
-**Word count: 127 (whitespace-separated)**
+**Word count: 135 (whitespace-separated)**
 
-CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and helps family members organize reported events, actions, outcomes, and unknowns into a Traditional Chinese handover draft for human review. It supports Traditional Chinese, English, and Indonesian, with different response priorities for novice caregivers, experienced caregivers, and family members. It is not a diagnostic, treatment, medication, or emergency service. We refined five prompts using fictional cases, documenting failures including an invented time, an invalid clarification, inferred consent, and inaccurate handover details. Local evidence includes 109 direct model runs, 40 browser turns, and a same-case comparison of three roles across three languages. Human care and language reviews, student contribution details, and public chatbot and conversation links remain pending.
+CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and helps family members organize reported events, actions, outcomes, and unknowns into a handover draft for human review. The interface opens in English and also offers Traditional Chinese and Indonesian conversations. New caregivers get practical wording, experienced caregivers get handover priorities, and family members get help checking facts. We refined five prompt versions using fictional cases and documented failures such as an invented time, an invalid clarification, inferred consent, and a misattributed action. Our local evaluation includes 109 direct model runs, a controlled three-role comparison in three languages, and a final 10-turn English conversation. CareBridge supports communication and directs medical or urgent questions to qualified help. The live chatbot link and specialist reviews are pending.

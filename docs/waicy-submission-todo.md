@@ -1,28 +1,35 @@
-# CareBridge｜WAICY 提交待補清單與報名簡述
+# WAICY Submission Checklist and Registration Brief
 
-## 待補清單
+## Required items still to complete
 
-| 缺少項目 | 放在哪裡 | 需要你提供 | 影響正式提交？ |
+| Item | Where it belongs | What is needed | Required for submission? |
 |---|---|---|---|
-| 公開 chatbot 網址 | 簡報第 23 頁 | 部署後的 URL，並用無痕視窗測試 | **是**（官方必備） |
-| QR code | 第 23 頁 | 確認 URL 後由我或你產生 | 否（加分） |
-| 最終版對話分享連結（≥10 則交換訊息） | 第 22、23 頁 | 在公開站用虛構案例跑一次並取得分享連結。目前只有本機匯出，且使用者端是 AI 模擬 | **是**（官方必備） |
-| 隊名、學生姓名、各自貢獻、指導者 | 第 1、28 頁；`evidence-log.md` §D | 姓名、角色、做了什麼 | **是**（評分「學生貢獻」） |
-| 參賽組別（High／Middle／Elementary）與年齡資格 | 第 1 頁；檔名 | 確認；滿 18 歲先寄信 info@waicy.org 詢問 | **是**（檔名與資格） |
-| 母語者／照護專業審查 | 第 24、26 頁 | 若完成請提供日期與修正紀錄；否則維持「未審查」 | 否，但影響限制與可信度 |
-| 公開數據原始表 | 第 3、4 頁 | 勞動部、衛福部原始統計（見 `waicy-research-notes.md`） | 否（加強可信度） |
-| 首頁照片授權 | 未使用 01 截圖 | `web/public/care-at-home.webp` 的來源與授權 | 否 |
-| Google Drive 資料夾 `LLM_High_CareBridge`、PDF `LLM_High_CareBridge.pdf`、分享權限 | 官方表單 | 由你匯出 PDF、上傳、設定可檢視 | **是** |
+| Public chatbot URL | Deck slide 23 and final PDF | Deploy the approved fictional-case prototype, then test that a judge can open it and complete a live exchange. Current state: **pending**. | Yes; the guide requires a live chatbot link. |
+| Public final-chat-history URL with at least 10 exchanged messages | Deck slides 22–23 and final PDF | The fresh English conversation was captured in Chromium on 2026-11-23; it passed 10/10 turns with V5 / OpenAI `gpt-6.1-terra` / medium reasoning, spans three role settings, and contains 20 messages from the same fictional case. Local exports: [`HTML`](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.html) and [`JSON`](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json). Use the [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) on GitHub in the final PDF. The guide minimum is 10 exchanged messages; 10 rounds/20 messages was the team's target. | Yes. |
+| Final-chat evidence archive | Local project evidence | Preserve prior local AI-simulated-user conversation and earlier project evidence as archived material. Keep it separate from the fresh final-configuration English conversation and do not present it as that new capture. | Evidence integrity. |
+| Team identity and contribution details | Deck slides 1 and 28, evidence log, official form | Confirm student names as they should appear on certificates, grade, team size, each student's contribution, and instructor details if applicable. Current state: **pending team confirmation**. | The submission form requires team information; student contribution is part of the project account and judging. |
+| Track/category and eligibility | Official form and Drive folder/file name | Select the correct track and school group. The guidebook says participants must be under 18; the WAICY webpage says ages 6–18, and the form requests a K–12 grade. These statements differ; confirm the team's eligibility with official organizer guidance. | Yes. |
+| Formal PDF | Google Drive project folder | Export the final English PDF; verify it opens, has no clipping, uses readable fonts, includes all required sections and final links, and follows the guide's folder/file naming. | Yes. |
+| Public Google Drive folder | Official form | Create the project folder and set access so the judging team can view the materials. Current state: **pending**. | Yes. |
+| Native-language / care-professional review | Slides 24 and 26 and final limitation statements | If review is completed, record reviewer role, date, scope, and changes. Otherwise clearly retain “not reviewed” statements. Current state: **not documented**. | Not an explicit guide requirement, but material to truthful limitations and credibility. |
+| Statistics and references | Deck slides 3–4 and 29–30 | Update sources, dates, denominators, and limitations using [`waicy-research-notes.md`](waicy-research-notes.md); verify all references against the exported PDF. | Required reference section; data corrections are needed if the claims stay in the deck. |
+| Photo permission / attribution | Any slide using `web/public/care-at-home.webp` | The current English screenshots omit the image. If reusing an earlier asset, confirm its source and reuse rights first. | Resolve before sharing the PDF. |
 
-## 提交前最後檢查（官方）
+## Final submission checks
 
-- [ ] 簡報內所有 `[ ]` 佔位已填或刪除。
-- [ ] Chatbot 與對話連結在無痕視窗可開。
-- [ ] PDF 可開、無截斷、字型正常；檔名符合規定。
-- [ ] 截止：2026/11/29 17:00 美東（台灣 11/30 06:00）；建議提前送件並保留確認信。
+- [ ] Every placeholder in the deck is filled or removed.
+- [ ] The live chatbot link opens and returns a reply in a signed-out browser.
+- [x] A fresh local English conversation with fictional details has 10 turns (20 messages) on the final assistant configuration. The GitHub reading view is linked above.
+- [ ] The public Drive folder and the final PDF open for a reviewer who is not signed into the owner's account.
+- [ ] The English PDF is checked after export for clipping, font substitution, readable links, and accurate references.
+- [ ] The folder/file naming follows the official guide; for the high-school category, the example format is `LLM_High_CareBridge` and `LLM_High_CareBridge.pdf`.
+- [ ] The registration brief is no more than 200 English words.
+- [ ] The official submission form is completed by the team, submitted by the deadline, and its confirmation is retained.
 
-## 報名表英文簡述（上限 200 字）
+**Official deadline:** November 29, 2026, 5:00 PM ET. On that date Eastern Time is EST (UTC−5), so the deadline is November 30, 2026, 6:00 AM Taiwan time (UTC+8). Submit earlier if possible.
 
-CareBridge is a three-language web advisor for everyday communication in dementia care. It helps caregivers find respectful phrases in Traditional Chinese, English or Indonesian, asks for missing context, and gives every phrase a Traditional Chinese reference. It serves three different users: new caregivers who need words to say now, experienced caregivers who need concise observation and handover points, and family members who need a faithful account. A five-field family summary keeps events, actions, outcomes and unknowns separate, and the user confirms it before sharing. CareBridge does not diagnose, prescribe or replace professionals, and fixed safety rules send urgent and medication questions to human help. We improved the prompt across six versions, from Baseline to V5, using fictional cases, 109 model runs and 40 browser turns. We documented failures such as an invented time, a broken reply format, “later” read as consent, and an invented action in a handover. Native-speaker and care-professional review, real-user testing and public links are still to be completed.
+**Official references:** [Guidebook](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf) · [Submission form](https://www.waicy.org/2026-submission/) · [Rubric](https://www.waicy.org/rubrics/).
 
-字數：以 `wc -w` 檢查（見下）。上述「還在進行」的最後一句請在補完後修改，不能保留已完成的假象。
+## Registration brief
+
+Use the [canonical English brief](waicy-submission-draft.md#registration-brief-separate-from-the-report-200-word-maximum). Check its wording against the links and team details that will appear in the final report.

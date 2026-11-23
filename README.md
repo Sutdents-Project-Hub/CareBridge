@@ -1,12 +1,24 @@
-# CareBridge｜失智照護三語溝通顧問
+# CareBridge
 
-CareBridge 為新手照護者、資深照護者與家屬提供繁體中文、英文、印尼文的日常溝通支援。可編輯情境草稿、連續追問、取得尊重長者的句型與中文對照，也能填寫五欄事實，確認後複製家屬摘要。
+CareBridge is a communication advisor for everyday dementia care. New caregivers can practice respectful wording, experienced caregivers can check handover priorities, and family members can separate what happened from what still needs confirming.
 
-本機已實測 OpenAI Luna 與 Terra，現行展示採 `gpt-6.1-terra`、`medium` 與 V5 提示詞。公開 Demo、審查與 WAICY 交件狀態見[競賽證據登記表](docs/evidence-log.md)。
+The website opens in English. Traditional Chinese and Indonesian are available from the language menu. The family-summary tool formats user-entered facts in English or Traditional Chinese and requires a review before copying.
 
-## 本機啟動
+## WAICY 2026
 
-使用 Node.js 24 LTS、pnpm 10。唯一執行元件在 `web/`。
+| Material | Where to find it |
+|---|---|
+| Project report and registration brief | [Editable English report](docs/waicy-submission-draft.md) · [English PDF draft](docs/source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) |
+| English demonstration | [Competition and demo guide](docs/competition.md) · [Visual evidence PDF](docs/source/waicy-submission/english-evidence-2026-11-23/CareBridge-WAICY-English-Visual-Evidence.pdf) |
+| Final-configuration English conversation | [Readable transcript](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) · [Raw JSON](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json) |
+| Design, testing and improvement | [Iteration record](docs/waicy-iteration-record.md) · [Evidence log](docs/evidence-log.md) · [Evaluation plan](docs/evaluation-plan.md) · [Test cases](docs/evaluation-cases.md) |
+| Sources and submission | [Care references](docs/knowledge-sources.md) · [Research notes](docs/waicy-research-notes.md) · [Rubric map](docs/waicy-rubric-map.md) · [Submission checklist](docs/waicy-submission-todo.md) |
+
+Local tests use fictional cases. The public chatbot and final submission status are tracked in the [evidence log](docs/evidence-log.md).
+
+## Run locally
+
+Use Node.js 24 LTS and pnpm 10.
 
 ```bash
 cd web
@@ -14,9 +26,9 @@ pnpm install --frozen-lockfile
 pnpm dev --hostname 127.0.0.1 --port 3206
 ```
 
-開啟 [http://127.0.0.1:3206](http://127.0.0.1:3206)。需要測試真實 AI 時，從 [web/.env.example](web/.env.example) 建立忽略檔 `web/.env.local`，在伺服器填入 `OPENAI_API_KEY` 與 `OPENAI_MODEL`，再重啟服務。未設定時仍可操作摘要，顧問會顯示設定狀態。
+Open [the home page](http://127.0.0.1:3206) or [the role comparison](http://127.0.0.1:3206/compare). The comparison shows saved real model replies to the same fictional case. **Try this role** opens an editable draft in a new tab. **Send** starts a live conversation.
 
-頁首「角色比較」或 [本機英文比較入口](http://127.0.0.1:3206/compare) 可查看同一題的三種角色實測回覆。切換語言可查看另兩組回覆。按「用這個角色試問」開啟新分頁，先編輯草稿再送出。
+For live replies, copy [web/.env.example](web/.env.example) to the ignored local file `web/.env.local`, set `OPENAI_API_KEY` and `OPENAI_MODEL` on the server, and restart the service. The verified demo uses `gpt-6.1-terra`, medium reasoning effort, and prompt V5. The family-summary tool is available without model access.
 
 ```bash
 pnpm lint
@@ -25,17 +37,14 @@ pnpm test
 pnpm build
 ```
 
-## 資料與照護界線
+## Privacy and care boundaries
 
-- 請使用虛構案例。聊天會將必要的近期訊息送至 OpenAI，CareBridge 以 `store: false` 發送 Responses API 請求。摘要欄位只在瀏覽器處理。
-- 採無登入、無資料庫的單一 Next.js 服務。分頁重新整理會清除內容，對話紀錄由使用者主動匯出為 JSON 或可閱讀、列印的 HTML。
-- 服務提供日常溝通支援。診斷、用藥與緊急情況應聯絡合適的專業人員或當地服務。照護內容及英／印尼文品質仍待人工審查。
+- Use fictional or de-identified details. Chat sends the necessary recent messages to the OpenAI Responses API with `store: false`. The family summary is processed in the browser.
+- The app has no sign-in or care-record database. Reloading clears the session. Users can export their conversation as JSON or readable HTML.
+- CareBridge supports everyday communication. Diagnosis, medication decisions, and urgent situations need appropriate professionals or local emergency services. Clinical and native-speaker review remain pending.
 
-## 專案文件
+## Technical handoff
 
-- [Profile](docs/project-profile.md) · [範圍與需求](docs/requirements.md) · [介面與配色](docs/ux-flows.md)
-- [Web 操作](web/README.md) · [架構](docs/architecture.md) · [OpenAI 整合](docs/integrations.md) · [隱私](docs/security-and-privacy.md)
-- [開發與交接](docs/handoff-to-agents.md) · [實作路線](docs/implementation-roadmap.md) · [評估計畫](docs/evaluation-plan.md)
-- [競賽與展示](docs/competition.md) · [迭代開發紀錄](docs/waicy-iteration-record.md) · [證據登記](docs/evidence-log.md) · [部署規劃](docs/deployment.md)
+[Web component](web/README.md) · [Requirements](docs/requirements.md) · [UX flows](docs/ux-flows.md) · [Architecture](docs/architecture.md) · [OpenAI integration](docs/integrations.md) · [Privacy](docs/security-and-privacy.md) · [Deployment](docs/deployment.md)
 
-原始發想與跨專案參賽研究稿保留在本機 `docs/source/`。可公開交接所需的 CareBridge 規格與驗收條件已整理在上述文件。
+Internal engineering notes use Traditional Chinese where it supports the team’s handoff. The table above is the English entry point for judges.

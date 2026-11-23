@@ -14,7 +14,7 @@ type Copy = Record<
   "composer" | "followUp" | "placeholder" | "send" | "working" | "replyReady" | "clear" | "retry" | "export" |
   "you" | "advisor" | "understanding" | "actions" | "phrase" | "phraseRequest" | "reference" |
   "questions" | "observe" | "help" | "limitations" | "copy" | "copyReference" | "copied" | "copyError" |
-  "summaryIntro" | "sourceLanguage" | "preview" | "confirm" | "copySummary" | "example" |
+  "summaryIntro" | "sourceLanguage" | "preview" | "summaryLanguage" | "confirm" | "copySummary" | "example" |
   "privacyIntro" | "privacyShort" | "privacyOpenAI" | "privacyStorage" | "privacyReview" | "privacyMedical" |
   "exportWarning" | "clearWarning" | "download" | "downloadReadable" | "cancel" | "downloaded" | "errorSafety" |
   "ruleNotice" | "skip" | "limitNotice",
@@ -48,8 +48,8 @@ const zh: Copy = {
   questions: "想先確認", observe: "可以留意", help: "何時尋求協助", limitations: "回覆限制",
   copy: "複製", copyReference: "複製繁中", copied: "已複製", copyError: "無法使用剪貼簿，請選取文字手動複製。",
   summaryIntro: "只填入你能確認的事。保留未知資訊，核對預覽後再自行分享。",
-  sourceLanguage: "摘要欄名固定為繁體中文，填入的原文會保留。需要翻譯時，請先自行核對後再填入。",
-  preview: "繁中摘要預覽", confirm: "我已核對內容，摘要只包含已知事實與待確認事項。",
+  sourceLanguage: "摘要語言會切換欄名與空白提示。你填入的文字會保留原文。",
+  preview: "摘要預覽", summaryLanguage: "摘要語言", confirm: "我已核對內容，摘要只包含已知事實與待確認事項。",
   copySummary: "複製摘要", example: "帶入虛構範例",
   privacyIntro: "請使用虛構情境或去識別內容。避免輸入真實姓名、聯絡方式、病歷和能辨識個人的細節。",
   privacyShort: "請用虛構或去識別情境。送出後，必要訊息會傳給 OpenAI。",
@@ -117,8 +117,8 @@ const en: Copy = {
   questions: "Questions to clarify", observe: "What to look out for", help: "When to get help", limitations: "Limits",
   copy: "Copy", copyReference: "Copy Chinese", copied: "Copied", copyError: "Clipboard unavailable. Select and copy the text manually.",
   summaryIntro: "Enter facts you can confirm. Keep unknowns visible and review the summary before sharing it.",
-  sourceLanguage: "Headings appear in Traditional Chinese. Your wording is kept as entered. Review any translation before entering it.",
-  preview: "Traditional Chinese preview", confirm: "I checked the summary. It contains known facts and items to confirm.",
+  sourceLanguage: "Summary language sets the headings and labels for blank fields. Your wording stays as entered.",
+  preview: "Summary preview", summaryLanguage: "Summary language", confirm: "I checked the summary. It contains known facts and items to confirm.",
   copySummary: "Copy summary", example: "Load fictional example",
   privacyIntro: "Use fictional situations or de-identified details. Avoid real names, contact details, medical records, and identifying information.",
   privacyShort: "Use fictional or de-identified details. Relevant messages are sent to OpenAI.",
@@ -186,8 +186,8 @@ const id: Copy = {
   questions: "Hal yang perlu ditanyakan", observe: "Yang perlu diperhatikan", help: "Kapan mencari bantuan", limitations: "Batasan jawaban",
   copy: "Salin", copyReference: "Salin versi Tionghoa", copied: "Disalin", copyError: "Papan klip tidak tersedia. Pilih dan salin teks secara manual.",
   summaryIntro: "Masukkan fakta yang dapat dipastikan. Tunjukkan hal yang belum diketahui dan periksa ringkasan sebelum membagikannya.",
-  sourceLanguage: "Judul kolom menggunakan aksara Tionghoa Tradisional. Teks Anda tetap aslinya. Periksa terjemahan sebelum memasukkannya.",
-  preview: "Pratinjau Tionghoa Tradisional", confirm: "Saya telah memeriksa fakta dan hal yang masih perlu dikonfirmasi.",
+  sourceLanguage: "Bahasa ringkasan menentukan judul dan penanda kolom kosong. Teks yang Anda masukkan tetap sama.",
+  preview: "Pratinjau ringkasan", summaryLanguage: "Bahasa ringkasan", confirm: "Saya telah memeriksa fakta dan hal yang masih perlu dikonfirmasi.",
   copySummary: "Salin ringkasan", example: "Gunakan contoh fiktif",
   privacyIntro: "Gunakan situasi fiktif atau informasi anonim. Hindari nama asli, kontak, rekam medis, dan detail pengenal.",
   privacyShort: "Gunakan situasi fiktif atau anonim. Pesan yang diperlukan dikirim ke OpenAI.",

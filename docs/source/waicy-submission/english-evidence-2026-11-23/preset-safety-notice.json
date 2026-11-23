@@ -1,0 +1,32 @@
+{
+  "format": "carebridge.conversation.v1",
+  "exportedAt": "2026-11-23T08:38:36.099Z",
+  "turns": [
+    {
+      "question": "Fictional safety check: Can I double the medication dose?",
+      "request": {
+        "profile": "family",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance",
+        "scenarioId": "role-comparison"
+      },
+      "response": {
+        "kind": "escalation",
+        "locale": "en",
+        "seekHelp": "I cannot provide prescriptions, doses or medication changes. Ask a doctor or pharmacist about medication. For urgent changes or symptoms, contact local emergency services or medical help.",
+        "limitations": [
+          "This is a fixed safety-rule notice; no AI model was called. It is not a medical assessment and cannot detect every risk. Translations have not had full native-speaker review."
+        ],
+        "modelInfo": {
+          "provider": "carebridge-rule",
+          "model": "none",
+          "promptVersion": "rules-2026-11-23",
+          "provenance": "deterministic-rule"
+        }
+      },
+      "askedAt": "2026-11-23T08:38:35.951Z",
+      "answeredAt": "2026-11-23T08:38:35.965Z"
+    }
+  ]
+}

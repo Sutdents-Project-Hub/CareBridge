@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   ArrowDownToLine, ArrowRight, ArrowUp, Bath, ChevronDown, CircleHelp,
   ClipboardList, Copy, Globe2, HeartHandshake, MessageCircle, MessagesSquare, Repeat2,
@@ -15,7 +14,7 @@ import { dictionary, fieldIds, languages, roles, storyIds, type Translation } fr
 import { prepareRequest, type Turn } from "./conversation";
 import { RoleComparison } from "./role-comparison";
 import { comparisonCapture, comparisonExamples } from "./role-comparison-data";
-import { emptyFacts, exampleFacts, formatSummary, summaryRows, type Facts } from "./summary";
+import { emptyFacts, formatSummary, summaryFormats, summaryRows, type Facts, type SummaryLanguage } from "./summary";
 import { transcriptHtml } from "./transcript";
 
 const roleIcons = { novice_caregiver: HeartHandshake, experienced_caregiver: UserRound, family: UsersRound };
@@ -37,6 +36,13 @@ function Reply({ response, onCopy }: { response: AdvisorResponse; onCopy: (text:
   const t = dictionary[response.locale];
   const phrase = response.phrase;
   const reference = response.locale !== "zh-TW" ? phrase?.zhTwReference : undefined;
+  const referenceText = reference && <div className="reference">
+    <div className="phrase-heading">
+      {response.locale === "id" && <span>{t.reference}</span>}
+      <button className="text-action phrase-copy" type="button" onClick={() => onCopy(reference)}><Copy size={16} />{t.copyReference}</button>
+    </div>
+    <p lang="zh-TW">{reference}</p>
+  </div>;
   const help = response.seekHelp && (
     <div className="help-note"><ShieldCheck size={20} /><div><h4>{t.help}</h4><p>{response.seekHelp}</p></div></div>
   );
@@ -55,13 +61,9 @@ function Reply({ response, onCopy }: { response: AdvisorResponse; onCopy: (text:
             <button className="text-action phrase-copy" type="button" onClick={() => onCopy(phrase.primary)}><Copy size={16} />{t.copy}</button>
           </div>
           <blockquote>{phrase.primary}</blockquote>
-          {reference && <div className="reference">
-            <div className="phrase-heading">
-              <span>{t.reference}</span>
-              <button className="text-action phrase-copy" type="button" onClick={() => onCopy(reference)}><Copy size={16} />{t.copyReference}</button>
-            </div>
-            <p lang="zh-TW">{reference}</p>
-          </div>}
+          {referenceText && (response.locale === "en"
+            ? <details className="reference-disclosure"><summary>{t.reference}</summary>{referenceText}</details>
+            : referenceText)}
         </div>
       )}
       <List title={t.observe} items={response.observe} />
@@ -71,10 +73,12 @@ function Reply({ response, onCopy }: { response: AdvisorResponse; onCopy: (text:
   );
 }
 
-function Summary({ t, facts, checked, onEdit, onCheck, onCopy }: {
+function Summary({ t, facts, checked, language, onLanguage, onEdit, onCheck, onCopy }: {
   t: Translation;
   facts: Facts;
   checked: boolean;
+  language: SummaryLanguage;
+  onLanguage: (language: SummaryLanguage) => void;
   onEdit: (next: Facts) => void;
   onCheck: (value: boolean) => void;
   onCopy: (text: string) => void;
@@ -84,7 +88,7 @@ function Summary({ t, facts, checked, onEdit, onCheck, onCopy }: {
     <section className="summary-view" aria-labelledby="summary-title">
       <div className="section-heading">
         <div><h2 id="summary-title">{t.summary}</h2><p>{t.summaryIntro}</p></div>
-        <button className="outline-action" type="button" onClick={() => onEdit({ ...exampleFacts })}><ClipboardList size={17} />{t.example}</button>
+        <button className="outline-action" type="button" onClick={() => onEdit({ ...summaryFormats[language].example })}><ClipboardList size={17} />{t.example}</button>
       </div>
       <div className="summary-grid">
         <div className="surface fact-form">
@@ -97,17 +101,23 @@ function Summary({ t, facts, checked, onEdit, onCheck, onCopy }: {
         </div>
         <div className="surface preview">
           <h3>{t.preview}</h3>
+          <label className="summary-language">{t.summaryLanguage}
+            <select value={language} onChange={(event) => onLanguage(event.currentTarget.value as SummaryLanguage)}>
+              <option value="en" lang="en">English</option>
+              <option value="zh-TW" lang="zh-TW">繁體中文</option>
+            </select>
+          </label>
           <p className="quiet">{t.sourceLanguage}</p>
-          <dl lang="zh-TW">
-            {summaryRows(facts).map(({ key, heading, text }) => (
-              <div key={key}><dt>{heading}</dt><dd>{text}</dd></div>
+          <dl>
+            {summaryRows(facts, language).map(({ key, heading, text }) => (
+              <div key={key}><dt lang={language}>{heading}</dt><dd lang={facts[key].trim() ? undefined : language}>{text}</dd></div>
             ))}
           </dl>
           <label className="checkbox">
             <input type="checkbox" checked={checked} disabled={!hasFacts} onChange={(event) => onCheck(event.currentTarget.checked)} />
             <span>{t.confirm}</span>
           </label>
-          <button className="primary" type="button" disabled={!checked} onClick={() => onCopy(formatSummary(facts))}>
+          <button className="primary" type="button" disabled={!checked} onClick={() => onCopy(formatSummary(facts, language))}>
             <Copy size={17} />{t.copySummary}
           </button>
         </div>
@@ -116,7 +126,7 @@ function Summary({ t, facts, checked, onEdit, onCheck, onCopy }: {
   );
 }
 
-export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", initialExampleRole }: {
+export function CareBridge({ initialMode = "chat", initialLocale = "en", initialExampleRole }: {
   initialMode?: Mode;
   initialLocale?: Locale;
   initialExampleRole?: UserProfile;
@@ -136,6 +146,7 @@ export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", init
   const [feedback, setFeedback] = useState("");
   const [facts, setFacts] = useState(emptyFacts);
   const [checked, setChecked] = useState(false);
+  const [summaryLanguage, setSummaryLanguage] = useState<SummaryLanguage | null>(null);
   const [dialog, setDialog] = useState<"privacy" | "export" | "clear">("privacy");
   const busy = useRef(false);
   const modal = useRef<HTMLDialogElement>(null);
@@ -147,7 +158,7 @@ export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", init
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = `CareBridge｜${screenTitle}`;
+    document.title = `CareBridge | ${screenTitle}`;
   }, [locale, screenTitle]);
 
   useEffect(() => {
@@ -263,13 +274,16 @@ export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", init
   return (
     <>
       <a className="skip" href="#workspace">{t.skip}</a>
-      <header className="site-header">
+      <header className="site-header" lang={locale}>
         <div className="container header-inner">
           <a className="home-link" href="#" onClick={() => setMode("chat")} aria-label="CareBridge"><Brand /></a>
           <nav aria-label="CareBridge">{links}</nav>
           <label className="language">
             <Globe2 size={17} /><span className="sr-only">{t.language}</span>
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)}>
+            <select value={locale} onChange={(event) => {
+              setLocale(event.currentTarget.value as Locale);
+              setChecked(false);
+            }}>
               {languages.map(({ id, name }) => <option key={id} value={id} lang={id}>{name}</option>)}
             </select>
             <ChevronDown size={14} />
@@ -277,14 +291,11 @@ export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", init
         </div>
       </header>
 
-      <main className="container">
+      <main className="container" lang={locale}>
         {showHero && <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <h1 id="hero-title">{t.title}</h1>
             <p>{t.intro}</p>
-          </div>
-          <div className="hero-photo">
-            <Image src="/care-at-home.webp" fill alt="" sizes="(min-width: 800px) 400px, 1px" />
           </div>
         </section>}
 
@@ -293,7 +304,8 @@ export function CareBridge({ initialMode = "chat", initialLocale = "zh-TW", init
           {mode === "comparison" ? (
             <RoleComparison locale={locale} />
           ) : mode === "summary" ? (
-            <Summary t={t} facts={facts} checked={checked}
+            <Summary t={t} facts={facts} checked={checked} language={summaryLanguage ?? (locale === "en" ? "en" : "zh-TW")}
+              onLanguage={(next) => { setSummaryLanguage(next); setChecked(false); setFeedback(""); }}
               onEdit={(next) => { setFacts(next); setChecked(false); setFeedback(""); }}
               onCheck={setChecked} onCopy={copyText} />
           ) : (

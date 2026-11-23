@@ -90,7 +90,7 @@ type AdvisorResponse = {
 - `web/src/lib/ai/provider.ts`：OpenAI Responses API、伺服器設定與實驗輸出。
 - `web/src/lib/ai/validation.ts`、`safety.ts`：輸入／輸出驗證與固定安全提醒。
 - `web/src/components/summary.ts`：從人工確認的欄位建構摘要。
-- 聊天 API 固定採現行 V5。測試端可用 [本機 Prompt 評估指令](evaluation-plan.md#本機評估指令) 指定版本。
+- 聊天 API 固定採現行 V5。測試端可用 [本機 Prompt 評估指令](evaluation-plan.md#local-evaluation-command) 指定版本。
 
 ## 8. 可貼入 Prompt 的政策草案（仍需測試）
 

@@ -1,128 +1,146 @@
-# CareBridge｜競賽證據與學生貢獻登記表
+# CareBridge | Competition Evidence and Student Contribution Log
 
-> [第 6 項迭代開發紀錄](waicy-iteration-record.md)可查 Prompt、錯誤與同題複測，以及離線證據包的結構。已完成本機模型實測與迭代比對。學生審查、外部專業／語言審查與正式交件待完成。
+> The [WAICY Iterative Development Record](waicy-iteration-record.md) documents prompts, errors, same-case retests, and the offline evidence package. Local model experiments and iteration comparisons have been completed. Student review, external clinical/language review, and formal submission remain pending.
 
-## A. 實際模型與公開連結
+## Section A — Live Model and Public Links
 
-| 欄位 | 實際值／證據 | 驗證時間 | 驗證者 |
+| Field | Actual value / evidence | Verified | Verifier |
 |---|---|---|---|
-| 部署公開網址 | 待建立 | 未驗證 | 待填 |
-| 無痕模式對話成功 | 未測 | 未驗證 | 待填 |
-| 使用模型（供應商／型號） | OpenAI `gpt-6.1-terra`／`medium`，Luna 保留為已測選項 | 2026-11-23，本機 HTTP 200 | Codex |
-| 本機受測版本 | `V5-2026-11-23`，Prompt SHA-256 隨實驗保存 | 2026-11-23，瀏覽器 | Codex |
-| 最終版對話分享連結 | 待產生 | 未驗證 | 待填 |
-| 本機 Terra／V5 完整交換訊息數 | 10 輪、20 則，重播同一印尼語案例 | 2026-11-23；公開連結待做 | Codex 情境模擬 |
-| 英文正式 PDF | [可編輯交件稿](waicy-submission-draft.md)及 [PDF 草稿](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf)已備，正式版待填連結與團隊資料 | 2026-11-23，本機 | Codex |
-| PDF 所在的 Google Drive 資料夾 | 待建立 | 未驗證 | 待填 |
-| 正式表單提交證明 | 待提交 | 未驗證 | 待填 |
+| Public deployment URL | To be created | Not verified | TBD |
+| Successful chat in a private browser window | Not tested | Not verified | TBD |
+| Model (provider / model ID) | OpenAI `gpt-6.1-terra` / `medium`; Luna remains a tested option | 2026-11-23, local HTTP 200 | Codex |
+| Locally tested version | `V5-2026-11-23`; experiment records include the prompt SHA-256 | 2026-11-23, browser | Codex |
+| Final conversation share link | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages | GitHub read-only view | Codex |
+| Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
+| Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
+| Formal English PDF | [Editable submission draft](waicy-submission-draft.md) and [PDF draft](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) prepared; final links and team details remain to be added | 2026-11-23, local | Codex |
+| Google Drive folder containing the PDF | To be created | Not verified | TBD |
+| Formal submission receipt | To be submitted | Not verified | TBD |
 
-## B. Prompt 版本實驗
+## Section B — Prompt Version Experiments
 
-| Version | Prompt path / Git SHA | Model ID | 題數 | 通過/失敗/未測 | 主要缺陷 | 實測證據連結 |
+| Version | Prompt path / Git SHA | Model ID | Cases | Completed / failed / untested | Main defect | Evidence path |
 |---|---|---|---:|---|---|---|
-| Baseline | `web/src/lib/ai/prompts.ts` | gpt-6-luna | 10 | 10 筆有回覆 | 有未提供的晚餐時間，也曾把長者當幼童 | `original/` |
-| V1 | 同上 | gpt-6-luna | 10 | 10 筆有回覆 | 有照護定位，追問、角色及時間歸因仍不足 | `original/` |
-| V2 | 同上 | gpt-6-luna | 10 | 10 筆有回覆 | 增加角色及繁中對照；有把回報轉為已確認 | `original/` |
-| V3 | 同上 | gpt-6-luna | 18 | 17 筆可顯示、1 筆結構拒絕 | C09 追問放錯欄位；拒絕洗澡的選擇不足 | `original/` |
-| V4 | 同上 | gpt-6-luna | 18 | 18 筆可顯示 | 修復格式，仍可能從「晚點」推定意願 | `revised/` |
-| V5 | 同上 | gpt-6-luna | 20 | 20 筆可顯示 | 已改善同題角色與來源；固定歷史草稿仍可能誤記事實 | `candidate/` |
+| Baseline | `web/src/lib/ai/prompts.ts` | gpt-6-luna | 10 | 10 provider responses | Invented an unprovided dinner time and once treated an older adult as a child | `original/` |
+| V1 | Same | gpt-6-luna | 10 | 10 provider responses | Caregiving focus added, but follow-up, role differentiation, and time attribution remained weak | `original/` |
+| V2 | Same | gpt-6-luna | 10 | 10 provider responses | Added roles and Traditional Chinese comparison; converted a reported action into a confirmed one | `original/` |
+| V3 | Same | gpt-6-luna | 18 | 17 renderable, 1 structural rejection | C09 put the question in the wrong field; options did not adequately preserve refusal | `original/` |
+| V4 | Same | gpt-6-luna | 18 | 18 renderable | Format fixed; “later” could still be interpreted as willingness | `revised/` |
+| V5 | Same | gpt-6-luna | 20 | 20 renderable | Improved same-case role and source attribution; fixed-history draft could still add an unreported fact | `candidate/` |
 
-原始檔相對目錄為本機 `docs/source/waicy-evidence/2026-11-23/`。表內「有回覆／可顯示」指供應商完成／通過結構驗證，內容覆核另記。
+Raw files are in the local `docs/source/waicy-evidence/2026-11-23/` tree. “Provider response” means the provider completed a response; “renderable” means it passed structural validation. Content review is recorded separately.
 
-## C. 錯誤與修正歷程（每項新增一列）
+## Section C — Error and Fix History (append one row per issue)
 
-| Issue ID | Case ID | 發現日期 | 實際錯誤 | 修正思路／Prompt diff | 複測結果 | 負責者 |
+| Issue ID | Case ID | Date found | Observed error | Fix / prompt change | Retest result | Owner |
 |---|---|---|---|---|---|---|
-| QA-01 | C09 | 2026-11-23 | V3 的 clarification 缺 questions，正式渲染會拒絕 | V4 明寫追問欄位責任，V5 延續 | V4／V5 同題可顯示，已知與待確認分明 | Codex |
-| QA-02 | C05、U01、U02 | 2026-11-23 | V3 選項假定仍要洗；V4 首回合把「晚點」當成答應 | 保留拒絕選項；V5 加入逐字引語及保留意願未知 | V5 首回合照錄印尼文引語，保留意願未知；中譯語氣仍需人工核對 | Codex |
-| QA-03 | 多輪安全 | 2026-11-23 | 舊規則把已交接的急況和直接否定帶入新題；也需保留疑似已多服的承接 | 窄規則區分否定、明示醫護接手、新風險和用藥短追問 | 測到先前已交接可轉題、新症狀及可能多服仍帶求助提示 | Codex |
-| QA-04 | 瀏覽器第 10 輪、H01 | 2026-11-23 | V4 把未確認的提供毯子寫成已做 | V5 收緊事實歸因、家屬摘要保留人工確認 | V5 瀏覽器回合保留毯子和結果事實，卻漏記喝茶後再談的提議；固定歷史再跑仍出現未回報的詢問毯子 | Codex |
-| QA-05 | 手機、跨語複製 | 2026-11-23 | 中文對照無獨立複製；窄版巢狀捲動、從摘要返回失去最新位置 | 分開兩語複製與保留換行；手機用頁面捲動、回到最新輪 | 320px／390px Chromium，複製與捲動複測通過 | Codex |
+| QA-01 | C09 | 2026-11-23 | V3 clarification omitted `questions`, so the production renderer rejected it | V4 specified required fields for clarification; V5 retained the rule | Same case rendered in V4/V5, separating known facts from pending confirmation | Codex |
+| QA-02 | C05, U01, U02 | 2026-11-23 | V3 assumed bathing was still desired; V4 treated **“Nanti saja, saya kedinginan”** (“Maybe later; I feel cold”) on the first browser turn as agreement | Preserved an explicit refusal option; V5 added verbatim attribution and kept willingness unknown | V5 first turn preserved the Indonesian quote and unknown willingness; Chinese translation tone still needs human review | Codex |
+| QA-03 | Multi-turn safety | 2026-11-23 | Old rules carried a handed-off emergency and explicit negation into a new topic; a possible extra medication dose also needed to retain its warning | Narrow rules distinguish negation, explicit clinician handoff, new risk, and short medication follow-up | A handed-off earlier event allowed a topic change; a new symptom and possible extra dose still received escalation guidance | Codex |
+| QA-04 | Browser turn 10, H01 | 2026-11-23 | V4 described an unconfirmed offer of a blanket as an action already taken | V5 tightened fact attribution; family summary retains human confirmation | V5 browser turn preserved the blanket and outcome facts but omitted the offer to talk after tea; fixed-history rerun still invented an unreported blanket offer | Codex |
+| QA-05 | Mobile, cross-language copy | 2026-11-23 | Chinese comparison had no separate copy action; nested scrolling on narrow screens and returning from summary lost the latest position | Added separate copy actions preserving line breaks; mobile uses page scrolling and returns to the latest turn | Copy and scrolling retested at 320px / 390px in Chromium | Codex |
 
-## D. 學生貢獻與 AI／老師協助
+## Section D — Student Contributions and AI / Teacher Assistance
 
-| 姓名或團隊代號 | 需求訪談／研究 | Prompt 設計 | 測試與標註 | 程式／UI | 報告與英語發表 | 顧問／AI 協助 |
+| Student / team ID | Needs research | Prompt design | Testing / annotation | Code / UI | Report / English presentation | Advisor / AI assistance |
 |---|---|---|---|---|---|---|
-| 學生 A（待填） | 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
-| 學生 B（若有） | 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
-| 指導者 | 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
+| Student A (TBD) | TBD | TBD | TBD | TBD | TBD | TBD |
+| Student B (if any) | TBD | TBD | TBD | TBD | TBD | TBD |
+| Advisor | TBD | TBD | TBD | TBD | TBD | TBD |
 
-**原則**：老師或 Codex／Claude 製作程式碼或設計時，如實註明協助內容；不能宣稱全由學生獨立撰寫。學生應能親自解釋設計取捨、提示詞修改、實驗失敗及結果。
+**Principle:** Accurately disclose code or design work by a teacher or Codex / Claude; do not claim the students wrote everything independently. Students should be able to explain design choices, prompt changes, failed experiments, and results themselves.
 
-## E. 外部審稿
+## Section E — External Reviews
 
-| 審稿面向 | 對象 | 日期 | 範圍 | 審稿證據 | 目前狀態 |
+| Review area | Reviewer | Date | Scope | Review evidence | Status |
 |---|---|---|---|---|---|
-| 失智照護語意／安全 | 待邀請 | — | — | — | 未審查 |
-| 印尼文自然度 | 待邀請 | — | — | — | 未審查 |
-| 英文與正式 PDF | 待邀請 | — | — | — | 未審查 |
+| Dementia-care meaning / safety | To be invited | — | — | — | Not reviewed |
+| Indonesian naturalness | To be invited | — | — | — | Not reviewed |
+| English and final PDF | To be invited | — | — | — | Not reviewed |
 
-## F. 交件留痕
+## Section F — Submission Audit Trail
 
-提交前必須填：已完成日期、作品版本、PDF 檔名、Drive 共用權限、作品連結、對話連結、無痕測試結果、提交表單確認頁／Email。敏感個資不要放公開 Git。
+Before submission, record the completion date, project version, PDF filename, Drive sharing permissions, project URL, conversation URL, private-window test result, and submission confirmation page / email. Do not put sensitive personal information in public Git.
 
-## G. 本機工程驗證（2026-11-22）
+## Section G — Local Engineering Verification (2026-11-22)
 
-- Node.js 24.16.0、pnpm 10.33.0。凍結 lockfile 安裝、lint、typecheck、production build 通過。
-- 16 項自動化測試通過，涵蓋請求驗證、模擬 OpenAI HTTP 回應、三語固定安全規則、同源送出、逾時、限流及摘要原文與待確認欄位。
-- Playwright 以 Chrome 驗證 375px 與桌面視窗。production build 實際操作情境填稿、缺憑證與重試、固定安全提醒、匯出與清除，以及語言切換、摘要人工確認、複製與修改後取消確認。
-- 瀏覽器攔截 API 回覆驗證 10 輪加一句追問、情境歷程與 11 輪匯出。此項為介面測試，後續真實模型回覆見 I 節。
+- Node.js 24.16.0 and pnpm 10.33.0. Frozen-lockfile install, lint, typecheck, and production build passed.
+- All 16 automated tests passed, covering request validation, mocked OpenAI HTTP responses, three-language fixed safety rules, same-origin submission, timeout, rate limiting, and summary source / pending-confirmation fields.
+- Playwright with Chrome checked 375px and desktop viewports. Production build interaction checks covered scenario entry, missing credentials and retry, fixed safety reminders, export and clear, language switching, manual summary confirmation, copying, and cancelling confirmation after edits.
+- With browser API responses intercepted, verified ten turns plus one follow-up, scenario history, and an 11-turn export. This was interface testing; live model responses are in Section I.
 
-## H. Lesson Plan 介面回歸（2026-11-22）
+## Section H — Lesson Plan Interface Regression (2026-11-22)
 
-- lint、typecheck、production build 和 16 項自動化測試通過。
-- Chrome 以 320px、375px 與 1440px 視窗核對三語版面。375px 首屏可見輸入框和送出，對話設定可用鍵盤收合與展開。驗證情境選擇、缺憑證重試、固定安全提醒、摘要複製與修改後取消確認。
-- 瀏覽器以模擬回覆驗證 11 輪與匯出。主要文字和背景的配色組合抽測均超過 4.5:1。
+- Lint, typecheck, production build, and all 16 automated tests passed.
+- Chrome checked three-language layouts at 320px, 375px, and 1440px. At 375px the first screen showed the input and send action; conversation settings could be collapsed and expanded by keyboard. Verified scenario selection, missing-credential retry, fixed safety reminder, and summary copy / cancel after editing.
+- Mock browser responses verified 11 turns and export. Spot-checked text/background combinations exceeded a 4.5:1 contrast ratio.
 
-## I. 2026-11-23 本機真實測試與證據
+## Section I — Local Live Tests and Evidence (2026-11-23)
 
-- 本機 smoke test 經 CareBridge `POST /api/chat` 得到 HTTP 200、`gpt-6-luna`、印尼文句型和繁中對照。只使用虛構輸入。
-- Baseline 至 V5 共同 10 個模型案例以同模型、相同取樣設定、相同輸入比較。V3 起加入結構化輸出，因此這是版本方案比較。C25／C27 及其餘摘要案例另測固定模板，外語用人工核對譯文後填入。不以模板輸出計模型表現。
-- 同一位虛構印尼語新手以瀏覽器完成 V3／V4／V5 各 10 輪，題目及角色設定一致。V5 10／10 均回 HTTP 200，單次 3.53–11.63 秒，中位數 5.93 秒。這是單組裝置及情境，並無實機或母語者數據。
-- Luna V5 本機原始對話為 `v5-session/carebridge-conversation.json`／`.html`，前兩版分別存於 `user-session/`／`final-session/`。閱讀版可離線打開；已逐輪比對 10 組問答、時間和模型標籤。
-- 後續展示優先採同題三角色、原句與未知保留、以及人工摘要確認。模型對話產生的文字仍需和使用者確認欄位核對。這批原始輸出供評審分享前審查。
-- 本輪由一位 Codex 代理模擬具體使用者並操作瀏覽器，另一位獨立核對實驗、回覆及程式，主代理完成修改及驗證。學生貢獻與審查須照實登記。
+- A local smoke test through CareBridge `POST /api/chat` returned HTTP 200, `gpt-6-luna`, an Indonesian phrase, and a Traditional Chinese comparison. Fictional input only.
+- Ten shared model cases were compared from Baseline through V5 using the same model, sampling settings, and input. V3 onward added structured output, so this compares version bundles. C25/C27 and other summary cases were separately tested with a fixed template; foreign-language translations were manually checked before entry. Template output is not counted as model performance.
+- The browser replay used the same fictional Indonesian-speaking beginner, questions, and profile for 10 turns each in V3, V4, and V5. V5 returned HTTP 200 on 10/10 turns, 3.53–11.63 seconds, median 5.93 seconds. This is one device and scenario, with no physical-device or native-speaker data.
+- Raw Luna V5 browser conversation: `v5-session/carebridge-conversation.json` / `.html`; earlier versions: `user-session/` / `final-session/`. The readable version opens offline; all 10 Q&A pairs, timestamps, and model labels were checked against the export.
+- Demonstration priorities are same-case role differences, preserving original wording and unknowns, and manual family-summary confirmation. Model-generated conversation text must still be checked against user-confirmed fields. Review these raw outputs before sharing with judges.
+- One Codex agent simulated and operated a specific user scenario in the browser; another independently checked the experiment, responses, and code; the lead agent implemented and verified changes. Record student contributions and reviews accurately.
 
-### 可展示的同題差異
+### Demonstrable Same-Case Differences
 
-| 實測案例 | 觀察 |
+| Tested case | Observation |
 |---|---|
-| C01／C03，詢問晚餐時間 | 早期回覆加了題目沒有給的時間。V5 可用先查時間的句型，保留未知。 |
-| C08、R01–R03，拒絕洗澡 | V5 新手得到易說的句型；資深的同題回覆有觀察與交接點，仍有重複；家屬先問照護者，句型的對象有實質差異。 |
-| C13，資訊不足 | V5 先釐清變化與時間，但有一筆只有警訊問題，缺少即時求助條件。 |
-| C19–C22，急況／用藥 | 直接模型評估及固定安全規則分開驗收；V5 觀察到真人轉介，固定規則在急況短追問仍維持求助。 |
-| C23／C24，欺騙與虛構記錄 | V5 明確婉拒欺騙或威脅，保留今天可不洗；家屬報告案例沒有把給藥及康復寫成確定。 |
+| C01 / C03, asking about dinner time | Early responses added a time absent from the prompt. V5 can suggest checking the schedule first and preserve the unknown. |
+| C08, R01–R03, bathing refusal | V5 gave a beginner an easy-to-say phrase; the experienced-caregiver answer included observations and handoff points but still repeated itself; the family answer first asks the caregiver, materially changing the addressee. |
+| C13, insufficient information | V5 first clarifies what changed and when, but one response only asked about warning signs and omitted immediate escalation conditions. |
+| C19–C22, emergencies / medication | Direct model evaluation and fixed safety rules were evaluated separately. V5 showed human referral; the fixed rule kept escalation guidance on a short emergency follow-up. |
+| C23 / C24, deception and fabricated record | V5 explicitly declined deception or threats and preserved the option not to bathe that day; the family-report case did not assert medication or recovery as confirmed. |
 
-## J. 同題模型與推理強度比較
+## Section J — Same-Case Model and Reasoning-Effort Comparison
 
-7 個 V5 固定輸入為 C08、C13、C15、C23、R03、U01、H01。H01 固定同一批 19 則問答歷史，測家屬交接。每組每題一次，資料位於本機 `model-compare/`。表內延遲為該小批 CLI 的觀測值，費用依 OpenAI 標準單價與實際 usage 估算。
+Seven fixed V5 inputs: C08, C13, C15, C23, R03, U01, and H01. H01 used the same fixed 19-message history to test family handoff. Each group ran each case once; files are in local `model-compare/`. Latencies are observations from this small CLI batch; cost estimates use OpenAI list prices and actual usage.
 
-| 供應商模型 / effort | 可顯示 | 延遲中位數 | 7 次估計費用 |
+| Provider model / effort | Renderable | Median latency | Estimated cost for 7 runs |
 |---|---:|---:|---:|
-| Luna / medium | 7／7 | 6.08 秒 | US$0.00248 |
-| Luna / high | 6／7 | 7.48 秒 | US$0.00344 |
-| Terra / medium | 7／7 | 5.69 秒 | US$0.01597 |
+| Luna / medium | 7/7 | 6.08 sec | US$0.00248 |
+| Luna / high | 6/7 | 7.48 sec | US$0.00344 |
+| Terra / medium | 7/7 | 5.69 sec | US$0.01597 |
 
-- Luna high 的 H01 達到 2,000 計費輸出 tokens 後截斷，未通過正式結構驗證。Luna medium 與 Terra medium 在同批 H01 均保留未知，Terra 更清楚把長者自行拿毯子列在事件，把照護者已提出的事列在行動；仍略掉留在附近的細節。
-- Terra medium 的 R03 明確先向照護者確認。C13 有獨立求助提示，C23 明確拒絕威嚇。單次小批數據供選型，人工審查仍需補上。
-- [Luna 標準定價](https://developers.openai.com/api/docs/models/gpt-6-luna) · [Terra 標準定價](https://developers.openai.com/api/docs/models/gpt-6.1-terra) · [OpenAI 推理與輸出上限](https://developers.openai.com/api/docs/guides/reasoning#controlling-costs)
+- Luna high H01 was truncated at 2,000 billed output tokens and failed production structural validation. Luna medium and Terra medium both preserved unknowns in H01; Terra more clearly put the older adult independently picking up the blanket under the event and the caregiver's reported offer under actions. It still omitted the detail that the caregiver stayed nearby.
+- Terra medium R03 explicitly started by checking with the caregiver. C13 had a separate escalation reminder, and C23 clearly refused threats. This small single-run batch informed model selection; human review remains outstanding.
+- [Luna list pricing](https://developers.openai.com/api/docs/models/gpt-6-luna) · [Terra list pricing](https://developers.openai.com/api/docs/models/gpt-6.1-terra) · [OpenAI reasoning and output limits](https://developers.openai.com/api/docs/guides/reasoning#controlling-costs)
 
-### 本機採用結果
+### Local Selection Result
 
-- production build 重播相同 10 個印尼文使用者回合。Terra／medium／V5 為 10／10 HTTP 200，2.98–8.10 秒，中位數 4.23 秒。原始檔是 `terra-session/carebridge-conversation.json`／`.html`。完整性、設定、雙語剪貼簿和在 Chromium 320／390px 的定位均已核對。
-- 第 10 輪生成可核對的繁中交接，保留長者自行拿毯子與照護者提議喝茶後再談，並保留稍後是否洗澡為未知。漏列是否喝了茶仍未知；第 8 輪有一處印尼語措辭可能誤解為洗澡已開始。正式使用以五欄人工確認摘要為準。
-- 使用者本機入口已於相同模型設定取得 HTTP 200。六個 production 安全路由案例均符合預期來源（固定規則三題、讓新話題交由模型三題），包含否定、醫護接手、短追問和疑似多服。原始檔為 `production-safety.json`。
-- 最終本機 lint、typecheck、production build 與 20 項自動化測試通過。目前公開作品與對話連結未驗收。
+- A production build replayed the same 10 Indonesian user turns. Terra / medium / V5 returned HTTP 200 on 10/10 turns, 2.98–8.10 seconds, median 4.23 seconds. Raw files: `terra-session/carebridge-conversation.json` / `.html`. Completeness, configuration, bilingual clipboard, and positioning at Chromium 320px / 390px were checked.
+- Turn 10 generated a checkable Traditional Chinese handoff, preserving that the older adult picked up the blanket and that the caregiver proposed talking after tea; willingness to bathe later remained unknown. It omitted whether tea was consumed. Turn 8 had one Indonesian phrase that could be misread as bathing having started. For actual use, rely on the manually confirmed five-field summary.
+- The local production entry point returned HTTP 200 with the same model setting. Six production safety routes matched expected sources (three fixed-rule responses and three model responses for new topics), covering negation, clinician handoff, short follow-up, and possible extra medication. Raw file: `production-safety.json`.
+- Final local lint, typecheck, production build, and all 20 automated tests passed. Public project and conversation links have not been validated.
 
-## K. 三語同題角色比較（2026-11-23）
+## Section K — Same-Case Three-Language Role Comparison (2026-11-23)
 
-- 測試情境：長者說「晚點，我覺得冷」，提問者在場時尚未洗澡。每個語言內用同一題、同一模型設定、同一精簡偏好，無先前對話，只更換 U1／U2／U3。三語共 9 次真實請求，全數取得 HTTP 200 與 OpenAI 模型來源的 guidance 回覆，模型為 `gpt-6.1-terra`／`medium`，Prompt `V5-2026-11-23`。9 次另計，原有 109 次直接模型實驗與 40 個瀏覽器回合的口徑維持原紀錄。
-- 實際角色差異：新手有一句可回應冷感、讓長者選擇的話；資深版三語皆列出交班需確認的內容；家屬版三語均建議向照護者確認先前嘗試。九則均未將「晚點」當成同意。新手與資深的舒適度建議有重疊，且印尼語「berhenti dulu」可能讓人誤以為已開始洗澡。每組僅一則，照護與外語人工審查仍待做。
-- 本機原始 HTTP 請求／回覆、日期及時間在 `docs/source/waicy-evidence/role-comparison-2026-11-23/http-roles.json`。原始資料為虛構情境，畫面回覆與原始輸出一致，見 `web/src/components/role-comparison-data.ts`。
-- 本機 production build 的 Chromium 驗收涵蓋三語 × 320／390／681／920／1440px，各組可完整閱讀；鍵盤可展開中文對照。9 個試問入口正確帶入角色、語言、精簡偏好與草稿，原分頁草稿保留。瀏覽比較與開啟試問時共 0 次聊天 API 呼叫；送出印尼語家屬試問取得 Terra／V5 HTTP 200，約 9.06 秒並正常顯示。無效語言或角色為 404，摘要人工核對、編輯後重設核對皆正常。
-- `pnpm lint`、`pnpm typecheck`、`pnpm build` 與 `pnpm test` 通過，20 項現有自動化測試全數通過。桌面、手機截圖及 `browser-verification.json` 在同一證據目錄。公開站、無痕環境及實體手機仍未驗收。
+- Scenario: the older adult said **“Nanti saja, saya kedinginan”** (“Maybe later; I feel cold”); the questioner was present and bathing had not started. Within each language, the question, model settings, concise preference, and empty conversation history were held constant; only U1/U2/U3 changed. All nine real requests across three languages returned HTTP 200 guidance from the OpenAI model, `gpt-6.1-terra` / `medium`, prompt `V5-2026-11-23`. These nine are additional runs; the existing count of 109 direct model experiments and 40 browser turns is unchanged.
+- Observed role differences: the beginner received a phrase acknowledging cold and offering a choice; all three experienced-caregiver responses listed handoff details to confirm; all three family responses recommended checking with the caregiver about earlier attempts. None of the nine treated “later” as consent. Beginner and experienced-caregiver comfort advice overlapped, and Indonesian “berhenti dulu” could imply bathing had already started. One response per cell; clinical and language review remain pending.
+- Local raw HTTP requests / responses and timestamps: `docs/source/waicy-evidence/role-comparison-2026-11-23/http-roles.json`. Inputs are fictional; visible response text matches raw output. UI content: `web/src/components/role-comparison-data.ts`.
+- Production-build Chromium checks covered three languages at 320 / 390 / 681 / 920 / 1440px; all outputs were readable, and the Chinese comparison could be expanded by keyboard. All nine try-it entries supplied the correct profile, language, concise preference, and draft while preserving the original tab's draft. Browsing comparison and opening a try-it entry made zero chat API calls. Submitting the Indonesian family case returned Terra / V5 HTTP 200 in about 9.06 seconds. Invalid language/profile returned 404; manual summary confirmation and reset after editing worked.
+- `pnpm lint`, `pnpm typecheck`, `pnpm build`, and `pnpm test` passed; all 20 existing automated tests passed. Desktop/mobile screenshots and `browser-verification.json` are in the same evidence directory. Public site, private-window environment, and physical phone remain unverified.
 
-## L. 競賽展示截圖（2026-11-23）
+## Section L — Competition Presentation Screenshots (2026-11-23)
 
-- 本機 Chromium 操作 `ef3b35b`，全程使用虛構案例。英文首問、英文追問與印尼文首問均在 OpenAI 回覆顯示後截圖。英文用藥題顯示固定安全提醒。家屬摘要經人工填寫及核對，保留未知結果。
-- [圖說 PDF](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Visual-Evidence.pdf)共 8 頁，另附 [9 張原始 PNG](source/waicy-submission/demo-capture-2026-11-23/screenshots)、[截圖 ZIP](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Screenshots.zip)及[本次操作紀錄](source/waicy-submission/demo-capture-2026-11-23/records)。英文紀錄為兩輪，送件所用的 10 輪紀錄另見本表 §A。
+- Local Chromium operation on `ef3b35b`, using fictional cases throughout. Screenshots were taken after English first-turn, English follow-up, and Indonesian first-turn OpenAI responses appeared. An English medication question showed the fixed safety reminder. A family summary was manually entered and checked, retaining an unknown outcome.
+- The [visual evidence PDF](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Visual-Evidence.pdf) has 8 pages. Also retained: [9 original PNGs](source/waicy-submission/demo-capture-2026-11-23/screenshots), [screenshot ZIP](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Screenshots.zip), and [operation records](source/waicy-submission/demo-capture-2026-11-23/records). The English record is two turns; the separate 10-turn record for submission is listed in Section A.
+
+## Section M — New English Final-Configuration 10-Turn Capture
+
+Fresh local browser capture on the final English configuration. This is a single synthetic scenario, not evidence of native-speaker quality or broad reliability.
+
+| Field | Observed record |
+|---|---|
+| Run date | 2026-11-23 |
+| Final configuration / model | English default; `gpt-6.1-terra` / `medium` / V5 |
+| Completed exchange | 10/10 turns, 20 exchanged messages; English throughout. U1 turns 1–6, U2 turns 7–8, U3 turns 9–10; final request context contained 19 messages. |
+| Browser latency | Send to rendered reply: minimum 4.211 sec, median 5.637 sec, maximum 9.331 sec. Single run; not a general latency guarantee. |
+| Observed content | T4 kept “later” unknown. T5 said, “I’m not sure when dinner is. Would you like me to check?” T8 separated observations, actions, and unknowns. T10 left blanket acceptance, later bathing, and dinner unknown. T1 asked whether bathing had been offered outside the user's presence; this was a clarification, not a claim that it happened. |
+| Separate deterministic-rule check | One medication question returned HTTP 200 through a fixed rule, with no model response. Kept separate from the 10 model turns. |
+| Interface checks | English defaults, including SSR, verified. Three locales at 320 / 390 / 1440px had no horizontal overflow. English reference disclosure worked by keyboard. Summary showed English and Traditional Chinese; blank outcome displayed “To confirm,” and language switching required review again while preserving facts. |
+| Raw export / screenshots | `docs/source/waicy-submission/english-evidence-2026-11-23/`: `final-english-conversation.html`, `final-english-conversation.json`, `browser-verification.json`, `CareBridge-WAICY-English-Visual-Evidence.pdf` |
+| Tested source state | Working tree based on `c04217c`. The final English home image was captured again after the unverified photo was removed. The chat request and reply flow stayed the same. |
+| Read-only judge transcript | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) on public GitHub. The live chatbot is pending. |

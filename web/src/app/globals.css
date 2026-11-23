@@ -71,8 +71,6 @@ svg { flex-shrink: 0; vertical-align: middle; }
 .hero-copy { padding: 24px; align-self: center; }
 .hero h1 { font: 600 clamp(1.8rem, 3.8vw, 3rem)/1.14 var(--headline); text-wrap: balance; }
 .hero p { max-width: 49ch; margin-top: 12px; line-height: 1.6; }
-.hero-photo { display: none; position: relative; }
-.hero-photo img { object-fit: cover; object-position: center 42%; }
 
 .primary, .outline-action, .text-action, .icon-action, .topic-options button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -221,6 +219,11 @@ legend, .composer > label { display: block; padding: 0; margin-bottom: 8px; font
 .reference { color: var(--muted); font-size: .875rem; }
 .reference .phrase-heading { flex-wrap: wrap; }
 .reference p { color: var(--ink); white-space: pre-wrap; }
+.reference-disclosure summary {
+  display: list-item; width: fit-content; min-height: 44px; padding-block: 10px;
+  color: var(--brand-ink); cursor: pointer; font-size: .875rem;
+}
+.reference-disclosure .phrase-heading { justify-content: flex-end; }
 .help-note, .error-note {
   background: var(--notice-bg); color: var(--notice); padding: 12px 14px;
   border-radius: var(--small-radius); display: flex; gap: 8px; align-items: start; overflow-wrap: anywhere;
@@ -245,6 +248,14 @@ legend, .composer > label { display: block; padding: 0; margin-bottom: 8px; font
 }
 .preview { background: var(--panel); }
 .preview h3 { font: 600 1.375rem/1.25 var(--headline); margin-bottom: 6px; }
+.summary-language {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-block: 8px;
+  color: var(--ink); font-weight: 700; font-size: .9375rem;
+}
+.summary-language select {
+  min-height: 44px; padding: 6px 10px; border: 1px solid var(--input-line);
+  border-radius: var(--small-radius); background: var(--surface); color: var(--ink);
+}
 .preview dl { border-top: 1px solid var(--line); margin: 14px 0; }
 .preview dl div { display: grid; grid-template-columns: minmax(84px, .75fr) minmax(0, 2fr); gap: 12px; border-bottom: 1px solid var(--line); padding: 10px 0; }
 .preview dt { color: var(--ink); font-weight: 700; }
@@ -278,9 +289,8 @@ dialog::backdrop { background: rgb(30 43 74 / .44); }
 
 @media (min-width: 800px) {
   .container { width: min(100% - 64px, 1120px); }
-  .hero { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(250px, 1fr); gap: 12px; min-height: 202px; margin-top: 28px; }
+  .hero { margin-top: 28px; }
   .hero-copy { padding: 24px 16px 24px 32px; }
-  .hero-photo { display: block; min-height: 174px; margin: 12px; overflow: hidden; border-radius: 10px; }
   .chat-panel[data-topics="true"] {
     grid-template-columns: minmax(0, 2fr) minmax(238px, 1fr);
     grid-template-areas: "heading heading" "settings topics" "composer topics";

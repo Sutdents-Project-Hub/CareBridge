@@ -1,40 +1,41 @@
-# CareBridge｜失智照護專業內容與三語參考來源（候選）
+# CareBridge Dementia-Care and Multilingual Reference Sources
 
-> 2026-11-20 檢索紀錄。官方／醫療機構來源能支持**內容設計的研究方向**，不代表 CareBridge 自動取得臨床認證或翻譯驗證。
-> 此專案只供日常溝通輔助；避免把文章中可能涉及醫療判斷的部分直接改成個人處置指示。
+> Candidate research sources reviewed on 2026-11-23. Official and health-care sources can inform content design; they do not certify CareBridge clinically or validate all generated translations. This product supports everyday communication only. Do not turn material involving clinical judgment into individualized medical instructions.
 
-## 優先核對的來源
+## Priority sources to verify against
 
-| ID | 官方機構／資料 | 網址 | CareBridge 擬使用方式 | 注意事項 |
+| ID | Organization / source | URL | Intended CareBridge use | Scope and caution |
 |---|---|---|---|---|
-| K01 | 臺中市政府衛生局《失智症溝通原則（含英文、印尼文、越南文）》2026-06-10 | https://www.health.taichung.gov.tw/26198/1614263/1617544/1620768/1679215/3296048 | 中文＋英文＋印尼文核心用語核對與尊重式句型參考 | 是公開政府衛教，不等於所有 AI 回覆均正確 |
-| K02 | 衛生福利部國健署來源之失智症溝通原則／屏東榮民總醫院衛教 | https://org.ptvgh.gov.tw/psy/News_Content.aspx?n=1EF0A533F3AE877F&s=61A267D5C0CAE2B2&sms=E47D2CCFAE573CB1 | 補核台灣本地語境與多語句子 | 使用前查原始來源、授權與更新日期 |
-| K03 | 美國 National Institute on Aging：Communicating With Someone Who Has Alzheimer’s Disease | https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/communicating-someone-who-has-alzheimers | 一般溝通難點、非強迫式說話與回應技巧 | Alzheimer’s 與各種類型失智不可無條件完全等同 |
-| K04 | 美國 NIA：Do’s and Don’ts Communicating With a Person Who Has Alzheimer’s Disease（2026-07-22 更新） | https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/dos-and-donts-communicating-person-who-has | 建立尊重、耐心、簡短提問等一般溝通測試期望 | 避免逐段照抄或擴大為醫療建議 |
-| K05 | WHO：iSupport for Dementia（2019，照護者訓練／支持手冊） | https://www.who.int/publications/i/item/9789241515863 | 研究照護者困境、日常照護和情緒行為變化的教育框架 | WHO 手冊有授權條款；轉載、翻譯、商用及衍生利用需確認授權 |
-| K06 | Alzheimer's Association：Communication | https://www.alz.org/help-support/caregiving/daily-care/communications | 比較溝通友善與尊重性、避免爭吵／催促的設計建議 | 只能作內容研究，未授權不可大量直接複製 |
+| K01 | Taiwan Health Promotion Administration, *失智症溝通單張(含英、越、印尼文)* [Dementia communication leaflet (Chinese, English, Vietnamese, and Indonesian)] | [Official page](https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=871&pid=14131) | Cross-check core Chinese, English, and Indonesian terms and respectful communication suggestions. | Official health education material. The page gives the 7.99% prevalence context for Taiwan's community-dwelling adults aged 65+ from a survey conducted in 2020–2023; it is not evidence that every AI response is correct. The original leaflet is the source to check; it is not native-speaker review of CareBridge output. |
+| K02 | Pingtung Veterans General Hospital, Department of Psychosomatic Medicine, *失智症溝通原則* [Communication principles for dementia] (published 2024-02-06; source credited to Taiwan HPA) | [Official page](https://org.ptvgh.gov.tw/psy/News_Content.aspx?n=1EF0A533F3AE877F&s=61A267D5C0CAE2B2&sms=E47D2CCFAE573CB1) | Cross-check local context and Chinese, English, and Indonesian sentence examples; the page also provides Vietnamese. | Secondary host of HPA material, not an independent clinical guideline. Check the HPA original where possible. Its examples support design exploration, not individualized clinical advice. |
+| K03 | U.S. National Institute on Aging (NIA), *Communicating With Someone Who Has Alzheimer’s Disease* | [Official page](https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/communicating-someone-who-has-alzheimers) | General communication challenges, allowing time, and non-confrontational phrasing. | Alzheimer’s disease is one cause of dementia; do not treat Alzheimer’s guidance as automatically applicable to every person or situation involving dementia. |
+| K04 | U.S. NIA, *Infographic: Do’s and Don’ts: Communicating With a Person Who Has Alzheimer’s Disease* (updated 2026-07-22) | [Official page](https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/dos-and-donts-communicating-person-who-has) | Build test expectations for respectful, patient communication, extra response time, and simple questions. | Do not copy the page wholesale or expand its suggestions into medical advice. Its scope is Alzheimer’s disease. |
+| K05 | World Health Organization (WHO), *iSupport for dementia: Training and support manual for carers of people with dementia* (2019) | [WHO publication](https://www.who.int/publications-detail-redirect/9789241515863) · [PDF](https://iris.who.int/bitstream/handle/10665/324794/9789241515863-eng.pdf?sequence=1) | Understand caregiver needs, everyday care, and education about behavioral changes. | Licensed CC BY-NC-SA 3.0 IGO. Non-commercial reuse/adaptation requires attribution and the same or a compatible license; commercial use requires WHO permission. Do not upload the complete manual to RAG or reproduce its material without checking rights and intended use. |
+| K06 | Alzheimer’s Association, *Communication and Alzheimer’s* | [Official page](https://www.alz.org/help-support/caregiving/daily-care/communications) | Compare communication-supportive and respectful design suggestions; avoid arguing or rushing. | Use as a research source only. Do not reproduce substantial text without permission. |
+| K07 | Taiwan Ministry of Health and Welfare (MOHW), *衛生福利部公布最新臺灣社區失智症流行病學調查結果* [MOHW announces results of Taiwan's latest community dementia epidemiology survey] (2024-03-21; page updated 2025-10-31) | [Official source](https://www.mohw.gov.tw/cp-6653-78102-1.html) | Source the 7.99% prevalence among community-dwelling adults aged 65+ and population estimates. | Survey fieldwork covered 2020–2023 with stratified, multistage cluster sampling across 22 cities/counties and a two-stage household assessment. MOHW's approximate 350,000 for 2024 and 2025 year-end report estimates are modeled population estimates, not direct case counts. |
+| K08 | U.S. Centers for Disease Control and Prevention (CDC), *Signs and Symptoms of Stroke* (updated 2026-05-19) | [Official page](https://www.cdc.gov/stroke/signs-symptoms/) | Inform fictional urgent-symptom test cases and the wording of a prompt to contact local emergency services. | CareBridge may direct people to urgent human help; it must not claim that its checks diagnose stroke or any other condition. The U.S. 9-1-1 instruction must not be copied into Taiwan-specific advice without localization. |
 
-急迫語句的測試範圍參考國健署與 CDC 的突發語言和單側肢體警訊。CareBridge 只提供真人求助指引，這些來源也不代表規則已驗證為臨床判斷工具。[國健署](https://www.mohw.gov.tw/cp-16-88307-1.html) · [CDC](https://www.cdc.gov/stroke/signs-symptoms/)
+## Initial content-use rules
 
-## 初版內容使用規則
+1. Build a short, human-checked communication-principles table before using any principle in prompts (for example: respect choices, speak simply and slowly, ask one question at a time, wait patiently, and do not force the person). Trace each item to K01–K06 and retain the relevant source wording and scope.
+2. Do not automatically pass a full manual or webpage into RAG without review. A compact set of dependable principles and a system prompt are sufficient for the initial version; a vector database is not required.
+3. Have a competent speaker of each language review example sentences for naturalness and meaning. Government multilingual material is one reference, not proof that newly generated sentences have passed review.
+4. If substantial source wording is quoted in a formal PDF, include the author or organization, page title, publisher, publication or update date, access date, URL, and a suitable citation. Keep quotations limited and check reuse rights.
+5. If a suggestion has no credible source, do not state that it is “medically proven.” Mark it as an unreviewed candidate that needs review.
+6. For diagnosis, medication, or sudden emergencies, stay within the assistant's role and direct people to an appropriate professional or emergency service. Health-education sources do not authorize the assistant to exceed these boundaries.
+7. Claims such as “expert-reviewed” or “native-speaker-validated Indonesian” require actual people, dates, review scope, and records. Otherwise, disclose that review has not been completed in the formal submission.
 
-1. 先建立一份**人工核對過**的短小溝通原則表（如尊重選擇、簡短慢速、一次一個問題、耐心等待、避免強迫），每項可追溯到 K01–K06。
-2. 不在沒有審核時自動把整本手冊或頁面全文丟給 RAG；初版依可靠的精簡原則和 system prompt 即可，不必做向量資料庫。
-3. 每個語言的句子由實際母語者／語言能力者核對自然度；政府多語文宣只是來源之一，不等於所有新生成句子可直接通過審查。
-4. 如果引用實際文章段落到正式 PDF，保留作者、頁面標題、機構、發布／更新日期、引用日、URL 與適當格式；避免過量引用或使用未授權媒體。
-5. 若某項建議只有 AI 想像、無可信出處，不能說「根據醫學證據證明」。將其標記為需要審查的候選說法。
-6. 對診斷、藥物、突發急症仍以「非本助理權限、尋求適當專業」處理，不能因資料庫有醫療衛教就超出界線。
-7. 如要在正式作品聲稱「專家審核」「印尼語經母語驗證」，必須有真實的人員、日期、範圍和記錄；否則要在 PDF 明確揭露未完成。
+## Source review status
 
-## 來源核對工作表
-
-| ID | 網址可讀 | 機構／日期核對 | 引用／翻譯授權核對 | 三語語義核對 | 可納入 Prompt？ |
+| ID | URL checked | Organization / date checked | Reuse-rights review | Language / meaning review | Prompt use |
 |---|---|---|---|---|---|
-| K01 | 初步核對 | 已查看官方網頁（2026-11-20） | 待核對 | 待母語審查 | 候選 |
-| K02 | 初步核對 | 已查看衛教頁 | 待核對 | 待母語審查 | 候選 |
-| K03 | 初步核對 | 已查看 NIH 網頁 | 待核對 | 英文待核對 | 候選 |
-| K04 | 初步核對 | 已查看 NIH 網頁 | 待核對 | 英文待核對 | 候選 |
-| K05 | 初步核對 | 已查看 WHO 頁面 | 待依具體用法核對 | 不適用 | 候選 |
-| K06 | 初步核對 | 已查看協會網頁 | 待核對 | 英文待核對 | 候選 |
+| K01 | Yes; official HPA page accessible; direct Taichung mirror timed out during this review | HPA page checked; Pingtung Veterans General Hospital mirror reviewed | Not checked | No native-speaker review | Candidate; manually check source leaflet before use |
+| K02 | Yes | Hospital page shows publication date 2024-02-06 and credits HPA as source | Not checked | No native-speaker review | Candidate |
+| K03 | Yes | NIA page reviewed | Not checked | English guidance only; no translation review | Candidate |
+| K04 | Yes | NIA page reviewed; updated 2026-07-22 | Not checked | English guidance only; no translation review | Candidate |
+| K05 | Yes | WHO publication page and manual reviewed; 2019 publication | CC BY-NC-SA 3.0 IGO terms checked; no reuse/adaptation performed | Not applicable | Candidate; do not reproduce until the use is scoped |
+| K06 | Yes | Alzheimer’s Association page reviewed | Not checked | English guidance only; no translation review | Candidate |
+| K07 | Yes | MOHW source and date reviewed; method and estimate labels checked | Government source; third-party material rights still need review | Not applicable | Candidate for cited context only |
+| K08 | Yes | CDC page reviewed; updated 2026-05-19 | Not checked | English source only; no localization review | Candidate for fictional safety cases only |
 
-**現況**：來源清單已初步研究；尚未形成專家審查過的專用知識庫、RAG、正式引用頁或臨床效果證據。
+**Current status:** This is a reviewed source list, not an expert-reviewed CareBridge knowledge base, a RAG corpus, a formal bibliography already embedded in the product, or evidence of clinical effectiveness. No native-language review of generated Indonesian output has been documented.
