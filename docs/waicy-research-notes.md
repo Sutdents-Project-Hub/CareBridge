@@ -2,25 +2,34 @@
 
 This note distinguishes published or official statistics from CareBridge's own project evidence. Sources were checked on 2026-11-23 unless an item says otherwise. Brief excerpts are included only to identify the supporting claim; consult the linked source for full context.
 
-## External statistics and background used in the current deck
+## External evidence used in the current deck (32 slides; international sources first)
 
-| Deck claim / topic | Source and what it supports | Evidence type and limits |
+All items were checked on 2026-11-23 or 2026-11-24 from the cited pages. Brief excerpts identify the claim only.
+
+| Deck claim (slide) | Source and what it supports | Evidence type and limits |
 |---|---|---|
-| In 2021, 57 million people worldwide were living with dementia; nearly 10 million new cases occur each year. | WHO's *Dementia* fact sheet says both. | Official global estimates. Keep the 2021 reference year attached to the 57 million figure. The fact sheet was updated 2026-10-26. |
-| Informal carers provide an average of five hours of care and supervision per day. | The same WHO fact sheet reports this under its cost estimate for 2019. | The five-hour figure is a global average reported in a 2019 context, not a 2021 measure and not a Taiwan-specific statistic. |
-| Taiwan has about 350,000 people with dementia (2024 estimate); 7.99% of community-dwelling adults aged 65+ have dementia. | MOHW's 2024 survey release reports 7.99% among community-dwelling adults aged 65+ and estimates about 350,000 people aged 65+ for 2024 using survey prevalence and population projections. | Primary government source. The percentage is a survey estimate based on 2020–2023 fieldwork across 22 cities/counties; the population count is modeled, not a registry count. The 2024 MOHW annual report later estimates 354,586 people for the end of 2024, of whom 239,720 were recorded as diagnosed. If the deck uses “about 350,000,” label it as the 2024 MOHW estimate, not as a direct count. |
-| Migrant caregivers are a substantial part of Taiwan's care workforce; many come from Indonesia. | An earlier deck draft cited a 2026 Taipei Times commentary reporting one in four migrant workers in the care sector and 82% of migrant care workers from Indonesia, attributed generally to MOL. The October 2026 MOL table reports 926,202 foreign workers in total and 241,800 social-welfare foreign workers; within that category, 201,177 are Indonesian. | Use the primary MOL table and explicitly label the category and date. On the MOL table's “social welfare” denominator, 201,177 / 241,800 = 83.2%; on the narrower “family nursing” denominator, 188,424 / 216,193 = 87.2%. “One in four” is approximately 26.1% if calculated as all 241,800 social-welfare workers divided by all 926,202 foreign workers. These data count migrant workers by occupation and nationality, not dementia caregivers. |
-| A 94.3% figure for migrant caregivers needing dementia-care instruction. | A 2020 Taipei Times report attributes this result to a 2019 study by Chen Cheng-fen (陳正芬), saying respondents reported needing instruction on caring for people with dementia. | Secondary report. The article does not state the sample size, sampling frame, survey instrument, or uncertainty for 94.3%. Do not present it as a representative prevalence estimate or imply all migrant caregivers need the same support. If retained, describe it explicitly as a reported 2019 study finding and disclose that the article omits the denominator and sampling details. |
-| Dementia literacy and caregiver burden among Indonesian caregivers in Taiwan. | Widiyaningsih and Chiu's 2025 conference abstract reports a cross-sectional convenience sample of 250 Indonesian caregivers interviewed in Taiwan from June to December 2024. | Primary study abstract in *Alzheimer’s & Dementia*. It reports mean dementia-literacy score 72.29 (SD 13.82) and mean Zarit Burden Interview score 30.48 (SD 16.44), with associations in this sample. It is not a probability sample and cannot be generalized to all Indonesian or migrant caregivers. The abstract mentions language barriers in its background but does not establish language as a measured predictor. |
-| Foreign caregivers may face limited Mandarin fluency or specialized training. | An earlier deck uses a 2026 Taiwan Business TOPICS statement by Fulco. The live article returned HTTP 403 during this review; the citation was recovered from the archived slide bibliography. | Secondary, non-quantitative reporting. Do not turn this sentence into a measured rate or imply it applies to every caregiver. Use a qualified attribution or remove it if the deck lacks room for context. |
+| 57 million people living with dementia (2021); nearly 10 million new cases a year; informal carers give about 5 hours of care and supervision a day (3) | WHO, *Dementia* fact sheet (page dated 2026-10-26). | Official global estimates; keep the 2021 reference year with the 57 million figure. The 5 hours figure is the fact sheet's own global average. |
+| Nearly 12 million (11.475 million) US caregivers gave 19 billion hours of unpaid care in 2024, valued at $413.4 billion; 60% were employed and 57% of those went in late, left early or took time off (3) | Alzheimer's Association, *2025 Alzheimer's disease facts and figures: Executive summary* (text extracted from the PDF and read locally). | US nonprofit report built on published surveys. US-only. The 57% applies to the employed caregivers, as worded in the summary. |
+| 18.3% of US adults (about 47 million) gave regular care to a friend or family member in the past 30 days (3) | Vahratian et al. (2026), NCHS Data Brief 576, 2025 National Health Interview Survey (95% CI 17.7–19.0). | US government survey. Covers caregiving for any health problem or disability, not dementia specifically. |
+| About two-thirds of ~70,000 respondents in 155 countries think dementia is a natural part of ageing (4) | Alzheimer's Disease International (2019), *World Alzheimer Report 2019*; ADI news item (published 2019-09-01) analysed by LSE. | Large online attitudes survey of people with dementia, carers, practitioners and the public. Not a probability sample of any country; 2019 data. |
+| Language and communication were “the most fundamental barrier” to adjusted dementia care; a shared language “does not guarantee understanding” (4) | Sagbakken, Ingebretsen & Spilker (2020), *PLOS ONE* 15(12): e0243803 (Norway): 9 focus groups with 51 older immigrants from 10 countries, 12 relatives, 27 health professionals. | Qualitative, one country. Quotes taken from the abstract and the first part of the paper; the author initials (M., R., R. S.) were not independently confirmed and should be checked in the final PDF. |
+| 83.2% of Taiwan's migrant social-welfare workers are Indonesian (201,177 of 241,800) (4) | Taiwan Ministry of Labor, Table 12-5 (end of October 2026), as recorded earlier in this note; the percentage is our arithmetic. | Occupation-by-nationality counts, not dementia caregivers and not demand for CareBridge. The deck labels it “our calculation”. Only local context for the language choice. |
+| Prompt-engineered ChatGPT-4o scored significantly higher on actionability, relevance and perceived satisfaction than the baseline; no significant difference in accuracy or in safety and harm (5) | Zhou, Zhu, Oh & Hong (2026), *JMIR Formative Research* 10: e79975: 32 caregiver questions, 64 responses, 12 content experts, 9 items on a 7-point scale. | Peer-reviewed, small expert panel, ChatGPT only. A machine-extracted numeric summary of the page was inconsistent on satisfaction, so the deck uses only the abstract's wording and no scores. The limitations section was not read verbatim. |
+| Both ChatGPT versions were seen as overly verbose (5) | Oh et al. (2025), *Innovation in Aging* 9(Suppl. 2): igaf122.4109 — 12 stakeholders (10 health professionals, 2 caregivers). | Conference abstract in a supplement; no effect sizes. |
+| General prompts led ChatGPT to ask follow-up questions; prompt-engineered replies did not (5) | Bennett et al. (2025), *Innovation in Aging* 9(Suppl. 2): igaf122.2254 — 15 ChatGPT responses. | Conference abstract; content analysis, no scores or tests reported. |
 
-## Data and source corrections to apply to the slide deck
+## Sources considered but not used
 
-1. Replace the prior “82%” with the explicitly defined October 2026 social-welfare category figure: 83.2% Indonesian (201,177 of 241,800). Do not describe this as the share of dementia caregivers. The narrower family-nursing subset is 87.2% (188,424 of 216,193), but do not switch categories without explaining the denominator.
-2. Omit the 94.3% claim from the deck. The newspaper report gives no sample size or sampling method, so this statistic is weak support for a broad population claim. If retained in a later version, label it as an incompletely documented report of a 2019 study, not a representative estimate.
-3. Prefer the MOHW primary source for Taiwan's 7.99% and population estimate. Distinguish the 2024 survey-based estimate (~350,000) from the later annual-report estimate of 354,586 at the end of 2024 and the 239,720 diagnosed cases. Do not label estimates as confirmed diagnoses.
-4. Keep WHO's 2021 global population figure separate from its five-hours-per-day 2019 caregiver estimate.
-5. Treat the 250-person study as a small cross-sectional convenience sample. It is not evidence that CareBridge improves caregiver literacy or outcomes.
+- AARP and National Alliance for Caregiving, *Caregiving in the U.S. 2025* (about 63 million family caregivers): search summaries agreed, but AARP blocked automated page fetches, so the figure was not verified from the page and is not in the deck.
+- The v1 deck's Taiwan items (82% from a Taipei Times commentary, the 94.3% report, Fulco's Taiwan Business TOPICS statements, the 250-person Indonesian caregiver abstract, the MOHW 7.99% prevalence) were removed so the evidence is mainly international. The corrections recorded for them in this note's earlier version still apply if any of them return.
+- Taiwan's projected dementia counts (470,000 by 2031; 880,000 by 2061) were attributed to different organisations by two articles and were never used.
+
+## Verification gaps to close before submission
+
+1. Open the final PDF and confirm every reference, including author initials for Sagbakken et al.
+2. Optionally fetch the Alzheimer's Association full *Facts and Figures* report and the NCHS brief again to confirm the numbers against the primary pages.
+3. Read the limitations section of Zhou et al. (2026) in full.
+4. Replace the Ministry of Labor derived percentage with a direct citation of the table edition if the table rolls forward.
 
 ## CareBridge project evidence (not external population research)
 
@@ -28,7 +37,7 @@ The current slide deck and repository materials refer to project counts and test
 
 The fresh English final-configuration conversation was captured on 2026-11-23 in Chromium and passed 10/10 turns using OpenAI `gpt-6.1-terra` / medium effort / V5; it contains 20 messages across three role settings with the same fictional case. It was tested locally; the read-only transcript is available from the project repository. The HTML and JSON exports are [`final-english-conversation.html`](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.html) and [`final-english-conversation.json`](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json). The [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) provides a judge-facing reading view on GitHub. Preserve earlier AI-simulated-user material as archived evidence; do not present that older material as this new final-edition conversation. There is no standalone hosted chatbot yet, so its public URL remains pending. Team identity and contribution details also remain pending confirmation. The local capture does not establish an externally accessible chatbot or a competition submission.
 
-The editable 30-slide deck is a private Claude Slides artifact. Its source backup is kept locally at `docs/source/waicy-submission/deck-source/` and is excluded from version control. This repository note records source-check results; it does not assert that the private deck was edited or published.
+The editable 32-slide deck (v2, international sources) is a private Claude Slides artifact. Its source backup is kept locally at `docs/source/waicy-submission/deck-source/` and is excluded from version control. This repository note records source-check results; it does not assert that the private deck was edited or published.
 
 ## Estimates and inferences
 
@@ -43,6 +52,20 @@ The guidebook says participants are teams of 1–5 members under age 18; the WAI
 The official rubric currently uses the seven criteria and point values reproduced in [`waicy-rubric-map.md`](waicy-rubric-map.md). Rubric alignment is not a score prediction or an official judging result.
 
 ## Sources (APA-style; original titles retained)
+
+Alzheimer’s Association. (2025). *2025 Alzheimer’s disease facts and figures: Executive summary*. https://www.alz.org/getmedia/c05f7ba4-9aea-4cb0-8898-5e8bff3f0930/executive-summary-2025-alzheimers-disease-facts-and-figures.pdf
+
+Alzheimer’s Disease International. (2019). *World Alzheimer report 2019: Attitudes to dementia*. https://www.alzint.org/resource/world-alzheimer-report-2019/
+
+Bennett, S., Fedorov, A., Chandler, R., Hepburn, K., & Epps, F. (2025). Prompt engineering and ChatGPT: Delivering quality information to dementia caregivers. *Innovation in Aging, 9*(Suppl. 2), igaf122.2254. https://pmc.ncbi.nlm.nih.gov/articles/PMC12761023/
+
+Oh, K. M., Hong, S., Zhu, Z., Zhou, H., & Lee, J. A. (2025). Evaluating large language models to support dementia caregivers: Identifying opportunities for improvement. *Innovation in Aging, 9*(Suppl. 2), igaf122.4109. https://doi.org/10.1093/geroni/igaf122.4109
+
+Sagbakken, M., Ingebretsen, R., & Spilker, R. S. (2020). How to adapt caring services to migration-driven diversity? A qualitative study exploring challenges and possible adjustments in the care of people living with dementia. *PLOS ONE, 15*(12), e0243803. https://doi.org/10.1371/journal.pone.0243803
+
+Vahratian, A., Adjaye-Gbewonyo, D., & Rodriguez, J. (2026, November). *Adult caregivers in the United States, 2025* (NCHS Data Brief No. 576). https://www.cdc.gov/nchs/products/databriefs/db576.htm
+
+Zhou, H., Zhu, Z., Oh, K. M., & Hong, S. R. (2026). Empowering informal caregivers of persons with early-stage dementia by large language models: Mixed methods evaluation. *JMIR Formative Research, 10*, e79975. https://doi.org/10.2196/79975
 
 Centers for Disease Control and Prevention. (2026, May 19). *Signs and symptoms of stroke*. https://www.cdc.gov/stroke/signs-symptoms/
 

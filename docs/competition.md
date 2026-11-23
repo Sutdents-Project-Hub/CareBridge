@@ -34,7 +34,7 @@ The submission form requests a description of at most 200 words and an accessibl
 - [ ] Insert the verified chatbot link beside the conversation link, then check the final PDF and registration description.
 - [ ] Verify the Google Drive folder and PDF permissions in a signed-out browser, and keep the form confirmation.
 
-The English 30-slide Lesson Plan deck remains a rehearsal draft with a local editable backup. Before using it, update slides 3–4 and 29–30 with the dated [research sources](waicy-research-notes.md). Use the current screenshots for slides 9–13: role comparison, first reply, English mobile view, reviewed summary and preset safety notice. Update slides 22–23 with the [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) and use the [rubric map](waicy-rubric-map.md) for the remaining checks. The report is the required submission document.
+The English 32-slide Lesson Plan deck (v2) uses mainly international evidence and the English-first screenshots; its editable backup is local and a review PDF was rendered outside the repository. Use the [rubric map](waicy-rubric-map.md) and [research notes](waicy-research-notes.md) for the remaining checks. The team must still inspect the deck in Claude Slides, fill the placeholders (team, live chatbot URL, QR code) and export the final report PDF.
 
 ## Likely judging questions
 
