@@ -1,0 +1,43 @@
+{
+  "format": "carebridge.conversation.v1",
+  "exportedAt": "2026-11-23T07:53:41.158Z",
+  "turns": [
+    {
+      "question": "Situasi fiktif: Lansia berkata, “Nanti saja, saya kedinginan.” Selama saya ada di sana, beliau belum mandi. Apa yang bisa saya katakan, dan informasi apa yang perlu saya pastikan?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "id",
+        "style": "brief",
+        "intent": "guidance",
+        "scenarioId": "role-comparison"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "id",
+        "understanding": "Beliau berkata, “Nanti saja, saya kedinginan,” dan belum mandi selama Anda berada di sana. Belum jelas apakah beliau bersedia mandi nanti.",
+        "actions": [
+          "Tanyakan apakah ucapan beliau berkaitan dengan mandi dan apa yang membuatnya lebih nyaman.",
+          "Hormati jika beliau tidak ingin mandi; berhenti dulu atau tidak mandi hari ini juga boleh.",
+          "Saat menyampaikan kepada orang lain, catat ucapannya dan bahwa beliau belum mandi selama Anda ada di sana. Pastikan juga apa yang sudah dicoba dan apakah ada informasi lain yang belum diketahui."
+        ],
+        "phrase": {
+          "primary": "Bapak atau Ibu kedinginan, ya? Mau berhenti dulu, atau ada yang bisa saya bantu supaya lebih nyaman?",
+          "zhTwReference": "您覺得冷，是嗎？想先停下來，還是有什麼我能幫忙，讓您舒服一點？"
+        },
+        "limitations": [
+          "Ini bantuan komunikasi, bukan pengganti perawatan profesional. Terjemahan belum ditinjau penutur asli."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T07:53:30.280Z",
+      "answeredAt": "2026-11-23T07:53:40.972Z"
+    }
+  ]
+}

@@ -64,7 +64,7 @@ WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機�
 
 ### 英文交件草稿
 
-[可編輯英文交件稿](waicy-submission-draft.md)已整理服務、三種角色、迭代、實測錯誤、系統界線、未來發展及參考資料。本機 PDF 草稿在 `docs/source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf`。正式稿補上可操作網站、對話紀錄公開網址與團隊確認的學生貢獻；高中組分類待團隊確認。
+[可編輯英文交件稿](waicy-submission-draft.md)已整理服務、三種角色、迭代、實測錯誤、系統界線、未來發展及參考資料，並備有[英文 PDF 草稿](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf)。正式稿補上可操作網站、對話紀錄公開網址與團隊確認的學生貢獻。高中組分類待團隊確認。
 
 英文報名簡介獨立放在[交件稿末尾](waicy-submission-draft.md#registration-brief-separate-from-the-report-200-word-maximum)，送件時以公開驗收的實際狀態為準，限制 200 英文字。
 
@@ -75,6 +75,7 @@ WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機�
 - [x] Baseline 至 V5 的 Prompt、實測錯誤和同題比較均已保留。
 - [x] 最終本機 Terra／V5 已匯出 10 輪、20 則真實交換訊息，公開網址待建立。
 - [x] 英文 PDF 與 200 字以內的簡介已準備草稿。
+- [x] 虛構情境的實際操作已保存為[圖說 PDF](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Visual-Evidence.pdf)及 [9 張原始截圖 ZIP](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Screenshots.zip)，另附[兩輪英文實測對話](source/waicy-submission/demo-capture-2026-11-23/records/english-two-turns.html)。
 
 ### CareBridge 交件核對清單（學生簽核）
 

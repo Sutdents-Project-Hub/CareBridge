@@ -1,0 +1,80 @@
+{
+  "format": "carebridge.conversation.v1",
+  "exportedAt": "2026-11-23T07:53:29.510Z",
+  "turns": [
+    {
+      "question": "Fictional scenario: An older adult said, “Later, I feel cold.” They had not bathed while I was there. What could I say, and which facts should I check?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance",
+        "scenarioId": "role-comparison"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "They said, “Later, I feel cold,” and had not bathed while you were there. It’s not clear whether they agreed to bathe later.",
+        "actions": [
+          "Check whether they are comfortable and offer something warm if they would like it.",
+          "Ask whether they would like to wash, pause, or skip bathing today; respect their choice.",
+          "For handover, check whether they bathed after you left rather than assuming they did."
+        ],
+        "phrase": {
+          "primary": "You’re feeling cold. Would you like a blanket, or would you prefer something else?",
+          "zhTwReference": "你覺得冷，要不要一條毯子，還是你想要別的？"
+        },
+        "limitations": [
+          "This is communication support, not professional care.",
+          "The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T07:53:14.249Z",
+      "answeredAt": "2026-11-23T07:53:21.552Z"
+    },
+    {
+      "question": "I said we could rest first or skip the bath today. I left before I knew what they chose. What should I tell the next caregiver, and what should I leave as unknown?",
+      "request": {
+        "profile": "novice_caregiver",
+        "locale": "en",
+        "style": "brief",
+        "intent": "guidance"
+      },
+      "response": {
+        "kind": "guidance",
+        "locale": "en",
+        "understanding": "You offered rest first or skipping the bath today, but left before you knew their choice.",
+        "actions": [
+          "Tell the next caregiver what was said and that the person had not bathed while you were there.",
+          "Leave their choice and whether they bathed after you left as unknown. Don’t assume they agreed to bathe later."
+        ],
+        "phrase": {
+          "primary": "They said, “Later, I feel cold.” I offered rest first or skipping the bath today, but I left before I knew what they chose.",
+          "zhTwReference": "他們說：「等一下，我覺得冷。」我提議先休息，或今天不洗澡，但我離開時還不知道他們的選擇。"
+        },
+        "limitations": [
+          "This is communication support, not professional care.",
+          "The translation has not been reviewed by a native speaker."
+        ],
+        "modelInfo": {
+          "provider": "openai",
+          "model": "gpt-6.1-terra",
+          "promptVersion": "V5-2026-11-23",
+          "provenance": "model",
+          "maxOutputTokens": 2000,
+          "reasoningEffort": "medium"
+        }
+      },
+      "askedAt": "2026-11-23T07:53:21.810Z",
+      "answeredAt": "2026-11-23T07:53:29.236Z"
+    }
+  ]
+}

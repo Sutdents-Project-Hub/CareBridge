@@ -12,7 +12,7 @@
 | 本機受測版本 | `V5-2026-11-23`，Prompt SHA-256 隨實驗保存 | 2026-11-23，瀏覽器 | Codex |
 | 最終版對話分享連結 | 待產生 | 未驗證 | 待填 |
 | 本機 Terra／V5 完整交換訊息數 | 10 輪、20 則，重播同一印尼語案例 | 2026-11-23；公開連結待做 | Codex 情境模擬 |
-| 英文正式 PDF | [英文交件草稿](waicy-submission-draft.md)已備，正式版待填連結與團隊資料 | 2026-11-23，本機 | Codex |
+| 英文正式 PDF | [可編輯交件稿](waicy-submission-draft.md)及 [PDF 草稿](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf)已備，正式版待填連結與團隊資料 | 2026-11-23，本機 | Codex |
 | PDF 所在的 Google Drive 資料夾 | 待建立 | 未驗證 | 待填 |
 | 正式表單提交證明 | 待提交 | 未驗證 | 待填 |
 
@@ -121,3 +121,8 @@
 - 本機原始 HTTP 請求／回覆、日期及時間在 `docs/source/waicy-evidence/role-comparison-2026-11-23/http-roles.json`。原始資料為虛構情境，畫面回覆與原始輸出一致，見 `web/src/components/role-comparison-data.ts`。
 - 本機 production build 的 Chromium 驗收涵蓋三語 × 320／390／681／920／1440px，各組可完整閱讀；鍵盤可展開中文對照。9 個試問入口正確帶入角色、語言、精簡偏好與草稿，原分頁草稿保留。瀏覽比較與開啟試問時共 0 次聊天 API 呼叫；送出印尼語家屬試問取得 Terra／V5 HTTP 200，約 9.06 秒並正常顯示。無效語言或角色為 404，摘要人工核對、編輯後重設核對皆正常。
 - `pnpm lint`、`pnpm typecheck`、`pnpm build` 與 `pnpm test` 通過，20 項現有自動化測試全數通過。桌面、手機截圖及 `browser-verification.json` 在同一證據目錄。公開站、無痕環境及實體手機仍未驗收。
+
+## L. 競賽展示截圖（2026-11-23）
+
+- 本機 Chromium 操作 `ef3b35b`，全程使用虛構案例。英文首問、英文追問與印尼文首問均在 OpenAI 回覆顯示後截圖。英文用藥題顯示固定安全提醒。家屬摘要經人工填寫及核對，保留未知結果。
+- [圖說 PDF](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Visual-Evidence.pdf)共 8 頁，另附 [9 張原始 PNG](source/waicy-submission/demo-capture-2026-11-23/screenshots)、[截圖 ZIP](source/waicy-submission/demo-capture-2026-11-23/CareBridge-WAICY-Screenshots.zip)及[本次操作紀錄](source/waicy-submission/demo-capture-2026-11-23/records)。英文紀錄為兩輪，送件所用的 10 輪紀錄另見本表 §A。

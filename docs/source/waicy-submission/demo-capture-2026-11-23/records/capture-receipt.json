@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-23",
+  "commit": "ef3b35b",
+  "environment": "local Chromium",
+  "source": "Playwright browser execution",
+  "statuses": [
+    {
+      "locale": "en",
+      "kind": "guidance",
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      },
+      "durationMs": 7408,
+      "status": 200
+    },
+    {
+      "locale": "en",
+      "kind": "guidance",
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      },
+      "durationMs": 7482,
+      "status": 200
+    },
+    {
+      "locale": "id",
+      "kind": "guidance",
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      },
+      "durationMs": 10772,
+      "status": 200
+    },
+    {
+      "locale": "en",
+      "kind": "escalation",
+      "modelInfo": {
+        "provider": "carebridge-rule",
+        "model": "none",
+        "promptVersion": "rules-2026-11-23",
+        "provenance": "deterministic-rule"
+      },
+      "durationMs": 69,
+      "status": 200
+    }
+  ],
+  "requests": [
+    {
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "style": "brief",
+      "contextMessages": 1,
+      "turn": 1
+    },
+    {
+      "locale": "en",
+      "profile": "novice_caregiver",
+      "style": "brief",
+      "contextMessages": 3,
+      "turn": 2
+    },
+    {
+      "locale": "id",
+      "profile": "novice_caregiver",
+      "style": "brief",
+      "contextMessages": 1,
+      "turn": 3
+    },
+    {
+      "locale": "en",
+      "profile": "family",
+      "style": "brief",
+      "contextMessages": 1,
+      "turn": 4
+    }
+  ],
+  "summary": "manually entered, reviewed, blank outcome retained",
+  "snapshots": 9
+}
