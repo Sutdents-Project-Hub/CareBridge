@@ -51,7 +51,7 @@
 2. 開發動機與具體使用情境，不只講「失智照護很重要」。
 3. **評審可親自操作的 Chatbot Link**：不是固定示意圖、空白網站或只有影片。
 4. **最終版 AI 至少 10 則交換訊息的對話紀錄與可開啟連結**；團隊保守準備 10 輪完整 Q&A，約 20 則訊息（此為建議，非額外官方條件）。
-5. **Prompt 迭代與測試**：Idea → Advisor Design → Testing → Error Analysis → Improvement；保留 Baseline 至 V5 真實輸出及失敗修正，見 [競賽證據登記表](evidence-log.md)。
+5. **Prompt 迭代與測試**：Idea → Advisor Design → Testing → Error Analysis → Improvement；保留 Baseline 至 V5 真實輸出及失敗修正，見 [第 6 項迭代開發紀錄](waicy-iteration-record.md)與[證據登記表](evidence-log.md)。
 6. 明確寫出模型限制、個人資料、倫理與潛在傷害；醫療安全／翻譯品質未驗證就必須直說。
 7. 未來發展、結論、學生貢獻、參考資料。正式報告採實際發生的結果，不把規劃當成果。
 8. Google Drive 作品資料夾與正式 PDF 權限、聊天連結、對話連結都應無痕測試；在 https://www.waicy.org/2026-submission/ 提交資料夾分享連結並保留確認信。

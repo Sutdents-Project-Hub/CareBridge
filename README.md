@@ -34,6 +34,6 @@ pnpm build
 - [Profile](docs/project-profile.md) · [範圍與需求](docs/requirements.md) · [介面與配色](docs/ux-flows.md)
 - [Web 操作](web/README.md) · [架構](docs/architecture.md) · [OpenAI 整合](docs/integrations.md) · [隱私](docs/security-and-privacy.md)
 - [開發與交接](docs/handoff-to-agents.md) · [實作路線](docs/implementation-roadmap.md) · [評估計畫](docs/evaluation-plan.md)
-- [競賽與展示](docs/competition.md) · [證據登記](docs/evidence-log.md) · [部署規劃](docs/deployment.md)
+- [競賽與展示](docs/competition.md) · [迭代開發紀錄](docs/waicy-iteration-record.md) · [證據登記](docs/evidence-log.md) · [部署規劃](docs/deployment.md)
 
 原始發想與跨專案參賽研究稿保留在本機 `docs/source/`。可公開交接所需的 CareBridge 規格與驗收條件已整理在上述文件。
