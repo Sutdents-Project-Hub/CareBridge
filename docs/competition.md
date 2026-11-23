@@ -93,3 +93,9 @@ WAICY 簡報的視覺使用 Lesson Plan 主題。完整提示詞保存在本機�
 - How was it improved? 展示 Prompt 修改、測試失敗與複測，而不是編數字。
 - What are the limitations? 真實揭露翻譯、個資、模型幻覺與非醫療定位。
 - What did the students create? 明確區分學生、指導者與 AI coding assistant 的工作。
+
+### 英文簡報（2026-11-23）
+
+- 30 張 Claude Slides 簡報（Lesson Plan 主題），可編輯來源備份在本機 `docs/source/waicy-submission/deck-source/`（該目錄依 .gitignore 不進版控）；尚未匯出 PDF，正式 PDF 由學生檢查後自行匯出。
+- 評分對照見 [waicy-rubric-map.md](waicy-rubric-map.md)，待補項目與 200 字簡述見 [waicy-submission-todo.md](waicy-submission-todo.md)，外部數據查證見 [waicy-research-notes.md](waicy-research-notes.md)。
+- 公開網址、QR code、公開對話連結、學生貢獻與審查仍為待補，簡報以佔位標示，不宣稱已完成。
