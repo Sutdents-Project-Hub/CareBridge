@@ -10,7 +10,7 @@
 | Successful chat in a private browser window | Not tested | Not verified | TBD |
 | Model (provider / model ID) | OpenAI `gpt-6.1-terra` / `medium`; Luna remains a tested option | 2026-11-23, local HTTP 200 | Codex |
 | Locally tested version | `V5-2026-11-23`; experiment records include the prompt SHA-256 | 2026-11-23, browser | Codex |
-| Final conversation share link | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages | GitHub read-only view | Codex |
+| Final conversation share link | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages | 2026-11-23, HTTP 200 without signing in | Codex |
 | Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
 | Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
 | Formal English PDF | [Editable submission draft](waicy-submission-draft.md) and [PDF draft](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) prepared; final links and team details remain to be added | 2026-11-23, local | Codex |
@@ -144,3 +144,5 @@ Fresh local browser capture on the final English configuration. This is a single
 | Raw export / screenshots | `docs/source/waicy-submission/english-evidence-2026-11-23/`: `final-english-conversation.html`, `final-english-conversation.json`, `browser-verification.json`, `CareBridge-WAICY-English-Visual-Evidence.pdf` |
 | Tested source state | Working tree based on `c04217c`. The final English home image was captured again after the unverified photo was removed. The chat request and reply flow stayed the same. |
 | Read-only judge transcript | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) on public GitHub. The live chatbot is pending. |
+
+The signed-out GitHub view returned HTTP 200 and showed the English transcript through turn 10. The anonymous raw download matched the committed Markdown byte for byte. The link is embedded in the report PDF.
