@@ -57,7 +57,7 @@
 - Web 已採 Node.js 24 LTS、TypeScript、pnpm 與 Next.js
 - 長期儲存、登入、語音、原生 App、RAG、管理後台與自動傳訊均非 MVP
 - 評審展示只用虛構資料，聊天內容匯出需人工同意與脫敏
-- 模型供應商採 OpenAI。正式部署平台和實際模型、預算待確認
+- 模型供應商採 OpenAI。公開試用採 Vercel Hobby，模型設定與額度在正式環境驗收
 
 ## 未決定事項
 

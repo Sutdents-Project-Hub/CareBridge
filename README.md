@@ -16,6 +16,10 @@ The website opens in English. Traditional Chinese and Indonesian are available f
 
 Local tests use fictional cases. The public chatbot and final submission status are tracked in the [evidence log](docs/evidence-log.md).
 
+## Hosting status
+
+Vercel Hobby is the planned host for this project. This repository has not been imported or deployed. See the [project settings and judge-link checks](docs/deployment.md).
+
 ## Run locally
 
 Use Node.js 24 LTS and pnpm 10.

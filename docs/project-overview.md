@@ -47,4 +47,4 @@
 - 本機 Web MVP 採 Node.js 24 LTS、TypeScript、pnpm、Next.js
 - 長期儲存、登入、語音、原生 App、RAG、管理後台與自動傳訊均非 MVP
 - 評審展示只用虛構資料，聊天內容匯出需人工同意與脫敏
-- 正式部署平台、實際模型與成本待確認。
+- 公開試用採 Vercel Hobby，正式環境的模型回覆與用量待驗證。
