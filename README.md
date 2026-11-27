@@ -18,7 +18,7 @@ Local tests use fictional cases. The public chatbot and final submission status 
 
 ## Hosting status
 
-Vercel Hobby is the planned host for this project. This repository has not been imported or deployed. See the [project settings and judge-link checks](docs/deployment.md).
+The public demo is at [carebridge-neon.vercel.app](https://carebridge-neon.vercel.app). It answered fictional test requests on 2026-11-27 with `gpt-6.1-terra` / medium / V5. See the [evidence log, Section N](docs/evidence-log.md#section-n-public-demo-check-2026-11-27) and the [deployment notes](docs/deployment.md).
 
 ## Run locally
 

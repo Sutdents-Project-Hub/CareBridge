@@ -2,7 +2,7 @@
 
 ## 目前狀態
 
-- 目標平台：Vercel Hobby；CareBridge 尚未匯入、建立專案或部署。
+- 公開試用網址：https://carebridge-neon.vercel.app（`*.vercel.app`），2026-11-27 匿名瀏覽器實測可回覆。規劃平台為 Vercel Hobby；方案、Project ID 與 build log 未由本次檢查確認。
 
 ## 命名契約
 
@@ -16,7 +16,7 @@
 - 主要 Compose 檔若存在，頂層設定 `name: carebridge`。
 - Compose service 使用 `web`、`app`、`api`、`cms`、`backend`、`worker`、`postgres` 等角色，原則上不設定 `container_name`。
 
-## Vercel Hobby 設定（待建立）
+## Vercel Hobby 設定
 
 - GitHub 匯入此 repo 後建立獨立 Vercel Project，保留此專案自己的 `*.vercel.app` Production 網址。網址和可用性須在建立後記錄，不預先猜測。
 - GitHub 匯入此 repo 時選 `main` 為 Production Branch，Root Directory 設 `web`，Framework Preset 使用自動偵測的 Next.js，Node.js Version 設 `24.x`。
@@ -61,9 +61,9 @@ vercel link
 
 ## 公開試用驗收紀錄
 
-部署與公開試用尚未完成。下表只記錄待驗收項目；以 Vercel 實際設定、build log 與匿名操作結果填寫。
+公開網址已可試用。下表只把 2026-11-27 實際操作過的項目標為已驗；平台設定、build log 與回滾仍待專案管理者確認。
 
-### 驗收工單（待填）
+### 驗收工單
 
 | 項目 | 實際值 | 狀態 |
 |---|---|---|
@@ -71,13 +71,13 @@ vercel link
 | Production branch / base directory | `main` / `web` | 待 Vercel 匯入驗證 |
 | Framework / Node.js | Next.js / `24.x` | 依設定規劃，平台尚未驗證 |
 | Install / Build / Output | Vercel 預設值；packageManager `pnpm@10.33.0` | 待 build log 驗證 |
-| Public URL | — | 未部署 |
-| LLM provider + model | OpenAI，Terra／medium／V5 已在本機驗證 | 公開環境待設定／驗證 |
+| Public URL | https://carebridge-neon.vercel.app | 2026-11-27 匿名 Chromium，HTTP 200 |
+| LLM provider + model | OpenAI `gpt-6.1-terra` / medium / V5 | 公開環境回覆的 modelInfo 相符（2026-11-27） |
 | Server secret source | Vercel Project Environment Variables（Production） | 未設定 |
 | Function runtime / max duration | Node.js / 40 秒 route 設定 | 待部署 log 驗證 |
 | Rate limit / 供應商預算 | 程序內限制已實作；非分散式限流／供應商硬上限 | 上線前風險待接受與驗證 |
-| 桌面／手機匿名對話 | — | 未測 |
-| 無痕存取 chatbot 與 chat history | — | 未測 |
+| 桌面／手機匿名對話 | 桌面單輪：英文新手、英文家屬、印尼文草稿與用藥固定規則；390px 首頁無水平捲動 | 十輪、摘要、匯出與實體手機未在公開環境測試 |
+| 無痕存取 chatbot 與 chat history | 全新瀏覽器情境可開啟網站與 GitHub 逐字稿 | 2026-11-27 已驗 |
 | 回滾、撤站方法 | — | 未建立 |
 
 **安全提醒**：不因評審要試用，就在 GitHub 或網站中暴露 key、繞過成本上限，或蒐集真實長者私密紀錄。

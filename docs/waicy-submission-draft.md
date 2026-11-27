@@ -1,10 +1,10 @@
 # CareBridge: A Multilingual Communication Advisor for Dementia Care
 
 **WAICY 2026 · LLM & AI Agent Track · AI as a Service**
-**Submission report draft · 23 November 2026**
-**Status: English evaluation materials prepared; live chatbot URL, team details, and human reviews pending**
+**Submission report draft · updated 27 November 2026**
+**Status: the 35-slide deck is the report to submit; this file is the editable text source. Human reviews are pending.**
 
-> This editable source contains the complete English report in Sections 1–10, followed by a separate registration brief under 200 words. The PDF deliverable is only the report section. Bracketed pending items are deliberate and must be resolved or retained as limitations before submission.
+> This editable source contains an English text version of the report in Sections 1–10, followed by a separate registration brief under 200 words. The PDF deliverable is exported from the slide deck.
 
 ## 1. The service
 
@@ -130,23 +130,23 @@ The local MVP does not ask for sign-in and does not maintain a care-record datab
 | Care advice and acute routing lack professional validation. | Request a dementia-care professional to review the narrow communication guidance and escalation wording. | Reviewer, credentials or role, date, reviewed scenarios, and unresolved concerns recorded; this would not itself imply clinical certification. |
 | The role comparison is a single run per role-language pair. | Repeat the same fictional case across runs and inspect whether role differences persist without adding unsupported facts. | Versioned snapshots, repeated samples, failure definitions, and human review; current one-sample comparison is not a reliability claim. |
 | Current model and browser samples are small and single-run. | Repeat fixed cases across multiple runs and add more long-history, multilingual, refusal, and safety scenarios. | Versioned inputs, prompts, settings, raw outputs, failure definitions, and denominators reported together. |
-| The live chatbot URL is pending. | After authorized hosting is available, submit a fictional question in a signed-out browser and confirm that the final service replies. | Deployed version, working chatbot URL and dated browser check. |
-| Student work and external reviews are not documented yet. | Ask the student team to record individual contributions and review the report; retain teacher/AI assistance accurately. | Student-approved names and contribution statements plus documented human reviews. **Pending; no names inferred here.** |
+| The public demo has been checked only with single requests. | Run a ten-turn session, the family summary and export on the public demo and on a physical phone. | Dated browser record from the public URL. |
+| External reviews are not documented and student contributions need confirmation. | Ask each student to confirm their contribution and review the report; retain teacher/AI assistance accurately. | Student-approved contribution statements plus documented human reviews. |
 
 ## 8. Conclusion
 
 CareBridge is a focused attempt to make everyday dementia-care communication more respectful, multilingual, and faithful to what people actually reported. Its U1, U2, and U3 designs target different needs: immediate wording, concise observation and handover, and factual family updates. The local experiments moved from a general baseline through five prompt versions and used failures—an invented time, an invalid clarification, inferred consent, and inaccurate handover details—to guide changes.
 
-The evidence is promising only within its tested scope. There were 109 direct model runs and 40 real-model browser turns, but single samples do not establish reliability; even the final Terra/medium/V5 session had an omitted outcome and a phrase requiring review. The service should therefore remain a communication aid with human confirmation, fictional demonstrations, and clear non-medical boundaries. The three-role comparison has one local sample per role-language pair. A separate final-configuration English conversation exercised all three roles. Live chatbot access, student contribution details, and specialist and language reviews remain pending.
+The evidence is promising only within its tested scope. There were 109 direct model runs and 40 real-model browser turns, but single samples do not establish reliability; even the final Terra/medium/V5 session had an omitted outcome and a phrase requiring review. The service should therefore remain a communication aid with human confirmation, fictional demonstrations, and clear non-medical boundaries. The three-role comparison has one local sample per role-language pair. A separate final-configuration English conversation exercised all three roles. A public demo is available; specialist and language reviews remain pending.
 
 ## 9. Team contributions and project links
 
-- **Student names and individual contributions:** pending from the team; no names or roles are inferred in this draft.
-- **Teacher/advisor contribution:** pending confirmation.
+- **Team:** Empathy Weavers (High School). Names and role areas are on the team slide and are kept out of this public repository; students must confirm their contributions.
+- **Teacher/advisor contribution:** none recorded.
 - **AI assistance:** project records state that Codex agents simulated a fictional user/browser run and performed an independent AI review; the primary agent implemented and checked changes. Students should verify this account and add their own contributions before submission.
-- **Live chatbot:** pending; not publicly verified.
+- **Live chatbot:** [https://carebridge-neon.vercel.app](https://carebridge-neon.vercel.app), checked 2026-11-27.
 - **Final-edition conversation history:** [English transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md). It contains 20 exchanged messages from the final local model configuration.
-- **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow. The public interactive chatbot URL is pending.
+- **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow.
 
 ## 10. References
 
@@ -172,6 +172,6 @@ References are presented in APA-style form. Public sources informed design and s
 
 # Registration Brief (separate from the report; 200-word maximum)
 
-**Word count: 135 (whitespace-separated)**
+**Word count: 139 (whitespace-separated)**
 
-CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and helps family members organize reported events, actions, outcomes, and unknowns into a handover draft for human review. The interface opens in English and also offers Traditional Chinese and Indonesian conversations. New caregivers get practical wording, experienced caregivers get handover priorities, and family members get help checking facts. We refined five prompt versions using fictional cases and documented failures such as an invented time, an invalid clarification, inferred consent, and a misattributed action. Our local evaluation includes 109 direct model runs, a controlled three-role comparison in three languages, and a final 10-turn English conversation. CareBridge supports communication and directs medical or urgent questions to qualified help. The live chatbot link and specialist reviews are pending.
+CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and helps family members organize reported events, actions, outcomes, and unknowns into a handover draft for human review. The interface opens in English and also offers Traditional Chinese and Indonesian conversations. New caregivers get practical wording, experienced caregivers get handover priorities, and family members get help checking facts. We refined five prompt versions using fictional cases and documented failures such as an invented time, an invalid clarification, inferred consent, and a misattributed action. Our local evaluation includes 109 direct model runs, a controlled three-role comparison in three languages, and a final 10-turn English conversation. CareBridge supports communication and directs medical or urgent questions to qualified help. A public demo is live at https://carebridge-neon.vercel.app; specialist and language reviews are pending.

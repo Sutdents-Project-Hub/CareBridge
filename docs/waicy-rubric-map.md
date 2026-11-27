@@ -1,43 +1,43 @@
-# WAICY Track 4 Rubric Map (32-slide deck, v2)
+# WAICY Track 4 Rubric Map (35-slide deck)
 
 **Status:** Self-assessment only; this is not a predicted score or an official judging result.
 
-**Deck:** Private Claude Slides artifact (32 slides). The editable source backup is stored locally in `docs/source/waicy-submission/deck-source/` and is excluded from version control. A review PDF was exported from the same source and kept outside the repository; the team still needs to inspect the deck in Claude Slides and export the final PDF.
+**Deck:** Private Claude Slides artifact (35 slides). The editable source backup is stored locally in `docs/source/waicy-submission/deck-source/` and is excluded from version control. A review PDF was rendered from the same source and kept outside the repository.
 
 The official WAICY 2026 LLM rubric lists the criteria and maximum points below. Check the live rubric again before submission in case it changes.
 
 | Official criterion (maximum) | Deck slides | Evidence currently represented | Remaining gap / status |
 |---|---:|---|---|
-| Specific AI Service (25) | 7–15 | Service definition and boundaries; three users with different needs; same-scenario answers from the live app; three languages with Traditional Chinese references; five-field family summary; fixed safety rules; architecture. | Public chatbot link is still a placeholder on slide 24. Real-phone and private-window review are not done. |
-| Iterative Development (25) | 16–23 | Five-step loop; idea evolution by commit; Baseline–V5 table; 109-run graphic; four documented errors (problem, fix, retest, what remains); model and effort selection; final 10-turn English session (20 messages) using V5 / `gpt-6.1-terra` / medium. | Single-sample evidence; the final session used a simulated user. Repeated runs and a real-caregiver study are future work. |
-| Motivation & Problem Statement (10) | 2–6 | Scene hook; WHO, Alzheimer's Association and CDC scale data; Norwegian qualitative study and ADI survey on language and understanding; published LLM-for-caregiver studies; our own baseline failures. | Evidence is mainly international but includes small studies and abstracts (see research notes). A student-origin story is not confirmed. |
-| Limitations & Considerations (10) | 14, 25–26 | Accuracy and hallucination, unreviewed language, evidence scope, no clinical review of safety rules, privacy, dignity, over-reliance, accessibility. | Formal accessibility and bias audits are pending. |
-| Future Development & Clear Reference (10) | 27–28, 30–32 | Limitation → next step → required evidence table; conclusion; APA references in three slides. | Innovation claims are conservative. Verify every reference in the final PDF. |
-| Presentation & Communication (10) | All | Lesson Plan theme, progress track, one idea per slide, real screenshots, layout filled to the page height. | Visual review in Claude Slides and in the final PDF is still the team's job. |
-| Originality & Creativity (10) | 6, 9–10, 13, 20–21 | “Fluent ≠ faithful” framing; three roles on the same scenario; the “later is not consent” rule; five-field, user-confirmed summary. | Student contributions are unconfirmed (placeholder on slide 29). |
+| Specific AI Service (25) | 8–17 | Service definition and boundaries; three users with the factors the AI considers; same-scenario answers; three languages; family summary; safety rules; architecture; quoted prompt layers. | Real-phone review is not done. |
+| Iterative Development (25) | 18–27 | Five-step loop; commit history; Baseline–V5 table; before/after outputs; 109 runs; four documented errors; model selection; 10-turn session; live test steps. | Single-sample evidence; the linked session used a simulated user. |
+| Motivation & Problem Statement (10) | 3–7 | Fictional scene; international scale data; language and understanding studies; LLM-for-caregiver studies; our baseline failures. | A student-origin story is not confirmed. |
+| Limitations & Considerations (10) | 15, 28–29 | Accuracy, language, evidence scope, safety rules, privacy, dignity, over-reliance, access and bias. | Formal accessibility and bias audits are pending. |
+| Future Development & Clear Reference (10) | 30–31, 33–35 | Limitation, next step and required evidence; conclusion; APA references. | Verify every reference in the final PDF. |
+| Presentation & Communication (10) | All | Overview slide with QR code, progress track, real screenshots, team slide. | The team still reviews the final PDF; four member photos are pending. |
+| Originality & Creativity (10) | 7, 10–11, 15, 17, 21 | “Fluent ≠ faithful”; three roles on one scenario; “later is not consent”; user-confirmed five-field summary. | Student contributions need confirmation (slide 32). |
 
 ## Official Track 4 submission requirements
 
-| Required element | Current slide(s) / state |
+| Required element | Slide(s) |
 |---|---|
-| Specific AI service | 7–8 |
-| At least three meaningfully different user profiles | 9–10 |
-| Motivation | 2–6 |
-| Link to chat history with at least 10 exchanged messages with the final assistant | Slides 23–24; the [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) has 20 messages and is linked on slide 24. |
-| Live chatbot link for judge interaction | Slide 24 placeholder; public link pending. |
-| Iterative design process | 16–22 |
-| Limitations | 25–26 |
-| Future development | 27 |
-| Conclusion | 28 |
-| Recognized-style references | 30–32 |
+| Specific AI service | 8–9 |
+| At least three meaningfully different user profiles | 10–11 |
+| Motivation | 3–7 |
+| Link to chat history with at least 10 exchanged messages | 2, 26–27 ([English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages, simulated user) |
+| Live chatbot link | 1, 2, 27 (https://carebridge-neon.vercel.app) |
+| Iterative design process | 18–26 |
+| Limitations | 28–29 |
+| Future development | 30 |
+| Conclusion | 31 |
+| Recognized-style references | 33–35 |
 
-The submission form separately limits the brief description to 200 words and requires a Google Drive project-folder link accessible to everyone. There is no standalone hosted chatbot yet; its public link and the final private-window access check remain pending.
+The submission form separately limits the brief description to 200 words and requires a Google Drive project-folder link accessible to everyone; the folder is still to be created.
 
 ## Recorded deck review
 
-- Offline Playwright render of all slides, with visual checks and fixes for upper-page whitespace, card overflow and clipping, on the v1 and v2 decks. Screenshots and connector lines are not drawn in that preview, so image sizes were checked by calculation.
-- A review PDF (32 pages, 16:9, fonts Fredoka and Andika embedded) was rendered from the deck source with local screenshots and about 15 pages were inspected by eye. This is not the Claude Slides export; layout can differ slightly.
-- No automated color-contrast scan was done. The only live link on the slides is the GitHub transcript link, which the project record says returned HTTP 200 signed out on 2026-11-23.
+- 2026-11-27: offline Playwright render of all 35 slides with an automated overflow check and visual inspection; fixes were applied for overlaps. This is not the Claude Slides export, so layout can differ slightly.
+- Live-demo and QR-code checks are in [Evidence Log, Section N](evidence-log.md#section-n-public-demo-check-2026-11-27); the QR code on the rendered page decoded to the demo URL.
+- No automated color-contrast scan was done.
 
 ## Official sources
 

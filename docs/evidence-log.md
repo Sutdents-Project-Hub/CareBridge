@@ -1,19 +1,19 @@
 # CareBridge | Competition Evidence and Student Contribution Log
 
-> The [WAICY Iterative Development Record](waicy-iteration-record.md) documents prompts, errors, same-case retests, and the offline evidence package. Local model experiments and iteration comparisons have been completed. Student review, external clinical/language review, and formal submission remain pending.
+> The [WAICY Iterative Development Record](waicy-iteration-record.md) documents prompts, errors, same-case retests, and the offline evidence package. Local model experiments and iteration comparisons have been completed. A public demo was checked on 2026-11-27 (Section N). Student review, external clinical/language review, and formal submission remain pending.
 
 ## Section A — Live Model and Public Links
 
 | Field | Actual value / evidence | Verified | Verifier |
 |---|---|---|---|
-| Public deployment URL | To be created | Not verified | TBD |
-| Successful chat in a private browser window | Not tested | Not verified | TBD |
+| Public deployment URL | https://carebridge-neon.vercel.app | 2026-11-27, HTTP 200, anonymous browser | Claude |
+| Successful chat in a private browser window | Fresh Chromium context; see Section N | 2026-11-27 | Claude |
 | Model (provider / model ID) | OpenAI `gpt-6.1-terra` / `medium`; Luna remains a tested option | 2026-11-23, local HTTP 200 | Codex |
 | Locally tested version | `V5-2026-11-23`; experiment records include the prompt SHA-256 | 2026-11-23, browser | Codex |
 | Final conversation share link | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages | 2026-11-23, HTTP 200 without signing in | Codex |
 | Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
 | Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
-| Formal English PDF | [Editable submission draft](waicy-submission-draft.md) and [PDF draft](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) prepared; final links and team details remain to be added | 2026-11-23, local | Codex |
+| Formal English PDF | 35-page review PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-27, local render | Claude |
 | Google Drive folder containing the PDF | To be created | Not verified | TBD |
 | Formal submission receipt | To be submitted | Not verified | TBD |
 
@@ -44,9 +44,7 @@ Raw files are in the local `docs/source/waicy-evidence/2026-11-23/` tree. “Pro
 
 | Student / team ID | Needs research | Prompt design | Testing / annotation | Code / UI | Report / English presentation | Advisor / AI assistance |
 |---|---|---|---|---|---|---|
-| Student A (TBD) | TBD | TBD | TBD | TBD | TBD | TBD |
-| Student B (if any) | TBD | TBD | TBD | TBD | TBD | TBD |
-| Advisor | TBD | TBD | TBD | TBD | TBD | TBD |
+| Team roster | Names and role areas are listed on the team slide of the report and are kept out of this public repository. Role areas were drafted by Claude at the team’s request; each student must confirm what they actually did. | | | | | Disclosed on the team slide |
 
 **Principle:** Accurately disclose code or design work by a teacher or Codex / Claude; do not claim the students wrote everything independently. Students should be able to explain design choices, prompt changes, failed experiments, and results themselves.
 
@@ -143,6 +141,22 @@ Fresh local browser capture on the final English configuration. This is a single
 | Interface checks | English defaults, including SSR, verified. Three locales at 320 / 390 / 1440px had no horizontal overflow. English reference disclosure worked by keyboard. Summary showed English and Traditional Chinese; blank outcome displayed “To confirm,” and language switching required review again while preserving facts. |
 | Raw export / screenshots | `docs/source/waicy-submission/english-evidence-2026-11-23/`: `final-english-conversation.html`, `final-english-conversation.json`, `browser-verification.json`, `CareBridge-WAICY-English-Visual-Evidence.pdf` |
 | Tested source state | Working tree based on `c04217c`. The final English home image was captured again after the unverified photo was removed. The chat request and reply flow stayed the same. |
-| Read-only judge transcript | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) on public GitHub. The live chatbot is pending. |
+| Read-only judge transcript | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) on public GitHub. The public demo was added later (Section N). |
 
 The signed-out GitHub view returned HTTP 200 and showed the English transcript through turn 10. The anonymous raw download matched the committed Markdown byte for byte. The link is embedded in the report PDF.
+
+## Section N — Public Demo Check (2026-11-27)
+
+Anonymous Chromium requests to https://carebridge-neon.vercel.app. All inputs were fictional. Every model reply reported OpenAI `gpt-6.1-terra`, medium effort, `V5-2026-11-23`, which matches the final conversation capture. These are single requests, not a reliability or language study.
+
+| Check | Observed |
+|---|---|
+| Home page, desktop and 390px | Loaded; no page script errors; no horizontal overflow at 390px |
+| New-caregiver bathing question (typed) | HTTP 200, model guidance; willingness to bathe later stayed unknown |
+| `/try/en/family` prefilled draft | HTTP 200; reply asked the caregiver what was tried and kept agreement unknown |
+| `/try/id/novice_caregiver` prefilled draft | HTTP 200; Indonesian phrase with Traditional Chinese reference; not native-reviewed |
+| Double-dose medication question | HTTP 200, fixed rule `rules-2026-11-23`, no model called |
+| `/try/en/novice_caregiver`, `/try/en/experienced_caregiver` | Pages returned HTTP 200 with the prefilled draft (not sent) |
+| GitHub transcript, signed out | Rendered in the browser. Some automated requests received HTTP 503 and a later retry returned 200; reopen the link before submitting |
+
+Not checked on the public demo: a ten-turn session, family summary, export, a physical phone, and rollback.
