@@ -37,6 +37,7 @@ The submission form separately limits the brief description to 200 words and req
 
 - 2026-11-27: offline Playwright render of all 36 slides with an automated overflow check and visual inspection; fixes were applied for overlaps. This is not the Claude Slides export, so layout can differ slightly.
 - Live-demo and QR-code checks are in [Evidence Log, Section N](evidence-log.md#section-n-public-demo-check-2026-11-27); the QR code on the rendered page decoded to the demo URL.
+- The report PDF leaves AI-operation details to the separate [AI-use statement](waicy-ai-use-statement.md), referred to on slide 33; upload both together.
 - No automated color-contrast scan was done.
 
 ## Official sources

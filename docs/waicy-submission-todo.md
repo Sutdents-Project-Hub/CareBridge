@@ -18,7 +18,7 @@ Updated 2026-11-27. Team: **Empathy Weavers** · High School · folder and file 
 | Student check of roles | Each student confirms the role area on the team slide and the AI-assistance statement, and can explain that part |
 | Own conversation (recommended) | The guidebook asks for a conversation between the team and the final assistant. The linked one was operated by an AI testing agent. Have a student run 10 turns on the public demo with fictional details, export it, and replace the link |
 | Remaining member photos | Four photos for the team slide (initial tiles are shown until then) |
-| Google Drive folder | Upload `LLM_High_CareBridge.pdf` to folder `LLM_High_CareBridge`, give judges access, check in a signed-out window |
+| Google Drive folder | Upload both `LLM_High_CareBridge.pdf` and the AI-use statement (`LLM_High_CareBridge_AI_Use_Statement.pdf`, text in [waicy-ai-use-statement.md](waicy-ai-use-statement.md)) to folder `LLM_High_CareBridge`, give judges access, check in a signed-out window. The report refers to the statement, so it must be included |
 | Official form | Team and contact data, instructor if any, 200-word brief, Drive link |
 | Final PDF check | Open every page and link; reopen the GitHub transcript link |
 | Reviews (optional) | Native-speaker and care-professional review; keep “not reviewed” wording if none happens |
