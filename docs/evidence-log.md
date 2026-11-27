@@ -10,10 +10,10 @@
 | Successful chat in a private browser window | Fresh Chromium context; see Section N | 2026-11-27 | Claude |
 | Model (provider / model ID) | OpenAI `gpt-6.1-terra` / `medium`; Luna remains a tested option | 2026-11-23, local HTTP 200 | Codex |
 | Locally tested version | `V5-2026-11-23`; experiment records include the prompt SHA-256 | 2026-11-23, browser | Codex |
-| Final conversation share link | [English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md), 20 messages | 2026-11-23, HTTP 200 without signing in | Codex |
+| Final conversation share link | [Public-demo transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md), 20 messages (Section O) | 2026-11-27 | Claude |
 | Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
 | Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
-| Formal English PDF | 35-page review PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-27, local render | Claude |
+| Formal English PDF | 36-page review PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-27, local render | Claude |
 | Google Drive folder containing the PDF | To be created | Not verified | TBD |
 | Formal submission receipt | To be submitted | Not verified | TBD |
 
@@ -160,3 +160,16 @@ Anonymous Chromium requests to https://carebridge-neon.vercel.app. All inputs we
 | GitHub transcript, signed out | Rendered in the browser. Some automated requests received HTTP 503 and a later retry returned 200; reopen the link before submitting |
 
 Not checked on the public demo: a ten-turn session, family summary, export, a physical phone, and rollback.
+
+## Section O — Ten-Turn Session on the Public Demo (2026-11-27)
+
+This session replaces Section M as the conversation linked in the report. Section M remains as an earlier local record.
+
+| Field | Observed record |
+|---|---|
+| Operator | AI testing agent (Claude) driving Chromium with a script; no student typed the messages |
+| Inputs | The same ten fictional messages and role order as Section M (U1 turns 1–6, U2 turns 7–8, U3 turns 9–10), brief replies |
+| Result | 10/10 HTTP 200; every reply reported `gpt-6.1-terra` / medium / `V5-2026-11-23`; final request carried 19 messages |
+| Latency | Send to reply from the export: minimum 2.7 s, median 4.9 s, maximum 9.9 s; single run |
+| Observed content | T4 did not read “later” as a decision. T5 said the dinner time was not known. T8 separated reported actions, observations and open checks. T10 left bathing, blanket and dinner open. A single reading by Claude, not an independent review |
+| Files | [Transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md); HTML and JSON exports made with the app's Export button, and screenshots, in the same folder |

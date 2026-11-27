@@ -2,7 +2,7 @@
 
 **WAICY 2026 · LLM & AI Agent Track · AI as a Service**
 **Submission report draft · updated 27 November 2026**
-**Status: the 35-slide deck is the report to submit; this file is the editable text source. Human reviews are pending.**
+**Status: the 36-slide deck is the report to submit; this file is the editable text source. Human reviews are pending.**
 
 > This editable source contains an English text version of the report in Sections 1–10, followed by a separate registration brief under 200 words. The PDF deliverable is exported from the slide deck.
 
@@ -145,7 +145,7 @@ The evidence is promising only within its tested scope. There were 109 direct mo
 - **Teacher/advisor contribution:** none recorded.
 - **AI assistance:** project records state that Codex agents simulated a fictional user/browser run and performed an independent AI review; the primary agent implemented and checked changes. Students should verify this account and add their own contributions before submission.
 - **Live chatbot:** [https://carebridge-neon.vercel.app](https://carebridge-neon.vercel.app), checked 2026-11-27.
-- **Final-edition conversation history:** [English transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md). It contains 20 exchanged messages from the final local model configuration.
+- **Final-edition conversation history:** [Transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/live-session-2026-11-27/live-conversation.md). It contains 20 exchanged messages from the public demo, operated by an AI testing agent on 2026-11-27.
 - **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow.
 
 ## 10. References
