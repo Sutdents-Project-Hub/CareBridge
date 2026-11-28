@@ -15,7 +15,7 @@ The official WAICY 2026 LLM rubric lists the criteria and maximum points below. 
 | Motivation & Problem Statement (10) | 3–8 | Team motivation supplied by a member (slide 3); fictional test scene; international scale data; language and understanding studies; LLM-for-caregiver studies; our baseline results. | The team should be able to explain the motivation in Q&A. |
 | Limitations & Considerations (10) | 16, 32–33 | Accuracy, language, evidence scope, safety rules, privacy, dignity, unintended harm, access and bias. | Formal accessibility and bias audits are pending. |
 | Future Development & Clear Reference (10) | 34–35, 37–39 | Limitation, next step and required evidence; conclusion; APA references, each cited in the body. | Click every reference in the final PDF. |
-| Presentation & Communication (10) | All | Overview slide with QR code, progress track, real screenshots, team slide. | The team still reviews the final PDF and rehearses Q&A; one member photo is pending. |
+| Presentation & Communication (10) | All | Overview slide with QR code, progress track, real screenshots, team slide. | The team still reviews the final PDF and rehearses Q&A; all five member photos are in the report. |
 | Originality & Creativity (10) | 8, 11–12, 16, 18, 27 | “Fluent ≠ faithful”; three jobs for one care moment; “later is not consent”; checked reply fields; user-confirmed summary. | Team confirms individual contributions. |
 
 ## Official Track 4 submission requirements
