@@ -1,5 +1,7 @@
 # CareBridge WAICY | Slide production handoff
 
+**Applied on 2026-11-28** to the deck (now 39 slides), with these editorial differences: the engineering-replay label on the chat-history pages was left off at the project owner’s request (disclosure stays in the [AI-use statement](waicy-ai-use-statement.md)); the score page (an Agent annotation) and the team-page AI-use pointer were removed in artifact version 25 at the project owner’s request; four iteration blocks became three pages; the unconfirmed team roles on the team page were kept pending member confirmation.
+
 Use this with the 36-slide English Lesson Plan review PDF dated 27 November. Page numbers below refer to that copy. Insert the new pages using the named anchors, then regenerate page numbers and verify the final links. This handoff supplies English slide text, source evidence, captions, and placement. Team-owned statements are left open.
 
 ## Required edits to the current deck

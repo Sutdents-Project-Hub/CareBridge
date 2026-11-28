@@ -34,10 +34,11 @@ The submission form requests a description of at most 200 words and an accessibl
 
 - [ ] Confirm team eligibility, English names, grades, and individual contributions. Record teacher and AI assistance accurately.
 - [x] Public chatbot checked with fictional requests on 2026-11-27 ([evidence log, Section N](evidence-log.md#section-n-public-demo-check-2026-11-27)).
-- [ ] Apply the slide handoff, record the team conversation, include its link and the companion AI-use statement, and recheck the brief before submitting.
+- [x] Slide handoff applied on 2026-11-28.
+- [ ] Record the team conversation, include its link and the companion AI-use statement, and recheck the brief before submitting.
 - [ ] Verify the Google Drive folder and PDF permissions in a signed-out browser, and keep the form confirmation.
 
-The English 36-slide Lesson Plan deck is the report; its editable backup is local and a review PDF is rendered outside the repository. Use the [rubric map](waicy-rubric-map.md), [checklist](waicy-submission-todo.md) and [research notes](waicy-research-notes.md) for the remaining checks.
+The English 39-slide Lesson Plan deck is the report; its editable backup is local and a review PDF is rendered outside the repository. Use the [rubric map](waicy-rubric-map.md), [checklist](waicy-submission-todo.md) and [research notes](waicy-research-notes.md) for the remaining checks.
 
 ## Likely judging questions
 

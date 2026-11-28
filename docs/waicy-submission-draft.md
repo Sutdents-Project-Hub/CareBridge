@@ -2,7 +2,7 @@
 
 **WAICY 2026 · LLM & AI Agent Track · AI as a Service**
 **Submission report draft · updated 27 November 2026**
-**Status: the 36-slide deck is the report to submit; this file is the editable text source. Human reviews are pending.**
+**Status: the 39-slide deck is the report to submit; this file is the editable text source. Human reviews are pending.**
 
 > This editable source contains an English text version of the report in Sections 1–10, followed by a separate registration brief under 200 words. The PDF deliverable is exported from the slide deck.
 

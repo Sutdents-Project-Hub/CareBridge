@@ -1,37 +1,37 @@
-# WAICY Track 4 Rubric Map (36-slide deck)
+# WAICY Track 4 Rubric Map (39-slide deck)
 
 **Status:** Evidence map for the report editor.
 
-The [production handoff](waicy-deck-handoff.md) supersedes the text on the listed original pages and adds four iteration pages plus originality material. The page numbers below locate material in the earlier review deck.
+The [production handoff](waicy-deck-handoff.md) was applied to the deck on 2026-11-28. Page numbers below refer to the revised 39-slide report.
 
-**Deck:** Private Claude Slides artifact (36 slides). The editable source backup is stored locally in `docs/source/waicy-submission/deck-source/` and is excluded from version control. A review PDF was rendered from the same source and kept outside the repository.
+**Deck:** Private Claude Slides artifact (39 slides). The editable source backup is stored locally in `docs/source/waicy-submission/deck-source/` and is excluded from version control. A review PDF was rendered from the same source and kept outside the repository.
 
 The official WAICY 2026 LLM rubric lists the criteria and maximum points below. Check the live rubric again before submission in case it changes.
 
 | Official criterion (maximum) | Deck slides | Evidence currently represented | Remaining gap / status |
 |---|---:|---|---|
-| Specific AI Service (25) | 8–17 | Service definition and boundaries; three users with the factors the AI considers; same-scenario answers; three languages; family summary; safety rules; architecture; quoted prompt layers. | Real-phone review is not done. |
-| Iterative Development (25) | 18–28 | Five-step loop; commit history; Baseline–V5 table; before/after outputs; 109 runs; four documented errors; model selection; 10-turn session; live test steps. | The editor has four iteration pages and a [60-output review](waicy-evidence/shared-case-review.md). The samples use fictional inputs and the prior linked session was Agent-operated. |
-| Motivation & Problem Statement (10) | 3–7 | Fictional scene; international scale data; language and understanding studies; LLM-for-caregiver studies; our baseline failures. | A student-origin story is not confirmed. |
-| Limitations & Considerations (10) | 15, 29–30 | Accuracy, language, evidence scope, safety rules, privacy, dignity, over-reliance, access and bias. | Formal accessibility and bias audits are pending. |
-| Future Development & Clear Reference (10) | 31–32, 34–36 | Limitation, next step and required evidence; conclusion; APA references. | Verify every reference in the final PDF. |
-| Presentation & Communication (10) | All | Overview slide with QR code, progress track, real screenshots, team slide. | The team still reviews the final PDF; four member photos are pending. |
-| Originality & Creativity (10) | 7, 10–11, 15, 17, 21 | “Fluent ≠ faithful”; three roles on one scenario; “later is not consent”; user-confirmed five-field summary. | The [originality page copy](waicy-deck-handoff.md#originality-page-after-the-error-analysis-section) explains the role, attribution and handover choices. Team confirms individual contributions. |
+| Specific AI Service (25) | 9–18 | Service definition and boundaries; three users with the factors the AI considers; same-question replies; three languages; family summary; safety rules; architecture; quoted prompt layers. | Real-phone review is not done. |
+| Iterative Development (25) | 19–31 | Five-step loop; commit history; Baseline–V5 table; three iteration pages with quoted prompt additions, verbatim outputs and error analysis; four documented errors; originality; model selection; 10-turn session; live test steps. | No score table in the report: the [60-output review](waicy-evidence/shared-case-review.md) is an Agent annotation; add a table after members score the outputs. The linked session was Agent-operated; a team-operated conversation is still needed. |
+| Motivation & Problem Statement (10) | 3–8 | Team motivation supplied by a member (slide 3); fictional test scene; international scale data; language and understanding studies; LLM-for-caregiver studies; our baseline results. | The team should be able to explain the motivation in Q&A. |
+| Limitations & Considerations (10) | 16, 32–33 | Accuracy, language, evidence scope, safety rules, privacy, dignity, unintended harm, access and bias. | Formal accessibility and bias audits are pending. |
+| Future Development & Clear Reference (10) | 34–35, 37–39 | Limitation, next step and required evidence; conclusion; APA references, each cited in the body. | Click every reference in the final PDF. |
+| Presentation & Communication (10) | All | Overview slide with QR code, progress track, real screenshots, team slide. | The team still reviews the final PDF and rehearses Q&A; one member photo is pending. |
+| Originality & Creativity (10) | 8, 11–12, 16, 18, 27 | “Fluent ≠ faithful”; three jobs for one care moment; “later is not consent”; checked reply fields; user-confirmed summary. | Team confirms individual contributions. |
 
 ## Official Track 4 submission requirements
 
 | Required element | Slide(s) |
 |---|---|
-| Specific AI service | 8–9 |
-| At least three meaningfully different user profiles | 10–11 |
-| Motivation | 3–7 |
-| Link to at least 10 messages exchanged by the entrant and final assistant | 2, 26–28 ([Team recording kit](waicy-team-conversation.md); the earlier 20-message link is Agent evidence) |
-| Live chatbot link | 1, 2, 28 (https://carebridge-neon.vercel.app) |
-| Iterative design process | 18–27 |
-| Limitations | 29–30 |
-| Future development | 31 |
-| Conclusion | 32 |
-| Recognized-style references | 34–36 |
+| Specific AI service | 9–10 |
+| At least three meaningfully different user profiles | 11–12 |
+| Motivation | 3–8 |
+| Link to at least 10 messages exchanged by the entrant and final assistant | 2, 29–31 (link currently points to the Agent-operated session; replace with the [team recording](waicy-team-conversation.md)) |
+| Live chatbot link | 1, 2, 31 (https://carebridge-neon.vercel.app) |
+| Iterative design process | 19–26, 28 |
+| Limitations | 32–33 |
+| Future development | 34 |
+| Conclusion | 35 |
+| Recognized-style references | 37–39 |
 
 The submission form separately limits the brief description to 200 words and requires a Google Drive project-folder link accessible to everyone; the folder is still to be created.
 
@@ -39,8 +39,9 @@ The submission form separately limits the brief description to 200 words and req
 
 - 2026-11-27: offline Playwright render of all 36 slides with an automated overflow check and visual inspection; fixes were applied for overlaps. This is not the Claude Slides export, so layout can differ slightly.
 - Live-demo and QR-code checks are in [Evidence Log, Section N](evidence-log.md#section-n-public-demo-check-2026-11-27); the QR code on the rendered page decoded to the demo URL.
-- The report PDF leaves AI-operation details to the separate [AI-use statement](waicy-ai-use-statement.md), referred to on slide 33; upload both together.
+- At the project owner’s request the report PDF carries no AI-assistance wording; the separate [AI-use statement](waicy-ai-use-statement.md) holds the disclosure and the owner decides how to submit it.
 - No automated color-contrast scan was done.
+- 2026-11-28: the revised 39-slide deck (later reduced to 38 slides in artifact version 25) was rendered with the same offline pipeline; the automated overflow check passed apart from the intentional cover panel. New screenshots were captured from the public demo.
 
 ## Official sources
 

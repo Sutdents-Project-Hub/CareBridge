@@ -13,7 +13,7 @@
 | Agent-operated public-demo replay | [Public-demo transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md), 20 messages (Section O) | 2026-11-27 | Claude |
 | Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
 | Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
-| Formal English PDF | 36-page review PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-27, local render | Claude |
+| Formal English PDF | 39-page PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-28, local render | Claude |
 | Google Drive folder containing the PDF | To be created | Not verified | TBD |
 | Formal submission receipt | To be submitted | Not verified | TBD |
 
@@ -185,3 +185,13 @@ This session replaces Section M as the conversation linked in the report. Sectio
 ## Section Q — Three-language public role-play (November 28)
 
 Codex operated one fictional situation across 10 turns in a fresh 390px Chromium context, switching to Indonesian for a new caregiver, Traditional Chinese for handover, and English for a family member. Each of the 10 actual model replies reported Terra / medium / V5. The tested interface retained the conversation through role and language changes. The walkthrough checked bilingual phrase copying, the single confirmation checkbox, blank outcome, reset after editing, and HTML/JSON export. A wording shift from offering a blanket to providing it was corrected in a follow-up. [Read the walkthrough and slide copy](waicy-evidence/three-role-walkthrough.md) · [Original JSON export](waicy-evidence/three-role-walkthrough.json).
+
+## Section R — Report revision to 39 slides (November 28)
+
+- Claude applied the [slide handoff](waicy-deck-handoff.md) to the private deck (artifact version 24): corrected the baseline, structured-output, family-summary and evidence-scope wording; added three iteration pages, a score table and an originality page; removed two redundant pages; limited the reference list to sources cited in the slides.
+- Checked quoted prompt additions against `web/src/lib/ai/prompts.ts` and the quoted replies against [shared-case-outputs.json](waicy-evidence/shared-case-outputs.json). The score counts are those of the [shared-case review](waicy-evidence/shared-case-review.md); they were not independently re-scored.
+- Captured the role comparison, medication safety notice (preset rule, no model call) and family summary from the public demo; other screenshots are crops of earlier captures.
+- Offline render: 39 pages, overflow check passed apart from the intentional cover panel, contact-sheet visual inspection. This is not the Claude Slides export.
+- Not done: a team-operated final conversation, member confirmation of roles, four member photos, native-speaker and care-professional review.
+- Later the same day (artifact version 25): at the project owner’s request removed the score page, the team-page pointer to the AI-use statement and the walkthrough link on the limitations page, then renumbered to 38 slides. The score page was removed rather than shown without attribution. A text scan of the PDF found no AI-assistance or simulation wording; the linked chat transcript still states that an AI testing agent operated it.
+- Final report copy (artifact version 27): added a motivation page translated from text a team member supplied (condensed into English), added three further member photos cropped to one size (one photo pending; photos and the PDF stay outside the repository), and renumbered to 39 slides. Offline render passed the overflow check apart from the intentional cover panel; contact sheets of all pages were inspected. Automated link requests returned 200 for the demo, repository root and most sources; GitHub file pages, some DOI/publisher pages and the CDC page refused or rate-limited automated requests and still need a signed-out browser check.

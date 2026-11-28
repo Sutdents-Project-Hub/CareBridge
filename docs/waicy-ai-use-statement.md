@@ -16,7 +16,7 @@ An AI testing agent operated the 27 November public-demo replay of ten turns (20
 
 ## Report preparation
 
-Claude helped research sources, draft the original slides and contribution prompts, translate sample excerpts, and capture walkthrough screens. Codex checked the official requirements and sources, corrected evidence descriptions, and prepared revised slide copy, test records and screenshots. Individual student contributions belong in the team-approved report.
+Claude helped research sources, draft the original slides and the team-page role descriptions, translate sample excerpts, and capture walkthrough screens. Codex checked the official requirements and sources, corrected evidence descriptions, and prepared revised slide copy, test records and screenshots. On 28 November Claude applied that copy to the report, corrected slide text, added the iteration and originality pages, captured new screenshots from the live demo, translated and condensed a team member’s motivation text into English, cropped member photos and exported the PDF. Individual student contributions belong in the team-approved report.
 
 ## Evidence scope
 
