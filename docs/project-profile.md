@@ -9,7 +9,7 @@
 - Stage：`competition`
 - Product type：`web`
 - Bootstrap mode：`scaffold` → 本機 Web MVP
-- Deployment：`planned`
+- Deployment：`deployed`，Vercel Hobby，[公開試用](https://carebridge-neon.vercel.app)
 - Team collaboration：`true`
 - Technology policy：未指定時採公司技術基線
 - Structure exception：無；使用固定 component root
@@ -57,13 +57,13 @@
 - Web 已採 Node.js 24 LTS、TypeScript、pnpm 與 Next.js
 - 長期儲存、登入、語音、原生 App、RAG、管理後台與自動傳訊均非 MVP
 - 評審展示只用虛構資料，聊天內容匯出需人工同意與脫敏
-- 模型供應商採 OpenAI。公開試用採 Vercel Hobby，模型設定與額度在正式環境驗收
+- 模型供應商採 OpenAI。公開試用採 Vercel Hobby，正式環境已確認模型回覆，使用額度與長期穩定性待驗
 
 ## 未決定事項
 
 - 指導者與學生的實際分工、英文姓名與參賽隊伍資訊待補
 - 已執行 Luna 與 Terra 本機對照。公開環境的使用額度、穩定性與人工回覆審查待驗
-- 部署到哪一個可公開試用的網站，及是否需要匿名試用配額控管
+- 公開試用的長期額度控管與正式交件驗收待確認
 - 照護內容審稿人、印尼語母語審查與授權素材來源尚未確認
 - 主辦第 4 賽道的登入可用性、18 歲參賽等仍須依實際隊伍狀況核對
 

@@ -21,7 +21,7 @@ To verify a production build, run `pnpm start --hostname 127.0.0.1 --port 3206` 
 
 Set `OPENAI_API_KEY` and `OPENAI_MODEL` in the server-only `.env.local`. `OPENAI_REASONING_EFFORT` is optional. The local demonstration uses GPT-6.1 Terra with medium effort after tests on Luna and Terra. The configured model must support the Responses API and Structured Outputs. [Integration details](../docs/integrations.md)
 
-The public demo runs at [https://carebridge-neon.vercel.app](https://carebridge-neon.vercel.app). For the Vercel setup, use Root Directory `web`, Production Branch `main`, and Node.js `24.x`, keep the detected install, build, and output settings, and set the OpenAI variables only as server-side Production environment variables. See [deployment notes](../docs/deployment.md).
+The public demo runs at [https://carebridge-neon.vercel.app](https://carebridge-neon.vercel.app). The existing Vercel project uses Root Directory `web`, Production Branch `main`, and Node.js `26.x`. Local verification uses Node.js `24.x` and pnpm `10.33.0`. Keep OpenAI variables server-side in the Production environment. See [deployment notes](../docs/deployment.md).
 
 ## Demo and verification
 

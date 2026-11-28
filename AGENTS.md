@@ -4,7 +4,7 @@
 
 - 本檔適用於整個 `CareBridge｜失智照護者的三語情境溝通 AI 顧問` repository；子目錄若有更具體的 `AGENTS.md`，只在該範圍內補充本檔。
 - 依序遵守使用者當次指示、本檔、根目錄 `README.md`、`docs/` 與元件 README；內容衝突時先停止並確認。
-- 目前階段：競賽／展示。部署狀態：已選 Vercel Hobby，正式網址待驗收。
+- 目前階段：競賽／展示。部署狀態：Vercel Hobby 公開試用已通過匿名瀏覽器檢查，詳見 `docs/deployment.md`。
 - Git repository 名稱：`CareBridge`。全新專案的初始 branch 為 `main`。
 
 - 產品型態：`web`

@@ -82,7 +82,7 @@ vercel link
 
 **安全提醒**：不因評審要試用，就在 GitHub 或網站中暴露 key、繞過成本上限，或蒐集真實長者私密紀錄。
 
-公開驗收細項見[瀏覽器紀錄](waicy-evidence/public-browser-check.json)。如需復原，可在 Vercel 專案選擇先前 READY 的 production 部署並重新指派 production，再匿名測試 URL。
+公開驗收細項見[瀏覽器紀錄](waicy-evidence/public-browser-check.json)。11 月 28 日將簡報素材提交推到 `main` 後，Vercel 自動部署同一 SHA 並升為 production。切換後以 390px 匿名 Chromium 驗證五個公開頁面、一次家庭角色模型回覆及用藥固定規則。如需復原，可在 Vercel 專案選擇先前 READY 的 production 部署並重新指派 production，再匿名測試 URL。
 
 ### 平台文件
 
