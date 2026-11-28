@@ -2,7 +2,7 @@
 
 ## 目前狀態
 
-- 公開試用網址：https://carebridge-neon.vercel.app（`*.vercel.app`），2026-11-27 匿名瀏覽器實測可回覆。規劃平台為 Vercel Hobby；方案、Project ID 與 build log 未由本次檢查確認。
+- 公開試用網址為 https://carebridge-neon.vercel.app。2026-11-28 確認為既有 Vercel Hobby 專案 `carebridge`，並由匿名 Chromium 實際向三種角色送出問題。
 
 ## 命名契約
 
@@ -61,26 +61,28 @@ vercel link
 
 ## 公開試用驗收紀錄
 
-公開網址已可試用。下表只把 2026-11-27 實際操作過的項目標為已驗；平台設定、build log 與回滾仍待專案管理者確認。
+公開網址已可試用。2026-11-28 透過已登入的 Vercel CLI 確認 production 設定，並從無登入 Chromium 驗證公開流程。表中 `24.x` 是 repo 的本機基準，現行 Vercel 專案設定為 `26.x`。
 
 ### 驗收工單
 
 | 項目 | 實際值 | 狀態 |
 |---|---|---|
-| Hosting / project ID | Vercel Hobby 規劃；Project ID 待建立 | 未建立 |
-| Production branch / base directory | `main` / `web` | 待 Vercel 匯入驗證 |
-| Framework / Node.js | Next.js / `24.x` | 依設定規劃，平台尚未驗證 |
-| Install / Build / Output | Vercel 預設值；packageManager `pnpm@10.33.0` | 待 build log 驗證 |
+| Hosting / project ID | Vercel Hobby / `carebridge` | 已確認既有專案 |
+| Production branch / base directory | `main` / `web` | 已確認 GitHub 連結及 Root Directory |
+| Framework / Node.js | Next.js / Vercel `26.x` | 本機檢查採 `24.x` |
+| Install / Build / Output | `npx --yes pnpm@10.33.0 install --frozen-lockfile` / `npm run build` / 自動 | 已核對現行專案設定 |
 | Public URL | https://carebridge-neon.vercel.app | 2026-11-27 匿名 Chromium，HTTP 200 |
 | LLM provider + model | OpenAI `gpt-6.1-terra` / medium / V5 | 公開環境回覆的 modelInfo 相符（2026-11-27） |
-| Server secret source | Vercel Project Environment Variables（Production） | 未設定 |
+| Server secret source | Vercel Project Environment Variables（Production） | 已有伺服器端模型設定，公開回覆驗證成功 |
 | Function runtime / max duration | Node.js / 40 秒 route 設定 | 待部署 log 驗證 |
 | Rate limit / 供應商預算 | 程序內限制已實作；非分散式限流／供應商硬上限 | 上線前風險待接受與驗證 |
-| 桌面／手機匿名對話 | 桌面單輪：英文新手、英文家屬、印尼文草稿與用藥固定規則；390px 首頁無水平捲動 | 十輪、摘要、匯出與實體手機未在公開環境測試 |
-| 無痕存取 chatbot 與 chat history | 全新瀏覽器情境可開啟網站與 GitHub 逐字稿 | 2026-11-27 已驗 |
-| 回滾、撤站方法 | — | 未建立 |
+| 桌面／手機匿名對話 | 2026-11-27 Agent 十輪；2026-11-28 三個 Try 入口、摘要、匯出與 320/390/1440px | 實體手機待測 |
+| 無痕存取 chatbot 與 chat history | 全新瀏覽器情境可開啟網站與 GitHub 逐字稿 | 2026-11-28 已驗 Agent 證據 |
+| 發布方式 | 既有 GitHub `main` 來源，production 部署指定 SHA | push 前後核對 GitHub 與 Vercel SHA；無自動部署時使用同 scope 的 Vercel CLI |
 
 **安全提醒**：不因評審要試用，就在 GitHub 或網站中暴露 key、繞過成本上限，或蒐集真實長者私密紀錄。
+
+公開驗收細項見[瀏覽器紀錄](waicy-evidence/public-browser-check.json)。如需復原，可在 Vercel 專案選擇先前 READY 的 production 部署並重新指派 production，再匿名測試 URL。
 
 ### 平台文件
 

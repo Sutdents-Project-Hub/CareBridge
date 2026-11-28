@@ -1,33 +1,16 @@
-# WAICY Submission Checklist and Registration Brief
+# WAICY submission checklist
 
-Updated 2026-11-27. Team: **Empathy Weavers** · High School · folder and file name `LLM_High_CareBridge` / `LLM_High_CareBridge.pdf`.
+The [slide handoff](waicy-deck-handoff.md) is the starting point for the report editor. The official deadline is **30 November 2026, 06:00 Taiwan time** (29 November, 17:00 ET). [Official guidebook](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=21) · [Submission form](https://www.waicy.org/2026-submission/) · [Rubric](https://www.waicy.org/rubrics/)
 
-## Done
-
-| Item | State |
+| Submission item | Material or action |
 |---|---|
-| Public chatbot link | https://carebridge-neon.vercel.app, checked 2026-11-27 ([Section N](evidence-log.md#section-n-public-demo-check-2026-11-27)) |
-| Final chat history, 20 messages | [Public-demo transcript on GitHub](source/waicy-submission/live-session-2026-11-27/live-conversation.md); no names, photos or email addresses; operated by an AI testing agent |
-| Report deck | 36 slides in the private Claude Slides artifact; review PDF kept outside the repository |
-| Team size and age rule | Guidebook: 1–5 members under 18. The team has five members; each age still needs the team's confirmation |
+| English report PDF | Apply the [page corrections and new English pages](waicy-deck-handoff.md) to the 36-page review deck. The editable copy is in the team's deck workspace. The report must cover service, at least three distinct profiles, motivation, iteration, limitations, future development, conclusion, references and both links. |
+| Interactive chatbot | [Public production prototype](https://carebridge-neon.vercel.app). Include the clickable URL in the PDF. |
+| Team conversation with the final assistant | Follow the [10-turn recording and link checklist](waicy-team-conversation.md). Place the signed-out link in the report. The 27 November [AI-agent replay](source/waicy-submission/live-session-2026-11-27/live-conversation.md) supports technical testing. |
+| References | Apply the [claim-to-source map](waicy-research-notes.md#november-28-slide-citations-and-research-informed-scenarios). Keep each displayed claim, date and population next to its citation. |
+| AI-use disclosure | Include the [companion PDF](waicy-evidence/LLM_High_CareBridge_AI_Use_Statement.pdf) because the report refers to it. [Editable text](waicy-ai-use-statement.md). Update its operator section when the team conversation exists. The LLM track's standard folder lists the report PDF. |
+| Brief description | Paste the [English brief](waicy-submission-draft.md#registration-brief-separate-from-the-report-200-word-maximum), up to 200 words. |
+| Category and team information | Team confirms eligibility, category, names, grades, contact fields and individual contributions. The guidebook lists 1–5 members under 18. Use the form's actual fields and keep personal information out of public evidence. |
+| Drive and submission | For the High group, the folder is `LLM_High_CareBridge` and the report is `LLM_High_CareBridge.pdf`. Use the confirmed category. Upload the report, companion disclosure and linked conversation where applicable. Verify “anyone with the link” access in a signed-out browser and keep the submission receipt. |
 
-## Still to do before submitting
-
-| Item | What is needed |
-|---|---|
-| Student check of roles | Each student confirms the role area on the team slide and the AI-assistance statement, and can explain that part |
-| Own conversation (recommended) | The guidebook asks for a conversation between the team and the final assistant. The linked one was operated by an AI testing agent. Have a student run 10 turns on the public demo with fictional details, export it, and replace the link |
-| Remaining member photos | Four photos for the team slide (initial tiles are shown until then) |
-| Google Drive folder | Upload both `LLM_High_CareBridge.pdf` and the AI-use statement (`LLM_High_CareBridge_AI_Use_Statement.pdf`, text in [waicy-ai-use-statement.md](waicy-ai-use-statement.md)) to folder `LLM_High_CareBridge`, give judges access, check in a signed-out window. The report refers to the statement, so it must be included |
-| Official form | Team and contact data, instructor if any, 200-word brief, Drive link |
-| Final PDF check | Open every page and link; reopen the GitHub transcript link |
-| Reviews (optional) | Native-speaker and care-professional review; keep “not reviewed” wording if none happens |
-| Statistics and references | Check the open items in [research notes](waicy-research-notes.md) |
-
-**Official deadline:** November 29, 2026, 5:00 PM ET (November 30, 6:00 AM Taiwan time). Submit earlier if possible.
-
-**Official references:** [Guidebook](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf) · [Submission form](https://www.waicy.org/2026-submission/) · [Rubric](https://www.waicy.org/rubrics/).
-
-## Registration brief
-
-Use the [canonical English brief](waicy-submission-draft.md#registration-brief-separate-from-the-report-200-word-maximum).
+Before submitting, open the exported PDF at 100% zoom, verify all click targets and the QR code, and confirm that the transcript leads to the entrant's actual conversation. Keep the case counts and limitations next to any version comparison. Optional specialist feedback can be added once completed.

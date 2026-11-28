@@ -58,10 +58,10 @@ The iteration followed the WAICY sequence **Idea → Advisor Design → Testing 
 
 | Version | Change and observed evidence |
 |---|---|
-| **Baseline** | A general-purpose baseline with the same model, shared cases, and request settings. It invented a dinner time in C01 and once treated an older adult like a child in C07. |
+| **Baseline** | A general-purpose baseline with the same model, shared cases, and request settings. C01 gave an unverified dinner time in an explicitly hypothetical script. C07 framed the scenario as childcare. |
 | **V1** | Narrowed the purpose to everyday care communication and requested conversational, brief wording. Time attribution, role differences, and necessary follow-up remained weak. |
 | **V2** | Added three user profiles, three languages, Chinese comparison text, and clarification when information was missing. In C15, a user's report was still phrased as a confirmed fact. |
-| **V3** | Added known/unknown distinctions, no invented facts, escalation language, and structured response output. It avoided the invented time in C01, but C09 put clarification text in the wrong field and failed the application's formal validator. |
+| **V3** | Added known/unknown distinctions, no invented facts, escalation language, and structured response output. It suggested checking the schedule in C01, but C09 put clarification text in the wrong field and failed the application's formal validator. |
 | **V4** | Specified required fields by response type, preserved refusal as an option, and routed medication questions to a person. The same-case clarification rendered, but multi-turn testing still inferred consent from “later” and misattributed an unreported blanket offer. |
 | **V5** | Added examples distinguishing quoted words, reported actions, and inference; prohibited invented times; and made role-specific priorities explicit. Same-case results improved on selected cases, but a fixed-history handover still introduced an unreported blanket question. |
 
@@ -95,13 +95,13 @@ A separate seven-case V5 model/effort comparison produced these observed results
 
 The values are from a single small batch and are not benchmarks. Cost is estimated from recorded token usage and listed standard prices, not an invoice. Terra/medium was selected for the local showcase because its handover and role-specific answers were more useful in the inspected cases, then it completed the ten-turn browser replay. Luna/high's incomplete handover shows why a response that hits the output limit must be treated as a failure, even when the model began an answer.
 
-**English final-configuration session.** A separate Chromium session completed 10 English turns with the same fictional case, switching from new caregiver to experienced caregiver and then family member. All ten replies came from Terra/medium/V5 (HTTP 200); the last request included 19 messages of context. The model gave no invented dinner time in turn 5. It separated observations from caregiver actions in turn 8, and left the post-visit bath, blanket acceptance, and dinner unresolved in turn 10. The 20-message transcript is linked in Section 9. These results cover one fictional scenario. They are additional to the 40 historical Indonesian browser turns.
+**English final-configuration session.** A separate Chromium session completed 10 English turns with the same fictional case, switching from new caregiver to experienced caregiver and then family member. All ten replies came from Terra/medium/V5 (HTTP 200); the last request included 19 messages of context. The model gave no invented dinner time in turn 5. It separated observations from caregiver actions in turn 8, and left the post-visit bath, blanket acceptance, and dinner unresolved in turn 10. An Agent-operated public replay is linked in Section 9 as supplemental engineering evidence. These results cover one fictional scenario. They are additional to the 40 historical Indonesian browser turns.
 
 ### 5.4 Error analysis and remaining limitations
 
 | Observed failure | Change and retest | Remaining issue |
 |---|---|---|
-| Baseline invented “dinner at six” although no time was supplied. | V3/V5 made unknown times explicit; V5's C01 suggested checking the schedule first. | A model can still invent context in other phrasings or longer histories. |
+| Baseline prefaced “dinner at six” with “for example” but gave no cue to check the actual schedule. | V3/V5 made unknown times explicit; V5's C01 suggested checking the schedule first. | A model can still invent context in other phrasings or longer histories. |
 | V3 C09 returned a clarification with `questions: null`; the question was embedded in another field. | V4 defined required fields and was replayed against the same case; V4 and V5 rendered it. | Format validation cannot ensure that the question is appropriate or complete. |
 | “Later” was treated as agreement to bathe; V4 also attributed a blanket offer that had not been made. | V5 retained the quoted words and treated willingness as unknown. | Translation tone still needs review. In fixed-history H01, a V5 output again invented a blanket question. |
 | A long history blurred what the older adult did and what the caregiver did. | V5 and Terra/medium separated the older adult picking up a blanket from the caregiver's reported action in the inspected browser handover. | The Terra summary omitted whether tea was later drunk; an Indonesian phrase in turn 8 could imply bathing had begun. Human confirmation remains necessary. |
@@ -115,7 +115,7 @@ The final local engineering checks recorded on 23 November were: `pnpm lint`, `p
 
 CareBridge can produce plausible but incorrect statements, confuse the speaker or source of a claim, overstate willingness, miss an unresolved outcome, or phrase a translation with unintended force. The Terra/V5 handover preserved who picked up the blanket and what the caregiver proposed, but omitted whether tea was later drunk. It also left a possible ambiguity in an Indonesian phrase about whether bathing had started. These examples show that a well-formed answer is not necessarily a faithful account.
 
-The family summary is a **draft**. Users must check each field and confirm it before sharing. An AI suggestion is not evidence that an action occurred; an unknown result must stay unknown. The service is not an emergency service and cannot make a diagnosis or medication decision. In urgent or out-of-scope situations it should direct people to appropriate human help, but the routing cases have not been reviewed or approved by a clinician.
+The family summary is a **draft**. The user reviews the five-field preview and ticks one confirmation box to enable copying. Edits clear the confirmation. An AI suggestion is not evidence that an action occurred; an unknown result must stay unknown. The service is not an emergency service and cannot make a diagnosis or medication decision. In urgent or out-of-scope situations it should direct people to appropriate human help, but the routing cases have not been reviewed or approved by a clinician.
 
 The evaluation used fictional cases. A simulated reviewer acting as a fictional caregiver used the browser; this was not a real caregiver study, patient test, or usability study with affected families. The recorded review included AI-assisted testing and AI review; student contributions have not yet been supplied. English and Indonesian language quality, especially tone and cultural nuance, still need human review. Dementia communication and acute-symptom references informed the design but do not establish clinical efficacy, translation validity, or certification.
 
@@ -135,7 +135,7 @@ The local MVP does not ask for sign-in and does not maintain a care-record datab
 
 ## 8. Conclusion
 
-CareBridge is a focused attempt to make everyday dementia-care communication more respectful, multilingual, and faithful to what people actually reported. Its U1, U2, and U3 designs target different needs: immediate wording, concise observation and handover, and factual family updates. The local experiments moved from a general baseline through five prompt versions and used failures—an invented time, an invalid clarification, inferred consent, and inaccurate handover details—to guide changes.
+CareBridge is a focused attempt to make everyday dementia-care communication more respectful, multilingual, and faithful to what people actually reported. Its U1, U2, and U3 designs target different needs: immediate wording, concise observation and handover, and factual family updates. The local experiments moved from a general baseline through five prompt versions and used an unchecked time in a sample phrase, an invalid clarification, inferred consent and inaccurate handover details to guide changes.
 
 The evidence is promising only within its tested scope. There were 109 direct model runs and 40 real-model browser turns, but single samples do not establish reliability; even the final Terra/medium/V5 session had an omitted outcome and a phrase requiring review. The service should therefore remain a communication aid with human confirmation, fictional demonstrations, and clear non-medical boundaries. The three-role comparison has one local sample per role-language pair. A separate final-configuration English conversation exercised all three roles. A public demo is available; specialist and language reviews remain pending.
 
@@ -145,7 +145,7 @@ The evidence is promising only within its tested scope. There were 109 direct mo
 - **Teacher/advisor contribution:** none recorded.
 - **AI assistance:** project records state that Codex agents simulated a fictional user/browser run and performed an independent AI review; the primary agent implemented and checked changes. Students should verify this account and add their own contributions before submission.
 - **Live chatbot:** [https://carebridge-neon.vercel.app](https://carebridge-neon.vercel.app), checked 2026-11-27.
-- **Final-edition conversation history:** [Transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/live-session-2026-11-27/live-conversation.md). It contains 20 exchanged messages from the public demo, operated by an AI testing agent on 2026-11-27.
+- **Public engineering replay:** [Transcript on GitHub](https://github.com/Sutdents-Project-Hub/CareBridge/blob/main/docs/source/waicy-submission/live-session-2026-11-27/live-conversation.md). It contains 20 exchanged messages from the public demo, operated by an AI testing agent on 2026-11-27. Add the team’s actual final-assistant conversation link using the [recording kit](waicy-team-conversation.md).
 - **Three-profile same-case Terra/medium/V5 comparison:** locally tested with nine model snapshots and accepted prefilled-draft UI flow.
 
 ## 10. References
@@ -165,13 +165,13 @@ References are presented in APA-style form. Public sources informed design and s
 11. OpenAI. (n.d.). *Reasoning models: Controlling costs*. https://developers.openai.com/api/docs/guides/reasoning#controlling-costs
 12. CareBridge project team. (2026, November 23). *WAICY iteration record and evidence log* [Internal project records, not published]. See `docs/waicy-iteration-record.md`, `docs/evidence-log.md`, and the local evidence archive `docs/source/waicy-evidence/2026-11-23/`.
 
-13. Ministry of Health and Welfare, Taiwan. (2024, March 21). *Taiwan community dementia epidemiology survey results* [English translation of the Chinese title, updated October 31, 2025]. https://www.mohw.gov.tw/cp-6653-78102-1.html
+13. Ministry of Health and Welfare, Taiwan. (2024, March 21). *Taiwan community dementia epidemiology survey results* [English translation of the Chinese title, updated October 31, 2025]. https://dep.mohw.gov.tw/PRO/fp-2731-78102-120.html
 14. Ministry of Labor, Taiwan. (2026). *Foreign workers in Taiwan by various type and nationality, end of October 2026* (Table 12-5, p. 229). Retrieved November 23, 2026, from https://statdb.mol.gov.tw/html/mon/212050.pdf
 
 ---
 
 # Registration Brief (separate from the report; 200-word maximum)
 
-**Word count: 139 (whitespace-separated)**
+**Word count: 130 (whitespace-separated)**
 
-CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and helps family members organize reported events, actions, outcomes, and unknowns into a handover draft for human review. The interface opens in English and also offers Traditional Chinese and Indonesian conversations. New caregivers get practical wording, experienced caregivers get handover priorities, and family members get help checking facts. We refined five prompt versions using fictional cases and documented failures such as an invented time, an invalid clarification, inferred consent, and a misattributed action. Our local evaluation includes 109 direct model runs, a controlled three-role comparison in three languages, and a final 10-turn English conversation. CareBridge supports communication and directs medical or urgent questions to qualified help. A public demo is live at https://carebridge-neon.vercel.app; specialist and language reviews are pending.
+CareBridge is a multilingual web advisor for everyday dementia-care communication. It helps caregivers find respectful words, asks for missing context, and lets families prepare a draft that separates observations, actions, outcomes, and unknowns. The interface opens in English and also supports Traditional Chinese and Indonesian conversations. New caregivers get practical wording, experienced caregivers get handover priorities, and family members get questions they can use to check what happened. We compared a general baseline with five prompt versions on fictional cases and documented examples of unchecked times, invalid response structure, inferred consent, and misattributed actions. We reviewed 60 shared-case model outputs with an AI agent and tested the public demo in a browser. CareBridge supports everyday communication and directs urgent and medication questions to qualified human help. Try it at https://carebridge-neon.vercel.app.

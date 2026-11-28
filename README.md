@@ -8,9 +8,10 @@ The website opens in English. Traditional Chinese and Indonesian are available f
 
 | Material | Where to find it |
 |---|---|
-| Project report and registration brief | [Editable English report](docs/waicy-submission-draft.md) · [English PDF draft](docs/source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) |
+| Project report and registration brief | [Editable English report](docs/waicy-submission-draft.md) · [Historical 8-page PDF draft](docs/source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf) |
+| Slide production handoff | [Latest English slide text, evidence and submission kit](docs/waicy-deck-handoff.md) |
 | English demonstration | [Competition and demo guide](docs/competition.md) · [Visual evidence PDF](docs/source/waicy-submission/english-evidence-2026-11-23/CareBridge-WAICY-English-Visual-Evidence.pdf) |
-| Final-configuration English conversation | [Readable transcript](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) · [Raw JSON](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json) |
+| Agent-operated English conversation | [Readable transcript](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) · [Raw JSON](docs/source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json) |
 | Design, testing and improvement | [Iteration record](docs/waicy-iteration-record.md) · [Evidence log](docs/evidence-log.md) · [Evaluation plan](docs/evaluation-plan.md) · [Test cases](docs/evaluation-cases.md) |
 | Sources and submission | [Care references](docs/knowledge-sources.md) · [Research notes](docs/waicy-research-notes.md) · [Rubric map](docs/waicy-rubric-map.md) · [Submission checklist](docs/waicy-submission-todo.md) |
 

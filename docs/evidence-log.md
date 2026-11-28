@@ -10,7 +10,7 @@
 | Successful chat in a private browser window | Fresh Chromium context; see Section N | 2026-11-27 | Claude |
 | Model (provider / model ID) | OpenAI `gpt-6.1-terra` / `medium`; Luna remains a tested option | 2026-11-23, local HTTP 200 | Codex |
 | Locally tested version | `V5-2026-11-23`; experiment records include the prompt SHA-256 | 2026-11-23, browser | Codex |
-| Final conversation share link | [Public-demo transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md), 20 messages (Section O) | 2026-11-27 | Claude |
+| Agent-operated public-demo replay | [Public-demo transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md), 20 messages (Section O) | 2026-11-27 | Claude |
 | Historical Terra / V5 exchange | 10 turns, 20 messages, replaying the same Indonesian-language case | 2026-11-23; local archive | Codex simulated scenario |
 | Final English browser capture | 10/10 turns, 20 exchanged messages; Terra / medium / V5; synthetic scenario | 2026-11-23, local browser | Codex |
 | Formal English PDF | 36-page review PDF rendered from the deck source and kept outside the repository; the team must check it before submitting | 2026-11-27, local render | Claude |
@@ -21,14 +21,14 @@
 
 | Version | Prompt path / Git SHA | Model ID | Cases | Completed / failed / untested | Main defect | Evidence path |
 |---|---|---|---:|---|---|---|
-| Baseline | `web/src/lib/ai/prompts.ts` | gpt-6-luna | 10 | 10 provider responses | Invented an unprovided dinner time and once treated an older adult as a child | `original/` |
+| Baseline | `web/src/lib/ai/prompts.ts` | gpt-6-luna | 10 | 10 provider responses | Gave an unchecked example mealtime and framed one case as childcare | `original/` |
 | V1 | Same | gpt-6-luna | 10 | 10 provider responses | Caregiving focus added, but follow-up, role differentiation, and time attribution remained weak | `original/` |
 | V2 | Same | gpt-6-luna | 10 | 10 provider responses | Added roles and Traditional Chinese comparison; converted a reported action into a confirmed one | `original/` |
 | V3 | Same | gpt-6-luna | 18 | 17 renderable, 1 structural rejection | C09 put the question in the wrong field; options did not adequately preserve refusal | `original/` |
 | V4 | Same | gpt-6-luna | 18 | 18 renderable | Format fixed; “later” could still be interpreted as willingness | `revised/` |
 | V5 | Same | gpt-6-luna | 20 | 20 renderable | Improved same-case role and source attribution; fixed-history draft could still add an unreported fact | `candidate/` |
 
-Raw files are in the local `docs/source/waicy-evidence/2026-11-23/` tree. “Provider response” means the provider completed a response; “renderable” means it passed structural validation. Content review is recorded separately.
+Raw files are in the local `docs/source/waicy-evidence/2026-11-23/` tree. “Provider response” means the provider completed a response; “renderable” means it passed structural validation. The [shared-case review](waicy-evidence/shared-case-review.md) includes individual rationales for 60 archived outputs and the latest structural replay.
 
 ## Section C — Error and Fix History (append one row per issue)
 
@@ -173,3 +173,11 @@ This session replaces Section M as the conversation linked in the report. Sectio
 | Latency | Send to reply from the export: minimum 2.7 s, median 4.9 s, maximum 9.9 s; single run |
 | Observed content | T4 did not read “later” as a decision. T5 said the dinner time was not known. T8 separated reported actions, observations and open checks. T10 left bathing, blanket and dinner open. A single reading by Claude, not an independent review |
 | Files | [Transcript](source/waicy-submission/live-session-2026-11-27/live-conversation.md); HTML and JSON exports made with the app's Export button, and screenshots, in the same folder |
+
+## Section P — November 28 evidence review and public browser check
+
+- Reviewed ten shared fictional cases across Baseline to V5. Scored 60 archived completions against case-specific expectations. Reran the current parser against all 30 structured outputs: 29 accepted; C09/V3 rejected for the missing clarification field. [Score table and rationale](waicy-evidence/shared-case-review.md) · [Original output text and prompt hashes](waicy-evidence/shared-case-outputs.json).
+- Extracted the existing evidence ZIP into a temporary directory and verified all 186 manifest entries, including 119 raw evidence files.
+- Ran test (20 passed), lint, typecheck and production build under Node.js 24 with pnpm 10.33.0.
+- In a fresh Chromium context, sent one fictional question from each of the three English Try role entries. Each returned HTTP 200 with Terra/medium/V5 and did not issue a request before clicking Send. Verified readable HTML and JSON downloads, one summary confirmation checkbox, copy gating, unknown outcome and reset after editing. Checked five public pages at 320, 390 and 1440 pixels for horizontal overflow.
+- The November 27 Agent transcript rendered on GitHub when signed out and its raw Markdown endpoint also returned HTTP 200. The public production check is a supplemental Agent exercise. [Browser receipt](waicy-evidence/public-browser-check.json) · [Summary screenshot](waicy-evidence/family-summary.png).

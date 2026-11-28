@@ -1,0 +1,79 @@
+{
+  "testedAt": "2026-11-28T01:13:13.570Z",
+  "operator": "Codex agent",
+  "engine": "Chromium",
+  "browserVersion": "159.0.8154.6",
+  "url": "https://carebridge-neon.vercel.app",
+  "entries": [
+    {
+      "path": "/try/en/novice_caregiver",
+      "role": "novice_caregiver",
+      "beforeSend": 0,
+      "requests": 1,
+      "status": 200,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "path": "/try/en/experienced_caregiver",
+      "role": "experienced_caregiver",
+      "beforeSend": 0,
+      "requests": 1,
+      "status": 200,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    },
+    {
+      "path": "/try/en/family",
+      "role": "family",
+      "beforeSend": 0,
+      "requests": 1,
+      "status": 200,
+      "modelInfo": {
+        "provider": "openai",
+        "model": "gpt-6.1-terra",
+        "promptVersion": "V5-2026-11-23",
+        "provenance": "model",
+        "maxOutputTokens": 2000,
+        "reasoningEffort": "medium"
+      }
+    }
+  ],
+  "summary": {
+    "reviewCheckboxes": 1,
+    "copyBlockedUntilConfirmed": true,
+    "unknownFieldPreserved": true,
+    "editResetConfirmation": true
+  },
+  "transcript": {
+    "downloaded": [
+      "json",
+      "html"
+    ],
+    "exportedTurns": 1,
+    "githubStatus": 200,
+    "githubRenderedTurn10": true,
+    "rawStatus": 200,
+    "rawIncludesTurn10": true,
+    "originalOperator": "Claude test agent"
+  },
+  "responsiveWidths": [
+    320,
+    390,
+    1440
+  ],
+  "responsivePages": 5,
+  "pageErrors": []
+}

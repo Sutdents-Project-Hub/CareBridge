@@ -13,7 +13,10 @@ The saved role responses and English screenshots can support the explanation dur
 
 ## Judge materials
 
-- [Editable English report and short registration description](waicy-submission-draft.md) · [English report PDF draft](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf)
+- [Slide corrections, four iteration pages and originality material](waicy-deck-handoff.md) · [Submission checklist](waicy-submission-todo.md) · [AI-use disclosure](waicy-ai-use-statement.md)
+- [Shared-case review and original outputs](waicy-evidence/shared-case-review.md) · [Team conversation recording kit](waicy-team-conversation.md)
+
+- [Editable English report and short registration description](waicy-submission-draft.md) · [Historical 8-page PDF draft](source/waicy-submission/LLM_High_CareBridge_DRAFT.pdf)
 - [English visual evidence PDF](source/waicy-submission/english-evidence-2026-11-23/CareBridge-WAICY-English-Visual-Evidence.pdf) · [Original English PNGs](source/waicy-submission/english-evidence-2026-11-23/screenshots)
 - [Final-configuration English transcript](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.md) · [JSON export](source/waicy-submission/english-evidence-2026-11-23/final-english-conversation.json)
 - [Iterative development](waicy-iteration-record.md) · [Test plan](evaluation-plan.md) · [Test cases](evaluation-cases.md) · [Evidence and remaining limitations](evidence-log.md)
@@ -23,7 +26,7 @@ An earlier [multilingual walkthrough](source/waicy-submission/demo-capture-2026-
 
 ## Official requirements
 
-The guidebook specifies English as the competition language and requests one PDF covering the service, at least three meaningfully different user profiles, motivation, iterative design and testing, limitations, future development, conclusion, and references using a recognized citation style. Put the **interactive chatbot link** and **final-assistant conversation link** in that PDF. The guidebook requires at least ten exchanged messages. The project prepares ten complete question–answer turns as a conservative count. The rubric assigns 25 points each to Specific AI Service and Iterative Development. [WAICY guidebook, pp. 19–23](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=20) · [WAICY rubric](https://www.waicy.org/rubrics/)
+The guidebook specifies English as the competition language and requests one PDF covering the service, at least three meaningfully different user profiles, motivation, iterative design and testing, limitations, future development, conclusion, and references using a recognized citation style. Put the **interactive chatbot link** and **final-assistant conversation link** in that PDF. The guidebook asks for at least ten messages exchanged between the entrant and the final edition of the assistant. The Agent-operated engineering replay is supplemental evidence. The project prepares ten complete question–answer turns as a conservative count. The rubric assigns 25 points each to Specific AI Service and Iterative Development. [WAICY guidebook, pp. 19–23](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=20) · [WAICY rubric](https://www.waicy.org/rubrics/)
 
 The submission form requests a description of at most 200 words and an accessible Google Drive folder. It lists November 29, 2026 at 5:00 p.m. EST as the deadline, which is November 30 at 6:00 a.m. in Taiwan. Confirm the team’s eligibility and form group before using `LLM_Category_CareBridge.pdf` and the corresponding folder name. The draft uses `High` provisionally. [WAICY submission form](https://www.waicy.org/2026-submission/) · [Guidebook naming instructions](https://waicy-cdn.wholeren.cn/wp-content/uploads/2026/10/WAICY-2026-Guidebook-2.pdf#page=23)
 
@@ -31,7 +34,7 @@ The submission form requests a description of at most 200 words and an accessibl
 
 - [ ] Confirm team eligibility, English names, grades, and individual contributions. Record teacher and AI assistance accurately.
 - [x] Public chatbot checked with fictional requests on 2026-11-27 ([evidence log, Section N](evidence-log.md#section-n-public-demo-check-2026-11-27)).
-- [x] Chatbot and conversation links are in the deck; recheck them and the registration description before submitting.
+- [ ] Apply the slide handoff, record the team conversation, include its link and the companion AI-use statement, and recheck the brief before submitting.
 - [ ] Verify the Google Drive folder and PDF permissions in a signed-out browser, and keep the form confirmation.
 
 The English 36-slide Lesson Plan deck is the report; its editable backup is local and a review PDF is rendered outside the repository. Use the [rubric map](waicy-rubric-map.md), [checklist](waicy-submission-todo.md) and [research notes](waicy-research-notes.md) for the remaining checks.
@@ -39,6 +42,6 @@ The English 36-slide Lesson Plan deck is the report; its editable backup is loca
 ## Likely judging questions
 
 - **How do the three roles differ?** Start from the same question and show how the saved replies prioritize wording, handover, or fact-checking.
-- **What changed between versions?** Show an invented time, a malformed clarification, and a misattributed event. Follow each with the prompt change, actual retest, and remaining error.
+- **What changed between versions?** Show a script with an unchecked example time, a malformed clarification, and a handover that adds an unreported event. Follow each with the prompt change, actual retest, and remaining error.
 - **What are the limits?** Show the human-confirmed summary, the preset safety notice, and the remaining clinician and native-speaker reviews.
 - **What did the students do?** Use the team-confirmed contributions and describe the role of AI assistance.

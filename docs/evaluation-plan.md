@@ -21,7 +21,7 @@
 - **V3:** adds source attribution, no-invention rules, explicit escalation boundaries, and structured-output validation.
 - **V4:** clarifies required fields for response types, medication referral, refusal, and bilingual output.
 - **V5:** adds examples against inferring consent or actions, and specifies role-specific responses and attribution.
-- All versions use the **same model ID, provider, default parameters, cases, and role information**. Record “N/A” rather than guessing when a parameter cannot be set.
+- The shared-case experiment holds the **model, provider, saved user requests, and recorded request parameters** constant. Baseline–V2 return text and V3–V5 share the structured output format. Record “N/A” rather than guessing when a parameter cannot be set.
 - Start a **fresh session** for each version's single-turn test to prevent history contamination. For multi-turn tests, fix the history at each step.
 - Record prompt file revision date and Git hash; do not retain only favorable responses while discarding failures.
 - For every version, record test time, provider, model ID, temperature (if configurable), max tokens, language, role, raw user input, complete response, tester, score, and rationale.
@@ -65,7 +65,7 @@ Use a 0–2 score with **observable evidence** for each judgment. Have two stude
 | Appropriate follow-up rate | Missing-information cases with an effective question or preserved unknown / applicable cases | At least 80% |
 | Experiment coverage | Cases actually tested / cases planned | Report by version; never mark untested cases as passing |
 
-These thresholds are internal development gates, **not official WAICY requirements**, and do not replace clinical or translation review. A serious safety violation cannot be offset by a high average score.
+These thresholds are internal development gates, **not official WAICY requirements**, and do not replace clinical or translation review. A serious safety violation cannot be offset by a high average score. The [November 28 shared-case review](waicy-evidence/shared-case-review.md) is a focused, single-agent annotation of archived outputs using one case-specific score per reply.
 
 ## 6. Experiment Data Table (to be completed by students)
 
@@ -90,8 +90,8 @@ For each failed case retain: case ID, original input, erroneous output excerpt, 
 
 ## 8. Final AI Conversation Evidence
 
-- Conduct a real conversation in the publicly usable **final version** of the AI.
-- The official guide is summarized as requiring “at least 10 exchanged messages.” To avoid ambiguity, prepare **at least 10 complete question-and-answer turns**, about 20 messages; this is the team's conservative practice.
+- Have a team member conduct a real conversation in the publicly usable **final version** of the AI. See the [team recording kit](waicy-team-conversation.md).
+- The official guide requires at least ten messages exchanged between the entrant and the final assistant. To avoid ambiguity, prepare **at least 10 complete question-and-answer turns**, about 20 messages; this is the team's conservative practice.
 - Include the three roles, cross-language use, follow-up, high-risk topics, and factual summaries where practical, but count only actual model output.
 - Obtain the actual share link and verify it in a private browser window. An exported JSON or readable HTML requires separately verified sharing access and cannot replace the official chat-history link if judges cannot access it.
 - Include model and prompt version, date, role, and a fictional / anonymized scenario statement.

@@ -1,27 +1,23 @@
-# AI-Use Statement: CareBridge
+# AI use in CareBridge
 
-Team Empathy Weavers · WAICY 2026 · LLM & AI Agent Track · High School
+WAICY 2026 · LLM & AI Agent Track · 28 November 2026
 
 ## Product model
 
-CareBridge replies come from OpenAI gpt-6.1-terra at medium reasoning effort with prompt V5. Earlier comparisons also used gpt-6-luna. The model is not fine-tuned. Fixed safety-rule notices are produced without a model call.
+CareBridge uses OpenAI gpt-6.1-terra (medium reasoning effort) with the V5 prompt for live conversation. Earlier comparisons used gpt-6-luna. The project did not fine-tune the models. Preset safety notices and the browser-side family summary use application logic.
 
-## Building and testing the app
+## Building and testing
 
-Codex coding agents implemented and tested the web app and ran the recorded model evaluations. Separate AI agents operated browser test sessions and reviewed the records.
+Codex coding agents helped implement and test the web app. AI agents operated the documented fictional browser replays and ran the model comparisons. Codex reviewed 60 previously recorded model outputs against case criteria, reran the production response validator, and checked the public browser flows. These annotations describe simulated tasks and are AI-assisted evaluation.
 
-## Browser conversations
+## Conversation evidence
 
-The browser test sessions, including 40 Indonesian turns and a 10-turn English session on 23 November 2026, were operated by AI agents.
-
-## Linked chat history
-
-The 10-turn, 20-message conversation linked in the report (27 November 2026, public demo) was operated by an AI testing agent (Claude) using a script of fictional messages. Team members did not type these messages.
+An AI testing agent operated the 27 November public-demo replay of ten turns (20 messages) with fictional prompts. This is supplemental engineering evidence. A separate entrant-operated conversation is pending at the time of this statement.
 
 ## Report preparation
 
-Claude helped research sources, drafted the report slides and the team role descriptions, translated the Traditional Chinese examples on slide 21 into English, and captured the 27 November screenshots.
+Claude helped research sources, draft the original slides and contribution prompts, translate sample excerpts, and capture walkthrough screens. Codex checked the official requirements and sources, corrected evidence descriptions, and prepared revised slide copy, test records and screenshots. Individual student contributions belong in the team-approved report.
 
-## What has not been reviewed
+## Evidence scope
 
-No native-speaker review, care-professional review or study with real caregivers has been carried out. All test cases are fictional.
+Project testing has used fictional cases. The project has no recorded external caregiver study, clinical validation, or native-speaker review. The cited studies report results from other participants or products.
