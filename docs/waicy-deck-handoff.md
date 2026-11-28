@@ -78,6 +78,8 @@ The official example walks through idea, prompt, observed output and error analy
 
 **Motivation.** “CareBridge started with a practical question from our project brief: what can a caregiver say in the moment, and what can the family report afterwards? Those tasks require different answers. A sentence that comforts someone should not become a claim that a bath was completed. The care literature made language and understanding concrete design constraints, so we built the advisor around three roles, three languages, and a way to leave outcomes open.” Ask a team member to add one specific confirmed observation or decision if available. The [research scenarios](waicy-research-notes.md#november-28-slide-citations-and-research-informed-scenarios) supply documented context and simulation assumptions.
 
+**Recorded role-play example.** The [new three-language public session](waicy-evidence/three-role-walkthrough.md) gives paste-ready copy and ten original turns. Use turns 5–6 to show how a follow-up corrected the shift from offering a blanket to providing it, and turn 10 to show the remaining unknowns.
+
 **Live walkthrough.** Open Compare roles and point to the shared question. Open one “Try this role” card and press Send to distinguish the saved example from the live reply. In Family summary, load the fictional example, point to the unconfirmed outcome, tick the single review box and copy. If the network stalls, show a dated screenshot and describe what the team actually checked.
 
 **Judging questions.**
